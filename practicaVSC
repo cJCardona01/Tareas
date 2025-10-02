@@ -1,0 +1,439 @@
+index.php:
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Primera Página Web</title>
+
+    <link rel="stylesheet" href="estilos.css">
+
+</head>
+
+<body>
+    
+    <div class="contenedor-principal">
+       
+       <hr> 
+            <?php include "menu.html"; ?>
+            <main>
+                <section>
+                    <h2>Descubre el cosmos</h2>
+                    <img src="/imagenes/astro2.jpg" alt="imagen de una persona observando el maravilloso mundo del cosmos">
+                    <p> Descripcion: Imagen de una persona observando el maravilloso mundo del cosmos</p>
+                </section>
+            </main>
+
+        <hr>
+
+
+
+
+        <footer>
+
+            <div class="f-container">
+                <div class="f-about">
+                    <h3>Gracias por visitarnos</h3>
+                    <p>Explora el universo una estrella a la vez...</p>
+                </div>
+                <div class="f-links">
+                    <h4>Conoce mas sobre mi</h4>
+                    <ul>
+                        <li>
+                            <a href="https://www.instagram.com/kardona_jc?igsh=MWVvMnF0NjE1c3Y5cw==">Instagram</a>
+                        </li>
+                        <li>
+                            <a href="cardonarosascarmenjessica@gmail.com">Correo</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div><p>2025 Astronomía web de Carmen</p></div>
+        </footer>
+    </div>
+
+    <hr><aside>
+        <h3>Para descubrir más...</h3>
+        <ul>
+            <li><a href="https://www.celestronmexico.com/?gad_source=1&gad_campaignid=14141992315&gclid=CjwKCAjw_-3GBhAYEiwAjh9fUE8BfPVfTjNOD9-GI2qQw9kbnP4kwzAfRfTJiQatMpPC43RMPNrcJBoC9IoQAvD_BwE">Tienda Celestron</a></li>
+            <li><a href="https://josevicentediaz.com/">Otro blog de Astronomía</a></li>
+            <li><a href="https://spaceplace.nasa.gov/menu/play/sp/">Aprende más en esta pagina interactiva</a></li>
+        </ul>
+    </aside>
+
+</body>
+
+</html>
+
+
+
+articulos.php:
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Primera Página Web</title>
+
+    <link rel="stylesheet" href="estilos.css">
+
+</head>
+
+<body>
+    
+    <div class="contenedor-principal">
+       
+       <hr> 
+            <?php include "menu.html"; ?>
+            <main>
+                <section>
+                    <h2>Descubre el cosmos</h2>
+                    <img src="/imagenes/astro2.jpg" alt="imagen de una persona observando el maravilloso mundo del cosmos">
+                    <p> Descripcion: Imagen de una persona observando el maravilloso mundo del cosmos</p>
+                </section>
+            </main>
+
+        <hr>
+
+
+
+
+        <footer>
+
+            <div class="f-container">
+                <div class="f-about">
+                    <h3>Gracias por visitarnos</h3>
+                    <p>Explora el universo una estrella a la vez...</p>
+                </div>
+                <div class="f-links">
+                    <h4>Conoce mas sobre mi</h4>
+                    <ul>
+                        <li>
+                            <a href="https://www.instagram.com/kardona_jc?igsh=MWVvMnF0NjE1c3Y5cw==">Instagram</a>
+                        </li>
+                        <li>
+                            <a href="cardonarosascarmenjessica@gmail.com">Correo</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div><p>2025 Astronomía web de Carmen</p></div>
+        </footer>
+    </div>
+
+    <hr><aside>
+        <h3>Mas articulos interesantes</h3>
+        <ul>
+            <li><a href="https://ciencia.unam.mx/leer/1129/el-sol-la-estrella-mas-cercana-a-la-tierra">Articulo sobre el sol</a></li>
+            <li><a href="https://www.nationalgeographic.com.es/ciencia/marte-planeta-rojo-que-hombre-quiere-llegar_18637">Articulo sobre marte</a></li>
+            <li><a href="https://ciencia.nasa.gov/universo/que-son-los-agujeros-negros/">Articulo sobre los agujeros negros</a></li>
+            <li><a href="7https://www.nationalgeographicla.com/espacio/2023/09/que-son-los-pulsares-el-fenomeno-mas-impactante-de-las-estrellas-en-el-espacio">Articulo sobre los púlsares</a></li>
+
+        </ul>
+    </aside>
+
+</body>
+
+</html>
+
+
+
+
+acercaDe.php:
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Acerca de - Astronomía</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    
+  <section class="acerca">
+    <?php include 'menu.html' ?>
+    <div class="contenedor">
+      <h1>🌌 Acerca de Nosotros</h1>
+      <p>
+        Bienvenido a <strong>Mi Página de Astronomía</strong>.  
+        Nuestro objetivo es acercar el universo a todas las personas, 
+        compartiendo artículos, imágenes y noticias sobre estrellas, planetas 
+        y galaxias.  
+      </p>
+      <p>
+        Creemos que la astronomía no solo nos ayuda a entender el cosmos, 
+        sino también nuestro lugar en él. ✨
+      </p>
+    </div>
+
+    <div class="mision-vision">
+      <div class="caja">
+        <h2>🚀 Misión</h2>
+        <p>
+          Difundir el conocimiento astronómico de manera clara y accesible, 
+          inspirando la curiosidad científica en jóvenes y adultos.
+        </p>
+      </div>
+      <div class="caja">
+        <h2>🔭 Visión</h2>
+        <p>
+          Convertirnos en una plataforma referente de divulgación científica 
+          en astronomía para toda la comunidad hispanohablante.
+        </p>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
+
+
+
+galeria.php:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria</title>
+</head>
+<body>
+    
+  <section class="galeria-astro">
+    <?php include 'menu.html' ?>
+  <h1>🌠 Galería Astronómica</h1>
+  <p>Explora algunas de las maravillas del universo capturadas en imágenes.</p>
+
+   
+  <div class="grid-astro">
+    <div class="astro-item">
+      <img src="imagenes/GalaxiaEspiral.jpg" alt="Galaxia espiral">
+      <p>Galaxia Espiral</p>
+    </div>
+    <div class="astro-item">
+      <img src="imagenes/nebulosa.jpg" alt="Nebulosa de Orión">
+      <p>Nebulosa de Orión</p>
+    </div>
+    <div class="astro-item">
+      <img src="imagenes/marte.jpg" alt="Planeta Marte">
+      <p>Planeta Marte</p>
+    </div>
+    <div class="astro-item">
+      <img src="imagenes/saturno.jpg" alt="Saturno y sus anillos">
+      <p>Saturno y sus Anillos</p>
+    </div>
+    <div class="astro-item">
+      <img src="imagenes/aurora.jpg" alt="Aurora Boreal">
+      <p>Aurora Boreal</p>
+    </div>
+  </div>
+</section>
+
+    
+</body>
+</html>
+
+
+
+
+estilos.css:
+/*Aqui empieza el css para el index*/
+body {
+        display: flex;
+        justify-content: center;
+        background-color: #ffffff; 
+}
+
+.contenedor-principal {
+        width: 80%; 
+        text-align: center; 
+}
+
+aside {
+    width: 20%; 
+    margin-left: 20px; 
+}
+img {
+        width: 30%;
+        height: auto; 
+        border: 2px solid #333;
+    }
+
+footer {
+        margin-top: auto; 
+        text-align: center;
+        padding: 10px;
+        background-color: #333; 
+        color: white;
+        width: 95%; 
+}
+header {
+        border-bottom: 2px solid #555; 
+        padding-bottom: 10px; 
+        margin-bottom: 20px; 
+}
+nav ul {
+   
+    list-style: none; 
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center; 
+}
+
+
+nav li {
+    
+    margin: 0 15px; 
+}
+
+
+nav a {
+ 
+    text-decoration: none; 
+    color: #007bff;
+    font-weight: bold;
+}
+
+
+nav a:hover {
+    color: #0056b3;
+}
+
+footer {
+    background-color: #0b0c10;
+    color: #c5c6c7;
+    padding: 30px 20px;
+    font-family: Arial, sans-serif;
+}
+
+.f-container {
+    display:flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.f-conatiner div{
+    flex: 1;
+    margin: 10px;
+}
+
+.f-links ul{
+    list-style: none;
+    padding: 0;
+}
+
+.f-links ul li {
+    margin: 8px 0;
+}
+.f-links a{
+    color: #66fcf1;
+    text-decoration: none;
+}
+
+.f-links a:hover{
+    text-decoration: underline;
+}
+/* Aqui empieza el css para la pagina Acerca del Blog*/
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #0b0c10; /* negro cósmico */
+  color: #c5c6c7; /* gris claro */
+  line-height: 1.6;
+}
+
+.acerca {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.acerca h1 {
+  color: #66fcf1; /* azul celeste */
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+.acerca p {
+  max-width: 700px;
+  margin: 10px auto;
+  font-size: 1.1em;
+}
+
+.mision-vision {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 40px;
+  gap: 20px;
+}
+
+.caja {
+  background: #1f2833; /* gris azulado */
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.5);
+  width: 300px;
+  transition: transform 0.3s ease;
+}
+
+.caja:hover {
+  transform: translateY(-5px);
+}
+
+.caja h2 {
+  color: #45a29e;
+  margin-bottom: 15px;
+}
+
+/*Aqui empieza el css para galeria */
+
+.galeria-astro {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.galeria-astro h1 {
+  color: #66fcf1;
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+.galeria-astro p {
+  font-size: 1.1em;
+  margin-bottom: 30px;
+}
+
+.grid-astro {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.astro-item {
+  background: #1f2833;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.6);
+  transition: transform 0.3s ease;
+}
+
+.astro-item:hover {
+  transform: scale(1.05);
+}
+
+.astro-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.astro-item p {
+  margin: 10px;
+  color: #45a29e;
+  font-weight: bold;
+}
+
+
+
