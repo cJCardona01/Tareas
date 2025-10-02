@@ -97,3 +97,116 @@ footer {
   text-align: center;
   padding: 10px;
 }
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Artículos de Astronomía</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  
+  <header>
+    <h1>Mi Página de Astronomía</h1>
+  </header>
+
+  <main>
+    <section class="articulos">
+      <h2>Artículos de Astronomía</h2>
+      
+      <div class="articulo-card">
+        <h3><a href="#">El misterio de los agujeros negros</a></h3>
+        <p>Una breve introducción sobre cómo los agujeros negros deforman el espacio-tiempo.</p>
+      </div>
+      
+      <div class="articulo-card">
+        <h3><a href="#">Explorando la superficie de Marte</a></h3>
+        <p>Los últimos descubrimientos de los rovers que investigan el planeta rojo.</p>
+      </div>
+      
+      <div class="articulo-card">
+        <h3><a href="#">La vida de las estrellas</a></h3>
+        <p>Desde su nacimiento en nebulosas hasta convertirse en supernovas o enanas blancas.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Mi página de Astronomía</p>
+  </footer>
+
+</body>
+</html>
+
+
+
+/* Estilos generales del cuerpo */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f7fa;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+/* Encabezado */
+header {
+  background-color: #2c3e50;
+  color: white;
+  padding: 15px;
+  text-align: center;
+}
+
+/* Sección de artículos */
+.articulos {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 10px;
+}
+
+.articulos h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+/* Cada artículo como tarjetita */
+.articulo-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 15px 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease;
+}
+
+.articulo-card:hover {
+  transform: translateY(-3px);
+}
+
+.articulo-card h3 a {
+  text-decoration: none;
+  color: #0056a3;
+  font-size: 1.2em;
+}
+
+.articulo-card h3 a:hover {
+  color: #1abc9c;
+}
+
+.articulo-card p {
+  margin-top: 8px;
+  font-size: 0.95em;
+  color: #555;
+}
+
+/* Footer */
+footer {
+  background-color: #2c3e50;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  margin-top: 30px;
+}
