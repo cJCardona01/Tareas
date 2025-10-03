@@ -1,0 +1,178 @@
+estilos2.css:
+body {
+        display: flex;
+        justify-content: center;
+        background-color: #ffffff; 
+}
+.Logo_CBTis94 {
+    width: 80px;
+    height: auto;
+    float: left;
+    margin-right: 15px;
+}
+
+.contenedor-principal {
+        width: 80%; 
+        text-align: center; 
+}
+
+aside {
+    width: 20%; 
+    margin-left: 20px; 
+}
+img {
+        width: 30%;
+        height: auto; 
+        border: 2px solid #333;
+    }
+
+footer {
+        margin-top: auto; 
+        text-align: center;
+        padding: 10px;
+        background-color: #333; 
+        color: white;
+        width: 95%; 
+}
+header {
+        border-bottom: 2px solid #555; 
+        padding-bottom: 10px; 
+        margin-bottom: 20px; 
+}
+nav ul {
+   
+    list-style: none; 
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center; 
+}
+
+
+nav li {
+    list-style: none; 
+    margin: 0 15px; 
+}
+
+
+nav a {
+
+    text-decoration: none; 
+    color:  #800000;
+    font-weight: bold;
+}
+
+
+nav a:hover {
+    color: #b22222;
+}
+
+footer {
+    background-color: #660808;
+    color: #fbfdff;
+    padding: 15px 10px;
+    font-family: Arial, sans-serif;
+    font-size: 0.85rem; 
+}
+
+.f-container {
+    display:flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.f-conatiner div{
+    flex: 1;
+    margin: 10px;
+}
+
+.f-links ul{
+    list-style: none;
+    padding: 0;
+}
+
+.f-links ul li {
+    margin: 8px 0;
+}
+.f-links a{
+    color: #66fcf1;
+    text-decoration: none;
+}
+
+.f-links a:hover{
+    text-decoration: underline;
+}
+
+
+
+galeriaCBTIS94:
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería CBTIS 94</title>
+    <link rel="stylesheet" href="estilos2.css">
+</head>
+
+<body>
+    <div class="contenedor-principal">
+        <header>
+            <img src="/imagenes/logo-cbtis.png" alt="Logo CBTIS 94" class="logo-cbtis">
+            <h1>¡Curiosidades astronómicas: Divulgación de la Astronomía!</h1>
+            <h2>Blog</h2>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="ofertaEducativa.html">Oferta Educativa</a></li>
+                    <li><a href="galeriaCBTIS94.html">Galería</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <hr><main>
+            <section>
+                <h2>Galería del CBTIS 94</h2>
+                <p>Aquí puedes ver algunas imágenes del plantel y actividades escolares:</p>
+                <div class="galeria">
+                    <img src="/imagenes/galeria1.jpg" alt="Actividad escolar 1">
+                    <img src="/imagenes/galeria2.jpg" alt="Actividad escolar 2">
+                    <img src="/imagenes/galeria3.jpg" alt="Actividad escolar 3">
+                    <!-- Agrega más imágenes si deseas -->
+                </div>
+            </section>
+        </main>
+
+        <hr><footer>
+            <div class="f-container">
+                <div class="f-about">
+                    <h3>Gracias por visitarnos</h3>
+                    <p>Explora el universo una estrella a la vez...</p>
+                </div>
+                <div class="f-links">
+                    <h4>Conoce más sobre mí</h4>
+                    <ul>
+                        <li><a href="https://www.instagram.com/kardona_jc?igsh=MWVvMnF0NjE1c3Y5cw==">Instagram</a></li>
+                        <li><p>Correo: cardonarosascarmenjessica@gmail.com</p></li>
+                    </ul>
+                </div>
+            </div>
+            <div><p>2025 Astronomía web de Carmen</p></div>
+        </footer>
+    </div>
+
+    <hr><aside>
+        <h3>Para descubrir más...</h3>
+        <ul>
+            <li><a href="https://www.gob.mx/sep">SEP</a></li>
+            <li><a href="https://dgeti.sep.gob.mx/">Página oficial DGETI</a></li>
+            <li><a href="https://www.morelia.tecnm.mx/">TECNM Campus Morelia</a></li>
+        </ul>
+    </aside>
+</body>
+
+</html>
+
+
