@@ -1,0 +1,175 @@
+index.html:
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Primera Página Web</title>
+
+    <link rel="stylesheet" href="estilos.css">
+
+</head>
+
+<body>
+
+    <div class="contenedor-principal">
+        <header>
+            <h1>¡Curiosidades astronomicas: Divulgación de la Astronomía!</h1>
+            <h2>Blog</h2>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="articulos.html">Oferta Educativa</a></li>
+                    <li><a href="galeria.html">Galería</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </header>
+
+       <hr> <main>
+            <section>
+                <h2>Bienvenidos al CBTIS 94</h2>
+                <p> Formamos estudiantes comprometidos con el conocimiento la innovación y los valores.
+                    Ofrecemos educación de calidad para impulsar el desarrollo personal y profesional de 
+                    nuestros alumnos
+
+                </p>
+
+                <img src="/imagenes/astro2.jpg" alt="imagen de una persona observando el maravilloso mundo del cosmos">
+            </section>
+        </main>
+
+        <hr><footer>
+
+            <div class="f-container">
+                <div class="f-about">
+                    <h3>Gracias por visitarnos</h3>
+                    <p>Explora el universo una estrella a la vez...</p>
+                </div>
+                <div class="f-links">
+                    <h4>Conoce mas sobre mi</h4>
+                    <ul>
+                        <li>
+                            <a href="">Instagram</a>
+                        </li>
+                        <li>
+                            <a href="cardonarosascarmenjessica@gmail.com">Correo</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div><p>2025 Astronomía web de Carmen</p></div>
+        </footer>
+    </div>
+
+    <hr><aside>
+        <h3>Para descubrir más...</h3>
+        <ul>
+            <li><a href="https://www.celestronmexico.com/?gad_source=1&gad_campaignid=14141992315&gclid=CjwKCAjw_-3GBhAYEiwAjh9fUE8BfPVfTjNOD9-GI2qQw9kbnP4kwzAfRfTJiQatMpPC43RMPNrcJBoC9IoQAvD_BwE">Tienda Celestron</a></li>
+            <li><a href="https://dgeti.sep.gob.mx/">Página oficial DGETI</a></li>
+            <li><a href="https://www.morelia.tecnm.mx/">TECNM Campus Morelia</a></li>
+        </ul>
+    </aside>
+
+</body>
+
+</html>
+
+estilos.css:
+body {
+        display: flex;
+        justify-content: center;
+        background-color: #ffffff; 
+}
+
+.contenedor-principal {
+        width: 80%; 
+        text-align: center; 
+}
+
+aside {
+    width: 20%; 
+    margin-left: 20px; 
+}
+img {
+        width: 30%;
+        height: auto; 
+        border: 2px solid #333;
+    }
+
+footer {
+        margin-top: auto; 
+        text-align: center;
+        padding: 10px;
+        background-color: #333; 
+        color: white;
+        width: 95%; 
+}
+header {
+        border-bottom: 2px solid #555; 
+        padding-bottom: 10px; 
+        margin-bottom: 20px; 
+}
+nav ul {
+   
+    list-style: none; 
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center; 
+}
+
+
+nav li {
+    
+    margin: 0 15px; 
+}
+
+
+nav a {
+ 
+    text-decoration: none; 
+    color: #007bff;
+    font-weight: bold;
+}
+
+
+nav a:hover {
+    color: #0056b3;
+}
+
+footer {
+    background-color: #0b0c10;
+    color: #c5c6c7;
+    padding: 30px 20px;
+    font-family: Arial, sans-serif;
+}
+
+.f-container {
+    display:flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.f-conatiner div{
+    flex: 1;
+    margin: 10px;
+}
+
+.f-links ul{
+    list-style: none;
+    padding: 0;
+}
+
+.f-links ul li {
+    margin: 8px 0;
+}
+.f-links a{
+    color: #66fcf1;
+    text-decoration: none;
+}
+
+.f-links a:hover{
+    text-decoration: underline;
+}
