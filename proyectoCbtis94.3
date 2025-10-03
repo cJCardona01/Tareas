@@ -1,0 +1,372 @@
+estilos.css:
+body {
+    display: flex;
+    justify-content: center;
+    background-color: #ffffff;
+    font-family: Arial, sans-serif;
+}
+
+.Logo_CBTis94,
+.logo-cbtis {
+    width: 80px;
+    height: auto;
+    float: left;
+    margin-right: 15px;
+}
+
+.contenedor-principal {
+    width: 80%;
+    text-align: center;
+}
+
+aside {
+    width: 20%;
+    margin-left: 20px;
+    background-color: #800000; /* Rojo institucional */
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+aside a {
+    color: #ffd700; /* Amarillo dorado institucional */
+    text-decoration: none;
+}
+
+aside a:hover {
+    text-decoration: underline;
+}
+
+img {
+    width: 30%;
+    height: auto;
+    border: 2px solid #333;
+}
+
+footer {
+    text-align: center;
+    padding: 8px 10px; /* Disminuido */
+    background-color: #660808;
+    color: #fbfdff;
+    font-size: 0.75rem; /* Más pequeño */
+}
+
+header {
+    border-bottom: 2px solid #555;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    background-color: #800000; /* Rojo institucional */
+}
+
+nav li {
+    margin: 0 15px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #ffd700; /* Amarillo dorado institucional */
+    font-weight: bold;
+    padding: 10px;
+    display: block;
+}
+
+nav a:hover {
+    background-color: #b22222;
+    color: white;
+}
+
+.f-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.f-container div {
+    flex: 1;
+    margin: 10px;
+}
+
+.f-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.f-links ul li {
+    margin: 8px 0;
+}
+
+.f-links a {
+    color: #66fcf1;
+    text-decoration: none;
+}
+
+.f-links a:hover {
+    text-decoration: underline;
+}
+
+/* Tarjetas para oferta educativa */
+.tarjetas-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.tarjeta {
+    background-color: #f4f4f4;
+    border: 2px solid #800000;
+    border-radius: 8px;
+    width: 180px;
+    padding: 15px;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.tarjeta:hover {
+    background-color: #ffe4b5;
+    transform: scale(1.05);
+}
+
+
+
+index.html:
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CBTis 94</title>
+
+    <link rel="stylesheet" href="estilos2.css">
+
+</head>
+
+<body>
+
+    <div class="contenedor-principal">
+        <header>
+            <img src="/imagenes/Logo_CBTis94.jpg" alt="Logo CBTIS 94" class="Logo_CBTis94">
+            <h1>¡Bienvenido al CBTis94!</h1>
+            <h2>Blog</h2>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="ofertaEducativa.html">Oferta Educativa</a></li>
+                    <li><a href="galeriaCBTIS94.html">Galería</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </header>
+
+       <hr> <main>
+            <section>
+                <h2>Centro de bachillerato Tecnologico Industrial y de Servicios</h2>
+                <p> Formamos estudiantes comprometidos con el conocimiento la innovación y los valores.
+                    Ofrecemos educación de calidad para impulsar el desarrollo personal y profesional de 
+                    nuestros alumnos
+
+                </p>
+
+              
+                <img src="/imagenes/cbtis.jpg" alt="Foto del plantel del cbtis 94, edificio administrativo">
+                <p>
+                    Bienvenidos al sitio web del CBTis 94. En este sitio encontrarás información oficial sobre las actividades y procesos que se desarrollan en esta institución.
+
+El Centro de Bachillerato Tecnológico Industrial y de Servicios No. 94 (CBTIS No. 94) promueve la Reforma Integral de la Educación Media Superior; enfoca su enseñanza y aprendizaje en el desarrollo de las competencias propuestas en el Marco Curricular Común, con la visión de ingresar al Sistema Nacional de Bachillerato (SNB); para ello nos someteremos al proceso de evaluación que garantice nuestro ingreso y permanencia.
+
+Nuestro plantel brinda educación a 20 poblados en un radio de 30 km, con una población para el ciclo escolar 2025-2026 de 1470 alumnos, ofertando 7 bachilleratos bivalentes, que son: Contabilidad, Electricidad, Gericultura, Preparación de Alimentos y Bebidas, Programación, Puericultura y Trabajo Social. Nos proponemos desarrollar acciones que nos permitan mejorar los desempeños académicos de los alumnos y alumnas, para alcanzar estándares de calidad mundial.
+                </p>
+            </section>
+        </main>
+
+        <hr><footer>
+
+            <div class="f-container">
+                <div class="f-links">
+                    <h4>Conoce mas sobre nuestra institución</h4>
+                    <ul>
+                        <li>
+                            <a href="https://www.instagram.com/kardona_jc?igsh=MWVvMnF0NjE1c3Y5cw==">Instagram</a>
+                        </li>
+                        <li>
+                            <p>Direccion: Calle Roberto Pita Cornejo, Ptazcuaro, Michoacan</p>
+                            <p>Telefono: (434) 342 1551</p>
+                            <p>Email: contacto@cbtis94.edu.mx</p>
+
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <hr><aside>
+        <h3>Para descubrir más...</h3>
+        <ul>
+            <li><a href="https://www.gob.mx/sep">SEP</a></li>
+            <li><a href="https://dgeti.sep.gob.mx/">Página oficial DGETI</a></li>
+            <li><a href="https://www.morelia.tecnm.mx/">TECNM Campus Morelia</a></li>
+        </ul>
+    </aside>
+
+</body>
+
+</html>
+
+ofertaEDucativa.html:
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oferta Educativa - CBTIS 94</title>
+    <link rel="stylesheet" href="estilos2.css">
+</head>
+
+<body>
+    <div class="contenedor-principal">
+        <header>
+            <img src="/imagenes/logo-cbtis.png" alt="Logo CBTIS 94" class="logo-cbtis">
+            <h1>¡Curiosidades astronómicas: Divulgación de la Astronomía!</h1>
+            <h2>Blog</h2>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="ofertaEducativa.html">Oferta Educativa</a></li>
+                    <li><a href="galeriaCBTIS94.html">Galería</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <hr>
+        <main>
+            <section>
+                <h2>Oferta Educativa del CBTIS 94</h2>
+                <p>Estos son los bachilleratos bivalentes que ofrecemos:</p>
+                <div class="tarjetas-container">
+                    <div class="tarjeta">Contabilidad</div>
+                    <div class="tarjeta">Electricidad</div>
+                    <div class="tarjeta">Gericultura</div>
+                    <div class="tarjeta">Preparación de Alimentos y Bebidas</div>
+                    <div class="tarjeta">Programación</div>
+                    <div class="tarjeta">Puericultura</div>
+                    <div class="tarjeta">Trabajo Social</div>
+                </div>
+            </section>
+        </main>
+
+        <hr>
+        <footer>
+            <div class="f-container">
+                <div class="f-about">
+                    <h3>Gracias por visitarnos</h3>
+                    <p>Explora el universo una estrella a la vez...</p>
+                </div>
+                <div class="f-links">
+                    <h4>Contactos de la Escuela</h4>
+                    <ul>
+                        <li><p>Aquí puedes colocar teléfonos, correos, etc.</p></li>
+                        <li><p>Ejemplo: contacto@cbtis94.edu.mx</p></li>
+                    </ul>
+                </div>
+            </div>
+            <div><p>2025 Astronomía web de Carmen</p></div>
+        </footer>
+    </div>
+
+    <hr>
+    <aside>
+        <h3>Para descubrir más...</h3>
+        <ul>
+            <li><a href="https://www.gob.mx/sep">SEP</a></li>
+            <li><a href="https://dgeti.sep.gob.mx/">Página oficial DGETI</a></li>
+            <li><a href="https://www.morelia.tecnm.mx/">TECNM Campus Morelia</a></li>
+        </ul>
+    </aside>
+</body>
+
+</html>
+
+
+
+
+galeriaCBTIS94.html:
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería CBTIS 94</title>
+    <link rel="stylesheet" href="estilos2.css">
+</head>
+
+<body>
+    <div class="contenedor-principal">
+        <header>
+            <img src="/imagenes/logo-cbtis.png" alt="Logo CBTIS 94" class="logo-cbtis">
+            <h1>¡Curiosidades astronómicas: Divulgación de la Astronomía!</h1>
+            <h2>Blog</h2>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="ofertaEducativa.html">Oferta Educativa</a></li>
+                    <li><a href="galeriaCBTIS94.html">Galería</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <hr><main>
+            <section>
+                <h2>Galería del CBTIS 94</h2>
+                <p>Aquí puedes ver algunas imágenes del plantel y actividades escolares:</p>
+                <div class="galeria">
+                    <img src="/imagenes/galeria1.jpg" alt="Actividad escolar 1">
+                    <img src="/imagenes/galeria2.jpg" alt="Actividad escolar 2">
+                    <img src="/imagenes/galeria3.jpg" alt="Actividad escolar 3">
+                    <!-- Agrega más imágenes si deseas -->
+                </div>
+            </section>
+        </main>
+
+        <hr><footer>
+            <div class="f-container">
+                <div class="f-about">
+                    <h3>Gracias por visitarnos</h3>
+                    <p>Explora el universo una estrella a la vez...</p>
+                </div>
+                <div class="f-links">
+                    <h4>Conoce más sobre mí</h4>
+                    <ul>
+                        <li><a href="https://www.instagram.com/kardona_jc?igsh=MWVvMnF0NjE1c3Y5cw==">Instagram</a></li>
+                        <li><p>Correo: cardonarosascarmenjessica@gmail.com</p></li>
+                    </ul>
+                </div>
+            </div>
+            <div><p>2025 Astronomía web de Carmen</p></div>
+        </footer>
+    </div>
+
+    <hr><aside>
+        <h3>Para descubrir más...</h3>
+        <ul>
+            <li><a href="https://www.gob.mx/sep">SEP</a></li>
+            <li><a href="https://dgeti.sep.gob.mx/">Página oficial DGETI</a></li>
+            <li><a href="https://www.morelia.tecnm.mx/">TECNM Campus Morelia</a></li>
+        </ul>
+    </aside>
+</body>
+
+</html>
