@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Práctica CSS Grid </title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="grid-container">
+    <header class="header">Encabezado / Logo</header>
+    <nav class="nav">Menú de Navegación </nav>
+    <aside class="sidebar">Barra lateral</aside>
+    <main class="main">
+     
+      <section class="cards">
+        <article class="card">Tarjeta 1</article>
+        <article class="card">Tarjeta 2</article>
+        <article class="card">Tarjeta 3</article>
+        <article class="card">Tarjeta 4</article>
+        <article class="card">Tarjeta 5</article>
+        <article class="card">Tarjeta 6</article>
+        <article class="card">Tarjeta 7</article>
+        <article class="card">Tarjeta 8</article>
+        <article class="card">Tarjeta 9</article>
+        <article class="card">Tarjeta 10</article>
+        <article class="card">Tarjeta 11</article>
+        <article class="card">Tarjeta 12</article>
+      </section>
+
+      <section class="cards2">
+        <article class="card2">Tarjeta 1</article>
+        <article class="card2">Tarjeta 2</article>
+        <article class="card2">Tarjeta 3</article>
+        <article class="card2">Tarjeta 4</article>
+        <article class="card2">Tarjeta 5</article>
+        <article class="card2">Tarjeta 6</article>
+        <article class="card2">Tarjeta 7</article>
+        <article class="card2">Tarjeta 8</article>
+        <article class="card2">Tarjeta 9</article>
+        <article class="card2">Tarjeta 10</article>
+      </section>
+    </main>
+
+    <footer class="footer">Pie de página</footer>
+  </div>
+
+</body>
+</html>
+
+
+
+body {
+  margin: 0;
+  padding: 16px;
+  background: linear-gradient(to right, #0870d8, #c24747);
+}
+
+.grid-container {
+  display: grid; /* Activa el Grid */
+  grid-template-areas:
+    "header header header"
+    "nav main sidebar"
+    "footer footer footer";
+  grid-template-columns: 1fr 1fr 250px;
+  grid-auto-rows: minmax(80px, auto);
+  gap: 16px;
+}
+
+.header {
+  grid-area: header;
+  background: #8b0000;
+  color: white;
+  padding: 12px;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.nav {
+  grid-area: nav;
+  background: #d8a39d;
+  padding: 12px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  background: #f3e6e0;
+  padding: 12px;
+  text-align: center;
+}
+
+.main {
+  grid-area: main;
+  background: white;
+  padding: 12px;
+}
+
+.footer {
+  grid-area: footer;
+  background: #222;
+  color: white;
+  padding: 12px;
+  text-align: center;
+}
+
+.cards {
+  display: grid; /* Grid dentro de main */
+  grid-template-columns: 1fr 1fr 1fr; 
+  gap: 50px;
+  margin-top: 12px;
+  background-color: white;
+  margin: 100px;
+  
+}
+
+.card{
+  background: #eee;
+  padding: 16px;
+  text-align: center;
+  border: 3px groove rgb(16, 69, 129);
+  border-radius: 20px;
+}
+.card:hover{
+background: #5b5de4;
+transform: scale(1.4);
+}
+
+.card2:hover{
+background: #1114c2;
+transform: scale(1.4);
+}
+.cards2 {
+  display: grid;                        
+  grid-template-columns: repeat(8, 1fr);   
+  gap: 12px;                             
+  margin-top: 20px;                        
+  background: #a257f8;                    
+  padding: 12px;                          
+}
+
+
+.card2 {
+  background: #e0f7fa;      
+  padding: 20px;           
+  border-radius: 6px;      
+  text-align: center;      
+  border: 3px solid rgb(16, 129, 31);
+}
