@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CBTis94 </title>
+    <link rel="stylesheet" href="estilos3.css">
+</head>
+
+<body>
+    <div class="grid-container">
+        <header class="header">
+            <img src="/imagenes/Logo_CBTis94.jpg" alt="Logo CBTIS 94" class="logo">
+            <div class="header-text">
+                <h1>Centro de Bachillerato Tecnológico Industrial y de
+                    Serivicios No.94</h1>
+                <h2>Pátzcuaro Michoacán</h2>
+            </div>
+        </header>
+        <nav class="nav">
+            <a href="#">Inicio</a>
+            <a href="especialidades.html">Especialidades</a>
+            <a href="#">Galería</a>
+            <a href="#">Contacto</a>
+        </nav>
+        <aside class="sidebar">
+            <h3>Sitios de interés</h3>
+            <ul>
+                <li><a href="#">Secretaría de Educación
+                        Pública</a></li>
+                <li><a href="#">Página Oficial de la DGETI</a></li>
+                <li><a href="#">TECNM Morelia</a></li>
+            </ul>
+            <video width="400" height="300" controls autoplay muted loop>
+                <source src="/imagenes/vE.mp4" type="video/mp4">
+                Tu navegador no soporta el video
+            </video>
+        </aside>
+        <main class="main">
+
+
+            <section class="tarjetas2">
+                <a href="#sem1" class="tarjeta2">Semestre 1</a>
+                <a href="#sem2" class="tarjeta2">Semestre 2</a>
+                <a href="#sem3" class="tarjeta2">Semestre 3</a>
+                <a href="#sem4" class="tarjeta2">Semestre 4</a>
+                <a href="#sem5" class="tarjeta2">Semestre 5</a>
+                <a href="#sem6" class="tarjeta2">Semestre 6</a>
+            </section>
+
+            <div id="sem1" class="tablaSemestre">
+                <table border="1">
+                    <tr>
+                        <th>Programación - Semestre 1</th>
+                    </tr>
+                    <tr>
+                        <td>Matemáticas I</td>
+                    </tr>
+                    <tr>
+                        <td>Algoritmos</td>
+                    </tr>
+                    <tr>
+                        <td>Programación básica</td>
+                    </tr>
+                </table>
+            </div>
+
+
+            <div id="sem1" class="tablaSemestre">
+                <table border="1">
+                    <tr>
+                        <th>Programación - Semestre 1</th>
+                    </tr>
+                    <tr>
+                        <td>Matemáticas I</td>
+                    </tr>
+                    <tr>
+                        <td>Algoritmos</td>
+                    </tr>
+                    <tr>
+                        <td>Programación básica</td>
+                    </tr>
+                </table>
+            </div>
+
+
+            <div id="sem1" class="tablaSemestre">
+                <table border="1">
+                    <tr>
+                        <th>Programación - Semestre 1</th>
+                    </tr>
+                    <tr>
+                        <td>Matemáticas I</td>
+                    </tr>
+                    <tr>
+                        <td>Algoritmos</td>
+                    </tr>
+                    <tr>
+                        <td>Programación básica</td>
+                    </tr>
+                </table>
+            </div>
+
+
+            <div id="sem1" class="tablaSemestre">
+                <table border="1">
+                    <tr>
+                        <th>Programación - Semestre 1</th>
+                    </tr>
+                    <tr>
+                        <td>Matemáticas I</td>
+                    </tr>
+                    <tr>
+                        <td>Algoritmos</td>
+                    </tr>
+                    <tr>
+                        <td>Programación básica</td>
+                    </tr>
+                </table>
+            </div>
+
+
+            <div id="sem1" class="tablaSemestre">
+                <table border="1">
+                    <tr>
+                        <th>Programación - Semestre 1</th>
+                    </tr>
+                    <tr>
+                        <td>Matemáticas I</td>
+                    </tr>
+                    <tr>
+                        <td>Algoritmos</td>
+                    </tr>
+                    <tr>
+                        <td>Programación básica</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div id="sem1" class="tablaSemestre">
+                <table border="1">
+                    <tr>
+                        <th>Programación - Semestre 1</th>
+                    </tr>
+                    <tr>
+                        <td>Matemáticas I</td>
+                    </tr>
+                    <tr>
+                        <td>Algoritmos</td>
+                    </tr>
+                    <tr>
+                        <td>Programación básica</td>
+                    </tr>
+                </table>
+            </div>
+        </main>
+    </div>
+    <footer id="contacto">
+
+        <div class="f-container">
+            <div class="f-links">
+                <h3>Contacto</h3>
+                <ul>
+                    <li>
+                        <p>Direccion: Calle Roberto Pita Cornejo, Pátzcuaro Michoacan</p>
+                        <p>Telefono: (434) 342 1551</p>
+                        <p>Email: contacto@cbtis94.edu.mx</p>
+                        <p>&copy 2025 CBTIS 94 - Todos los derechos reservados</p>
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    </div>
+
+</body>
+
+</html>
