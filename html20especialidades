@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,
+initial-scale=1.0">
+    <title>CBTis 94</title>
+    <link rel="stylesheet" href="estilos3.css">
+</head>
+
+<body>
+    <div class="grid-container">
+        <header class="header">
+            <img src="/imagenes/Logo_CBTis94.jpg" alt="Logo CBTIS 94" class="logo">
+            <div class="header-text">
+                <h1>Centro de Bachillerato Tecnológico Industrial y de
+                    Serivicios No.94</h1>
+                <h2>Pátzcuaro Michoacán</h2>
+            </div>
+        </header>
+        <nav class="nav">
+            <a href="#">Inicio</a>
+            <a href="especialidades.html">Especialidades</a>
+            <a href="#">Galería</a>
+            <a href="#">Contacto</a>
+        </nav>
+        <main class="main">
+            <h2>Especialidades</h2>
+            <section class="cards">
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <p>PROGRAMACIÓN</p>
+                            <img src="/imagenes/proga.jpg" alt="Programación">
+                        </div>
+                        <div class="card-back">
+                            <p>Forma técnicos competentes en el
+                                desarrollo de software.
+                                Los estudiantes aprenden a analizar
+                                problemas, diseñar algoritmos y programar en distintos lenguajes.
+                                También adquieren habilidades para
+                                crear aplicaciones web,
+                                de escritorio y móviles, así como para
+                                manejar bases de datos y dar mantenimiento a sistemas informáticos.
+                            </p>
+                            <a class="planEstudios" href="planEstudios.html#programacion">Plan de estudios</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <p>CONTABILIDAD</p>
+                            <img src="/imagenes/conta.jpg" alt="Programación">
+                        </div>
+                        <div class="card-back">
+                            <p>Forma tecnicos capaces de registrar,
+                                clasificar e interpretar operaciones financieras.
+                                Los alumnos aprenderán a aplicar
+                                normativatividad fiscal vigente en distintos tipos de empresas
+                            </p>
+                            <a class="planEstudios" href="planEstudios.html#contabilidad">Plan de estudios</a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <p>GERICULTURA</p>
+                            <img src="/imagenes/GER.jpg" alt="Gericultura">
+                        </div>
+                        <div class="card-back">
+                            <p>La especialidad forma técnicos con
+                                conocimientos para atender
+                                integralmente a las personas adultas
+                                mayores. Los estudiantes
+                                aprenden sobre salud fisica, emocional
+                                y social del adulto mayor.
+                            </p>
+                            <a class="planEstudios" href="planEstudios.html#gericultura">Plan de estudios</a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <p>PUERICULTURA</p>
+                            <img src="/imagenes/1.jpg" alt="Puericultura">
+                        </div>
+                        <div class="card-back">
+                            <p>Prepara a los alumnos para brindar
+                                atención integral a niños y niñas en
+                                edad temprana. Aprenden sobre
+                                desarrollo infantil, estimulación temprana, nutrición,
+                                primeros auxilios y estrategias
+                                educativas para promover un crecimiento saludable.
+                            </p>
+                            <a class="planEstudios" href="planEstudios.html#puericultura">Plan de estudios</a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <p>PREPARACION DE ALIMENTOS Y BEBIDAS</p>
+                            <img src="/imagenes/cocina.jpg" alt="Preparacion de Alimentos y Bebidas">
+                        </div>
+                        <div class="card-back">
+                            <p>Desarrolla competencias en la
+                                elaboración, presentación y servicio
+                                de platillos y bebidas. Los estudiantes
+                                aprenden técnicas de Cocinainternacional y
+                                nacional, higiene y seguridad
+                                alimentaria, así como gestión de alimentos y bebidas.
+                            </p>
+                            <a class="planEstudios" href="planEstudios.html#preparacion">Plan de estudios</a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <p>ELECTRICIDAD</p>
+                            <img src="/imagenes/ELE.jpg" alt="Electricidad">
+                        </div>
+                        <div class="card-back">
+                            <p>Prepara técnicos para instalar, mantener
+                                y reparar sistemas
+                                eléctricos en viviendas, edificios e
+                                industrias. Los estudiantesaprenden
+                                sobre circuitos electricos, control de
+                                motores y medidas de seguridad electrica
+                            </p>
+                            <a class="planEstudios" href="planEstudios.html#electricidad">Plan de estudios</a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <p>SERVICIO SOCIAL</p>
+                            <img src="/imagenes/ss.jpg" alt="Servicio
+Social">
+                        </div>
+                        <div class="card-back">
+                            <p> Permite a los estudiantes aplicar los
+                                conocimientos adquiridos en beneficio de la
+                                comunidad. A través de actividades en
+                                instituciones públicas o sociales, fortalecen
+                                su sentido de responsabilidad,
+                                compromiso y desarrollo profesional
+                            </p>
+                            <a class="planEstudios" href="planEstudios.html#servicio">Plan de estudios</a>
+
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </main>
+        <aside class="sidebar">
+            <h3>Sitios de interés</h3>
+            <ul>
+                <li><a href="#">Secretaría de Educación
+                        Pública</a></li>
+                <li><a href="#">Página Oficial de la DGETI</a></li>
+                <li><a href="#">TECNM Morelia</a></li>
+            </ul>
+            <video width="400" height="300" controls autoplay muted loop>
+                <source src="/imagenes/vE.mp4" type="video/mp4">
+                Tu navegador no soporta el video
+            </video>
+        </aside>
+    </div>
+    <footer id="contacto">
+
+        <div class="f-container">
+            <div class="f-links">
+                <h3>Contacto</h3>
+                <ul>
+                    <li>
+                        <p>Direccion: Calle Roberto Pita Cornejo, Pátzcuaro Michoacán</p>
+                        <p>Telefono: (434) 342 1551</p>
+                        <p>Email: contacto@cbtis94.edu.mx</p>
+                        <p>&copy 2025 CBTIS 94 - Todos los derechos reservados</p>
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    </div>
+</body>
+
+</html>
