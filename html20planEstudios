@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CBTis94 - Plan de Estudios</title>
+    <link rel="stylesheet" href="estilos3.css">
+</head>
+<body>
+<div class="grid-container">
+    <header class="header">
+        <img src="/imagenes/Logo_CBTis94.jpg" alt="Logo CBTIS 94" class="logo">
+        <div class="header-text">
+            <h1>Centro de Bachillerato Tecnológico Industrial y de Servicios No.94</h1>
+            <h2>Pátzcuaro Michoacán</h2>
+        </div>
+    </header>
+    <nav class="nav">
+        <a href="#">Inicio</a>
+        <a href="especialidades.html">Especialidades</a>
+        <a href="#">Galería</a>
+        <a href="#">Contacto</a>
+    </nav>
+    <aside class="sidebar">
+        <h3>Sitios de interés</h3>
+        <ul>
+            <li><a href="#">Secretaría de Educación Pública</a></li>
+            <li><a href="#">Página Oficial de la DGETI</a></li>
+            <li><a href="#">TECNM Morelia</a></li>
+        </ul>
+        <video width="400" height="300" controls autoplay muted loop>
+            <source src="/imagenes/vE.mp4" type="video/mp4">
+            Tu navegador no soporta el video
+        </video>
+    </aside>
+
+    <main class="main">
+        <h1>Plan de Estudios</h1>
+
+        <!-- ====== PROGRAMACIÓN ====== -->
+        <section id="programacion" class="especialidad">
+            <h2>Programación</h2>
+
+            <!-- Botones de semestres -->
+            <div class="tarjetas2">
+                <a href="#programacion-sem1" class="tarjeta2">Semestre 1</a>
+                <a href="#programacion-sem2" class="tarjeta2">Semestre 2</a>
+                <a href="#programacion-sem3" class="tarjeta2">Semestre 3</a>
+                <a href="#programacion-sem4" class="tarjeta2">Semestre 4</a>
+                <a href="#programacion-sem5" class="tarjeta2">Semestre 5</a>
+                <a href="#programacion-sem6" class="tarjeta2">Semestre 6</a>
+            </div>
+
+            <!-- Tablas de materias -->
+            <table id="programacion-sem1" class="tabla">
+                <caption>Bachillerato: Físico Matemático — Semestre 1</caption>
+                <tr><th>Materias</th></tr>
+                <tr><td>Matemáticas I</td></tr>
+                <tr><td>Lógica</td></tr>
+                <tr><td>Programación básica</td></tr>
+            </table>
+            <table id="programacion-sem2" class="tabla">
+                <caption>Bachillerato:Físico Matemático — Semestre 2</caption>
+                <tr><th>Materias</th></tr>
+                <tr><td>POO</td></tr>
+                <tr><td>Bases de datos</td></tr>
+                <tr><td>Matemáticas II</td></tr>
+            </table>
+            <!-- Continúa hasta semestre 6 -->
+        </section>
+
+        <!-- ====== GERIATRÍA ====== -->
+        <section id="gericultura" class="especialidad">
+            <h2>Gericultura</h2>
+
+            <!-- Botones de semestres -->
+            <div class="tarjetas2">
+                <a href="#gericultura-sem1" class="tarjeta2">Semestre 1</a>
+                <a href="#gericultura-sem2" class="tarjeta2">Semestre 2</a>
+                <a href="#gericultura-sem3" class="tarjeta2">Semestre 3</a>
+                <a href="#gericultura-sem4" class="tarjeta2">Semestre 4</a>
+                <a href="#gericultura-sem5" class="tarjeta2">Semestre 5</a>
+                <a href="#gericultura-sem6" class="tarjeta2">Semestre 6</a>
+            </div>
+
+            <!-- Tablas de materias -->
+            <table id="gericultura-sem1" class="tabla">
+                <caption>Bachillerato: Químico Biológico — Semestre 1</caption>
+                <tr><th>Materias</th></tr>
+                <tr><td>Introducción al cuidado del adulto mayor</td></tr>
+                <tr><td>Biología</td></tr>
+            </table>
+            <table id="gericultura-sem2" class="tabla">
+                <caption>Bachillerato: Químico Biológico — Semestre 2</caption>
+                <tr><th>Materias</th></tr>
+                <tr><td>Salud física y mental del adulto mayor</td></tr>
+                <tr><td>Nutrición</td></tr>
+            </table>
+            <!-- Continúa hasta semestre 6 -->
+        </section>
+
+    </main>
+</div>
+
+<footer id="contacto">
+    <div class="f-container">
+        <div class="f-links">
+            <h3>Contacto</h3>
+            <ul>
+                <li>
+                    <p>Dirección: Calle Roberto Pita Cornejo, Pátzcuaro Michoacán</p>
+                    <p>Teléfono: (434) 342 1551</p>
+                    <p>Email: contacto@cbtis94.edu.mx</p>
+                    <p>&copy; 2025 CBTIS 94 - Todos los derechos reservados</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
