@@ -1,0 +1,93 @@
+               <!--PREPARACION DE ALIMENTOS Y BEBIDAS -->
+        <section id="alimentos" class="especialidad">
+            <h2>Electricidad</h2>
+
+            <!-- Botones que mostraran el semestre correspondiente -->
+            <div class="tarjetas2">
+                <a href="#alimentos-sem1" class="tarjeta2">Semestre 1</a>
+                <a href="#alimentos-sem2" class="tarjeta2">Semestre 2</a>
+                <a href="#alimentos-sem3" class="tarjeta2">Semestre 3</a>
+                <a href="#alimentos-sem4" class="tarjeta2">Semestre 4</a>
+                <a href="#alimentos-sem5" class="tarjeta2">Semestre 5</a>
+                <a href="#alimentos-sem6" class="tarjeta2">Semestre 6</a>
+            </div>
+
+            <!-- Tablas de materias -->
+            <table id="alimentos-sem1" class="tabla">
+                <caption>Semestre 1</caption>
+                <tr><th>Materias</th></tr>
+                <tr><td>Lengua y comunicación I</td></tr>
+                <tr><td>Inglés I</td></tr>
+                <tr><td>Pensamiento Matemático I</td></tr>
+                <tr><td>Cultura digital I</td></tr>
+                <tr><td>La Materia y sus Interacciones</td></tr>
+                <tr><td>Humanidades I</td></tr>
+                <tr><td>Ciencias sociales I</td></tr>
+                <tr><td>Formación Socioemocinal</td></tr>
+
+            </table>
+            <table id="alimentos-sem2" class="tabla">
+                <caption>Semestre 2</caption>
+                <tr><th>Materias</th></tr>
+                <tr><td>Pensamiento Matemático II</td></tr>
+                <tr><td>Inglés II</td></tr>
+                <tr><td>La Conservación de la Energía y su Interacción con la Materia</td></tr>
+                <tr><td>Lengua y Comunicación II</td></tr>
+                <tr><td>Cultura Digital II</td></tr>
+                <tr><td>Ciencias Sociales II</td></tr>
+                <tr><td>Recursos Socioemocinales</td></tr>
+                <tr><td><h3>Módulos Electricidad: Prepara Bases Culinarias</h3></td></tr>
+                <tr><td>UA 1: Corta Vegetales, frutas, carnes y productos del mar con base en el estandar establecido</td></tr>
+                <tr><td>UA 2: Prepara entradas de acuerdo con la receta estándar y el presupuesto</td></tr>
+            </table>
+
+            <table id="alimentos-sem3" class="tabla">
+                <caption>Bachillerato:Físico Matematico — Semestre 3</caption>
+                <tr><th>Materias</th></tr>
+                <tr><td>Lengua y comunicación III</td></tr>
+                <tr><td>Inglés III</td></tr>
+                <tr><td>Pensamiento Matemático III</td></tr>
+                <tr><td>Ecosistemas, Interacciones, Energía y Dinámica</td></tr>
+                <tr><td>Humanidades II</td></tr>
+                <tr><td>Formación Socioemocinal</td></tr>
+                <tr><td><h3>Módulos II: Prapara platillos de Cocina Mexicana e Internacional con Receta Base</h3></td></tr>
+                <tr><td>UA 1: Prepara platillos de Coxina Mexicana con Receta Base</td></tr>
+                <tr><td>UA 2: Prepara platillos de Cocina Internacional con Recetario Base </td></tr>
+            </table>
+
+            <table id="alimentos-sem4" class="tabla">
+                <caption>Semestre 4</caption>
+                <tr><th>Materias</th></tr>
+                <tr><td>Estructura y Función de Los Seres Vivos</td></tr>
+                <tr><td>Inglés IV</td></tr>
+                <tr><td>Temas Selectos de Matemáticas I</td></tr>
+                <tr><td>Formación Socioemocinal IV</td></tr>
+                <tr><td><h3>Módulos III: Prepara Pan y Repostería</h3></td></tr>
+                <tr><td>UA 1: Prepara Pan con Recetario Base</td></tr>
+                <tr><td>UA 2: Prepara Repostería con Recetario Base</td></tr>
+            </table>
+
+            <table id="alimentos-sem5" class="tabla">
+                <caption>Semestre 5</caption>
+                <tr><th>Materias</th></tr>
+                <tr><td>Temas Selectos de Matemáticas II</td></tr>
+                <tr><td>La energía en los procesos de la vida Diaria</td></tr>
+                <tr><td>Formación Socioemocional V</td></tr>
+                <tr><td><h3>Módulos IV: Atiende al Comesal de Acuerdo con el Tipo de Servico</h3></td></tr>
+                <tr><td>UA 1: Prepara el Servico de Atención al Comensal conforme al protocolo y etiqueta</td></tr>
+                <tr><td>UA 2: Atiende al Comensal en Eventos</td></tr>
+
+            </table>
+
+            <table id="alimentos-sem6" class="tabla">
+                <caption>Semestre 6</caption>
+                <tr><th>Materias</th></tr>
+                <tr><td>Temas Selectos de Matematicas III</td></tr>
+                <tr><td>Organización y Atribución de un Proceso, Tendencia e Impacto Social</td></tr>
+                <tr><td>Humanidades III</td></tr>
+                <tr><td>Formación Socioemocional VI</td></tr>
+                <tr><td><h3>Módulos Prepara Bebidas</h3></td></tr>
+                <tr><td>UA 1: Prepara Bebidas y Cocteles Internacionales</td></tr>
+                <tr><td>UA 2: Prepara Bebidas Ncionales</td></tr>
+            </table>
+        </section>
