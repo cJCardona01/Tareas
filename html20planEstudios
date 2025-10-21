@@ -37,11 +37,11 @@
     <main class="main">
         <h1>Plan de Estudios</h1>
 
-        <!-- ====== PROGRAMACIÓN ====== -->
+        <!--PROGRAMACIÓN -->
         <section id="programacion" class="especialidad">
             <h2>Programación</h2>
 
-            <!-- Botones de semestres -->
+            <!-- Botones que mostraran el semestre correspondiente -->
             <div class="tarjetas2">
                 <a href="#programacion-sem1" class="tarjeta2">Semestre 1</a>
                 <a href="#programacion-sem2" class="tarjeta2">Semestre 2</a>
@@ -55,25 +55,94 @@
             <table id="programacion-sem1" class="tabla">
                 <caption>Bachillerato: Físico Matemático — Semestre 1</caption>
                 <tr><th>Materias</th></tr>
-                <tr><td>Matemáticas I</td></tr>
-                <tr><td>Lógica</td></tr>
-                <tr><td>Programación básica</td></tr>
+                <tr><td>Lengua y comunicación I</td></tr>
+                <tr><td>Inglés I</td></tr>
+                <tr><td>Pensamiento Matemático I</td></tr>
+                <tr><td>Cultura digital I</td></tr>
+                <tr><td>La Materia y sus Interacciones I</td></tr>
+                <tr><td>Humanidades I</td></tr>
+                <tr><td>Ciencias sociales I</td></tr>
+                <tr><td>Formación Socioemocinal</td></tr>
+
             </table>
             <table id="programacion-sem2" class="tabla">
                 <caption>Bachillerato:Físico Matemático — Semestre 2</caption>
                 <tr><th>Materias</th></tr>
-                <tr><td>POO</td></tr>
-                <tr><td>Bases de datos</td></tr>
-                <tr><td>Matemáticas II</td></tr>
+                <tr><td>Pensamiento Matemático II</td></tr>
+                <tr><td>Inglés II</td></tr>
+                <tr><td>La Conservación de la Materia y su Interacción con la Energía</td></tr>
+                <tr><td>Lengua y Comunicación II</td></tr>
+                <tr><td>Cultura Digital II</td></tr>
+                <tr><td>Ciencias Sociales II</td></tr>
+                <tr><td>Recursos Socioemocinales</td></tr>
+                <tr><td><h3>Módulos</h3></td></tr>
+                <tr><td>Diseña Software de Sistemas informáticos</td></tr>
+                <tr><td>Implementa Software de Sistemas informáticos</td></tr>
+                <tr><td>Codifica Software de Sistemas informáticos</td></tr>
             </table>
-            <!-- Continúa hasta semestre 6 -->
+
+            <table id="programacion-sem3" class="tabla">
+                <caption>Bachillerato: Físico Matemático — Semestre 3</caption>
+                <tr><th>Materias</th></tr>
+                <tr><td>Lengua y comunicación III</td></tr>
+                <tr><td>Inglés III</td></tr>
+                <tr><td>Pensamiento Matemático III</td></tr>
+                <tr><td>Ecosistemas, Interacciones, Energía y Dinámica</td></tr>
+                <tr><td>Humanidades II</td></tr>
+                <tr><td>Formación Socioemocinal</td></tr>
+                <tr><td><h3>Módulos</h3></td></tr>
+                <tr><td>Aplica Metodologías Ágiles para el Desarrollo de Software</td></tr>
+                <tr><td>Emplea Frameworks para el Desarrollo de Software</td></tr>
+            </table>
+
+            <table id="programacion-sem4" class="tabla">
+                <caption>Bachillerato: Físico Matemático — Semestre 4</caption>
+                <tr><th>Materias</th></tr>
+                <tr><td>Consciencia Histórica I. Pesrpectiva del México Antiguo en los contextos Globales</td></tr>
+                <tr><td>Inglés IV</td></tr>
+                <tr><td>Temas Selectos de Matemáticas I</td></tr>
+                <tr><td>Reacciones Químicas. Conservación de la Materia en la Formación de Nuevas Sustancias</td></tr>
+                <tr><td>Ciencias Sociales III</td></tr>
+                <tr><td>Formación Socioemocinal IV</td></tr>
+                <tr><td><h3>Módulo</h3></td></tr>
+                <tr><td>Construye Aplicaciones Web</td></tr>
+                <tr><td>Implementa Aplicaciones Web</td></tr>
+            </table>
+
+            <table id="programacion-sem5" class="tabla">
+                <caption>Bachillerato: Físico Matemático — Semestre 5</caption>
+                <tr><th>Materias</th></tr>
+                <tr><td>Consciencia Histórica II. México durante el expansionismo capitalista</td></tr>
+                <tr><td>Inglés V</td></tr>
+                <tr><td>Temas Selectos de Matemáticas II</td></tr>
+                <tr><td>La energía en los procesos de la vida Diaria</td></tr>
+                <tr><td>Formación Socioemocional V</td></tr>
+                <tr><td>UAC fundamental extendida a elegir</td></tr>
+                <tr><td><h3>Módulo IV: Desarrolla Aplicaciones Web en un sistema de Información</h3></td></tr>
+                <tr><td>Submódulo 1: Construye Aplicaciones Web</td></tr>
+                <tr><td>Submódulo 2: Implementa Aplicaciones Web</td></tr>
+            </table>
+
+            <table id="programacion-sem6" class="tabla">
+                <caption>Bachillerato: Físico Matemático — Semestre 6</caption>
+                <tr><th>Materias</th></tr>
+                <tr><td>Consciencia Histórica III. La realidad actual en perspectiva histórica</td></tr>
+                <tr><td>Humanidades III</td></tr>
+                <tr><td>Temas Selectos de Matemáticas III</td></tr>
+                <tr><td>Organismos: Estructuras Y Procesos Herencia Y Evolución Biológica</td></tr>
+                <tr><td>Formación Socioemocional VI</td></tr>
+                <tr><td>UAC fundamental extendida a elegir</td></tr>
+                <tr><td><h3>Módulo V</h3></td></tr>
+                <tr><td>Submódulo 1: Diseña Aplicaciones Moviles Multiplataforma</td></tr>
+                <tr><td>Submódulo 2: Implementa Aplicaciones Moviles Multiplataforma</td></tr>
+            </table>
         </section>
 
-        <!-- ====== GERIATRÍA ====== -->
+        <!--GERICULTURA -->
         <section id="gericultura" class="especialidad">
             <h2>Gericultura</h2>
 
-            <!-- Botones de semestres -->
+            <!-- Botones que mostraran el semestre correspondiente -->
             <div class="tarjetas2">
                 <a href="#gericultura-sem1" class="tarjeta2">Semestre 1</a>
                 <a href="#gericultura-sem2" class="tarjeta2">Semestre 2</a>
@@ -87,18 +156,588 @@
             <table id="gericultura-sem1" class="tabla">
                 <caption>Bachillerato: Químico Biológico — Semestre 1</caption>
                 <tr><th>Materias</th></tr>
-                <tr><td>Introducción al cuidado del adulto mayor</td></tr>
-                <tr><td>Biología</td></tr>
+                <tr><td>Lengua y comunicación I</td></tr>
+                <tr><td>Inglés I</td></tr>
+                <tr><td>Pensamiento Matemático I</td></tr>
+                <tr><td>Cultura digital I</td></tr>
+                <tr><td>La Materia y sus Interacciones</td></tr>
+                <tr><td>Humanidades I</td></tr>
+                <tr><td>Ciencias sociales I</td></tr>
+                <tr><td>Formación Socioemocinal</td></tr>
+
             </table>
             <table id="gericultura-sem2" class="tabla">
-                <caption>Bachillerato: Químico Biológico — Semestre 2</caption>
+                <caption>Bachillerato:Químico Biológico — Semestre 2</caption>
                 <tr><th>Materias</th></tr>
-                <tr><td>Salud física y mental del adulto mayor</td></tr>
-                <tr><td>Nutrición</td></tr>
+                <tr><td>Pensamiento Matemático II</td></tr>
+                <tr><td>Inglés II</td></tr>
+                <tr><td>La Conservación de la Materia y su Interacción con la Energía</td></tr>
+                <tr><td>Lengua y Comunicación II</td></tr>
+                <tr><td>Cultura Digital II</td></tr>
+                <tr><td>Ciencias Sociales II</td></tr>
+                <tr><td>Recursos Socioemocinales</td></tr>
+                <tr><td><h3>Módulos</h3></td></tr>
+                <tr><td>Promueve el Autocuidado del Adulto Mayor</td></tr>
+                <tr><td>Aplica Anatomía y Fisiología en el Cuidado del Adulto Mayor</td></tr>
             </table>
-            <!-- Continúa hasta semestre 6 -->
+
+            <table id="gericultura-sem3" class="tabla">
+                <caption>Bachillerato:Químico Biológico — Semestre 3</caption>
+                <tr><th>Materias</th></tr>
+                <tr><td>Lengua y comunicación III</td></tr>
+                <tr><td>Inglés III</td></tr>
+                <tr><td>Pensamiento Matemático III</td></tr>
+                <tr><td>Ecosistemas, Interacciones, Energía y Dinámica</td></tr>
+                <tr><td>Humanidades II</td></tr>
+                <tr><td>Formación Socioemocinal</td></tr>
+                <tr><td><h3>Módulos</h3></td></tr>
+                <tr><td>Atiende al Adulto Mayor en la Unidad Clinica</td></tr>
+                <tr><td>Asistente del Adulto Mayor con Patología </td></tr>
+                <tr><td>Aplica Fármacos Prescritos al Adulto Mayor </td></tr>
+
+            </table>
+
+            <table id="gericultura-sem4" class="tabla">
+                <caption>Bachillerato: Químico Biológico — Semestre 4</caption>
+                <tr><th>Materias</th></tr>
+                <tr><td>Consciencia Histórica I. Pesrpectiva del México Antiguo en los contextos Globales</td></tr>
+                <tr><td>Inglés IV</td></tr>
+                <tr><td>Temas Selectos de Matemáticas I</td></tr>
+                <tr><td>Reacciones Químicas. Conservación de la Materia en la Formación de Nuevas Sustancias</td></tr>
+                <tr><td>Ciencias Sociales III</td></tr>
+                <tr><td>Formación Socioemocinal IV</td></tr>
+                <tr><td><h3>Módulos</h3></td></tr>
+                <tr><td>Aplica Terapia ocupacional al Adulto Mayor</td></tr>
+                <tr><td>Evalua la Funcionalidad al Adulto Mayor</td></tr>
+                <tr><td>Aplica Terapia y Realimentacion Física al Adulto Mayor</td></tr>
+            </table>
+
+            <table id="gericultura-sem5" class="tabla">
+                <caption>Bachillerato: Químico Biológico — Semestre 5</caption>
+                <tr><th>Materias</th></tr>
+                <tr><td>Consciencia Histórica II. México durante el expansionismo capitalista</td></tr>
+                <tr><td>Inglés V</td></tr>
+                <tr><td>Temas Selectos de Matemáticas II</td></tr>
+                <tr><td>La energía en los procesos de la vida Diaria</td></tr>
+                <tr><td>Formación Socioemocional V</td></tr>
+                <tr><td><h3>Módulos</h3></td></tr>
+                <tr><td>Submódulo 1: Asistente de las necesidades de higiene, eliminación y descanso al adulto mayor dependiente</td></tr>
+                <tr><td>Submódulo 2: Asistente en las necesidaes de alimentación al adulto mayor dependiente</td></tr>
+            </table>
+
+            <table id="gericultura-sem6" class="tabla">
+                <caption>Bachillerato: Químico Biológica — Semestre 6</caption>
+                <tr><th>Materias</th></tr>
+                <tr><td>Probabilidad y Estadística</td></tr>
+                <tr><td>Temas de Filosofía</td></tr>
+                <tr><td>Introducción a Bioquímica</td></tr>
+                <tr><td>Temas de Ciencias de la Salud</td></tr>
+                <tr><td>Formación Socioemocional VI</td></tr>
+                <tr><td><h3>Módulos</h3></td></tr>
+                <tr><td>Submódulo 1: Proporciona Primeros Auxilios al Adulto Mayor</td></tr>
+                <tr><td>Submódulo 2: Orienta al Adulto Mayor para Enfrentar sus Pérdidas</td></tr>
+            </table>
         </section>
 
+
+                <!--ELECTRICIDAD -->
+        <section id="electricidad" class="especialidad">
+            <h2>Electricidad</h2>
+
+            <!-- Botones que mostraran el semestre correspondiente -->
+            <div class="tarjetas2">
+                <a href="#electricidad-sem1" class="tarjeta2">Semestre 1</a>
+                <a href="#electricidad-sem2" class="tarjeta2">Semestre 2</a>
+                <a href="#electricidad-sem3" class="tarjeta2">Semestre 3</a>
+                <a href="#electricidad-sem4" class="tarjeta2">Semestre 4</a>
+                <a href="#electricidad-sem5" class="tarjeta2">Semestre 5</a>
+                <a href="#electricidad-sem6" class="tarjeta2">Semestre 6</a>
+            </div>
+
+            <!-- Tablas de materias -->
+            <table id="electricidad-sem1" class="tabla">
+                <caption>Bachillerato: Físico Matemático — Semestre 1</caption>
+                <tr><th>Materias</th></tr>
+                <tr><td>Lengua y comunicación I</td></tr>
+                <tr><td>Inglés I</td></tr>
+                <tr><td>Pensamiento Matemático I</td></tr>
+                <tr><td>Cultura digital I</td></tr>
+                <tr><td>La Materia y sus Interacciones</td></tr>
+                <tr><td>Humanidades I</td></tr>
+                <tr><td>Ciencias sociales I</td></tr>
+                <tr><td>Formación Socioemocinal</td></tr>
+
+            </table>
+            <table id="electricidad-2" class="tabla">
+                <caption>Bachillerato:Físico Matematico — Semestre 2</caption>
+                <tr><th>Materias</th></tr>
+                <tr><td>Pensamiento Matemático II</td></tr>
+                <tr><td>Inglés II</td></tr>
+                <tr><td>La Conservación de la Energía y su Interacción con la Materia</td></tr>
+                <tr><td>Lengua y Comunicación II</td></tr>
+                <tr><td>Cultura Digital II</td></tr>
+                <tr><td>Ciencias Sociales II</td></tr>
+                <tr><td>Recursos Socioemocinales</td></tr>
+                <tr><td><h3>Módulos Electricidad: Desarrolla Instalaciones Eléctricas Residenciales y Comerciales</h3></td></tr>
+                <tr><td>Diseña Instalaciones Electricas</td></tr>
+                <tr><td>Realiza Instalaciones Electricas</td></tr>
+            </table>
+
+            <table id="electricidad-3" class="tabla">
+                <caption>Bachillerato:Físico Matematico — Semestre 3</caption>
+                <tr><th>Materias</th></tr>
+                <tr><td>Lengua y comunicación III</td></tr>
+                <tr><td>Inglés III</td></tr>
+                <tr><td>Pensamiento Matemático III</td></tr>
+                <tr><td>Ecosistemas, Interacciones, Energía y Dinámica</td></tr>
+                <tr><td>Humanidades II</td></tr>
+                <tr><td>Formación Socioemocinal</td></tr>
+                <tr><td><h3>Módulos Electricidad: Mantiene los motores y generadores de CA y CC</h3></td></tr>
+                <tr><td>Mantiene los Motores de CA y CC</td></tr>
+                <tr><td>Mantiene los generadores de CA y CC </td></tr>
+            </table>
+
+            <table id="electricidad-4" class="tabla">
+                <caption>Bachillerato: Físico Matematico — Semestre 4</caption>
+                <tr><th>Materias</th></tr>
+                <tr><td>Ecosistemas Definidas a la Materia en la Formación de Nuevas Existencias</td></tr>
+                <tr><td>Inglés IV</td></tr>
+                <tr><td>Temas Selectos de Matemáticas I</td></tr>
+                <tr><td>Formación Socioemocinal IV</td></tr>
+                <tr><td><h3>Módulos Electricidad: Mantiene en Operaciones los Circuitos de Control electromagnético y electrónico</h3></td></tr>
+                <tr><td>Mantiene en Operacion Circuitos de Control Electromagnetico</td></tr>
+                <tr><td>Mantiene en Operacion Circuitos de Control Electrónico</td></tr>
+                <tr><td>Programa y Conecta Controladores Lógicos Programables</td></tr>
+            </table>
+
+            <table id="electricidad-sem5" class="tabla">
+                <caption>Bachillerato: Físico Matematico — Semestre 5</caption>
+                <tr><th>Materias</th></tr>
+                <tr><td>Inglés V</td></tr>
+                <tr><td>Temas Selectos de Matemáticas II</td></tr>
+                <tr><td>La energía en los procesos de la vida Diaria</td></tr>
+                <tr><td>Formación Socioemocional V</td></tr>
+                <tr><td><h3>Módulos Electricidad: Diseña Mantiene los Sistemas de Iluminación y de Energía Renovable</h3></td></tr>
+                <tr><td>Submódulo 1: Diseña y Mantiene los Sistemas De Iluminación </td></tr>
+                <tr><td>Submódulo 2: Realiza Mantenimiento a las instalaciones electricas comerciales, residenciales e industriales</td></tr>
+                <tr><td>Submódulo 3: Implementa y Mantiene los Sistemas de Energía Renovable</td></tr>
+
+            </table>
+
+            <table id="electricidad-sem6" class="tabla">
+                <caption>Bachillerato: Físico Matematico — Semestre 6</caption>
+                <tr><th>Materias</th></tr>
+                <tr><td>Temas Selectos de Matematicas III</td></tr>
+                <tr><td>Organización Atribuida a las Ciencias Literarias e incluidos Trabajos</td></tr>
+                <tr><td>Humanidades III</td></tr>
+                <tr><td>Formación Socioemocional VI</td></tr>
+                <tr><td><h3>Módulos Electricidad: Mantiene Instalaciones electricas de media y baja tensión</h3></td></tr>
+                <tr><td>Submódulo 1: Realiza mantenimiento en el sistema de distribución de energía electrica</td></tr>
+                <tr><td>Submódulo 2: Realiza mantenimiento en subestaciones electricas</td></tr>
+            </table>
+        </section>
+
+
+
+               <!--PREPARACION DE ALIMENTOS Y BEBIDAS -->
+        <section id="alimentos" class="especialidad">
+            <h2>Preparación de alimentos y bebidas</h2>
+
+            <!-- Botones que mostraran el semestre correspondiente -->
+            <div class="tarjetas2">
+                <a href="#alimentos-sem1" class="tarjeta2">Semestre 1</a>
+                <a href="#alimentos-sem2" class="tarjeta2">Semestre 2</a>
+                <a href="#alimentos-sem3" class="tarjeta2">Semestre 3</a>
+                <a href="#alimentos-sem4" class="tarjeta2">Semestre 4</a>
+                <a href="#alimentos-sem5" class="tarjeta2">Semestre 5</a>
+                <a href="#alimentos-sem6" class="tarjeta2">Semestre 6</a>
+            </div>
+
+            <!-- Tablas de materias -->
+            <table id="alimentos-sem1" class="tabla">
+                <caption>Semestre 1</caption>
+                <tr><th>Materias</th></tr>
+                <tr><td>Lengua y comunicación I</td></tr>
+                <tr><td>Inglés I</td></tr>
+                <tr><td>Pensamiento Matemático I</td></tr>
+                <tr><td>Cultura digital I</td></tr>
+                <tr><td>La Materia y sus Interacciones</td></tr>
+                <tr><td>Humanidades I</td></tr>
+                <tr><td>Ciencias sociales I</td></tr>
+                <tr><td>Formación Socioemocinal</td></tr>
+
+            </table>
+            <table id="alimentos-sem2" class="tabla">
+                <caption>Semestre 2</caption>
+                <tr><th>Materias</th></tr>
+                <tr><td>Pensamiento Matemático II</td></tr>
+                <tr><td>Inglés II</td></tr>
+                <tr><td>La Conservación de la Energía y su Interacción con la Materia</td></tr>
+                <tr><td>Lengua y Comunicación II</td></tr>
+                <tr><td>Cultura Digital II</td></tr>
+                <tr><td>Ciencias Sociales II</td></tr>
+                <tr><td>Recursos Socioemocinales</td></tr>
+                <tr><td><h3>Módulos: Prepara Bases Culinarias</h3></td></tr>
+                <tr><td>UA 1: Corta Vegetales, frutas, carnes y productos del mar con base en el estandar establecido</td></tr>
+                <tr><td>UA 2: Prepara entradas de acuerdo con la receta estándar y el presupuesto</td></tr>
+            </table>
+
+            <table id="alimentos-sem3" class="tabla">
+                <caption>Semestre 3</caption>
+                <tr><th>Materias</th></tr>
+                <tr><td>Lengua y comunicación III</td></tr>
+                <tr><td>Inglés III</td></tr>
+                <tr><td>Pensamiento Matemático III</td></tr>
+                <tr><td>Ecosistemas, Interacciones, Energía y Dinámica</td></tr>
+                <tr><td>Humanidades II</td></tr>
+                <tr><td>Formación Socioemocinal</td></tr>
+                <tr><td><h3>Módulos II: Prapara platillos de Cocina Mexicana e Internacional con Receta Base</h3></td></tr>
+                <tr><td>UA 1: Prepara platillos de Coxina Mexicana con Receta Base</td></tr>
+                <tr><td>UA 2: Prepara platillos de Cocina Internacional con Recetario Base </td></tr>
+            </table>
+
+            <table id="alimentos-sem4" class="tabla">
+                <caption>Semestre 4</caption>
+                <tr><th>Materias</th></tr>
+                <tr><td>Estructura y Función de Los Seres Vivos</td></tr>
+                <tr><td>Inglés IV</td></tr>
+                <tr><td>Temas Selectos de Matemáticas I</td></tr>
+                <tr><td>Formación Socioemocinal IV</td></tr>
+                <tr><td><h3>Módulos III: Prepara Pan y Repostería</h3></td></tr>
+                <tr><td>UA 1: Prepara Pan con Recetario Base</td></tr>
+                <tr><td>UA 2: Prepara Repostería con Recetario Base</td></tr>
+            </table>
+
+            <table id="alimentos-sem5" class="tabla">
+                <caption>Semestre 5</caption>
+                <tr><th>Materias</th></tr>
+                <tr><td>Temas Selectos de Matemáticas II</td></tr>
+                <tr><td>La energía en los procesos de la vida Diaria</td></tr>
+                <tr><td>Formación Socioemocional V</td></tr>
+                <tr><td><h3>Módulos IV: Atiende al Comesal de Acuerdo con el Tipo de Servico</h3></td></tr>
+                <tr><td>UA 1: Prepara el Servico de Atención al Comensal conforme al protocolo y etiqueta</td></tr>
+                <tr><td>UA 2: Atiende al Comensal en Eventos</td></tr>
+
+            </table>
+
+            <table id="alimentos-sem6" class="tabla">
+                <caption>Semestre 6</caption>
+                <tr><th>Materias</th></tr>
+                <tr><td>Temas Selectos de Matematicas III</td></tr>
+                <tr><td>Organización y Atribución de un Proceso, Tendencia e Impacto Social</td></tr>
+                <tr><td>Humanidades III</td></tr>
+                <tr><td>Formación Socioemocional VI</td></tr>
+                <tr><td><h3>Módulos Prepara Bebidas</h3></td></tr>
+                <tr><td>UA 1: Prepara Bebidas y Cocteles Internacionales</td></tr>
+                <tr><td>UA 2: Prepara Bebidas Ncionales</td></tr>
+            </table>
+        </section>
+
+
+                       <!--PUERICULTURA -->
+        <section id="puericultura" class="especialidad">
+            <h2>Puericultura</h2>
+
+            <!-- Botones que mostraran el semestre correspondiente -->
+            <div class="tarjetas2">
+                <a href="#puericultura-sem1" class="tarjeta2">Semestre 1</a>
+                <a href="#puericultura-sem2" class="tarjeta2">Semestre 2</a>
+                <a href="#puericultura-sem3" class="tarjeta2">Semestre 3</a>
+                <a href="#puericultura-sem4" class="tarjeta2">Semestre 4</a>
+                <a href="#puericultura-sem5" class="tarjeta2">Semestre 5</a>
+                <a href="#puericultura-sem6" class="tarjeta2">Semestre 6</a>
+            </div>
+
+            <!-- Tablas de materias -->
+            <table id="puericultura-sem1" class="tabla">
+                <caption>Bachillerato: Química Biológico Semestre 1</caption>
+                <tr><th>Materias</th></tr>
+                <tr><td>Lengua y comunicación I</td></tr>
+                <tr><td>Inglés I</td></tr>
+                <tr><td>Pensamiento Matemático I</td></tr>
+                <tr><td>Cultura digital I</td></tr>
+                <tr><td>La Materia y sus Interacciones</td></tr>
+                <tr><td>Humanidades I</td></tr>
+                <tr><td>Ciencias sociales I</td></tr>
+                <tr><td>Formación Socioemocinal</td></tr>
+
+            </table>
+            <table id="puericultura-sem2" class="tabla">
+                <caption>Bachillerato: Químico Biológico Semestre 2</caption>
+                <tr><th>Materias</th></tr>
+                <tr><td>Pensamiento Matemático II</td></tr>
+                <tr><td>Inglés II</td></tr>
+                <tr><td>La Conservación de la Energía y su Interacción con la Materia</td></tr>
+                <tr><td>Lengua y Comunicación II</td></tr>
+                <tr><td>Cultura Digital II</td></tr>
+                <tr><td>Ciencias Sociales II</td></tr>
+                <tr><td>Recursos Socioemocinales</td></tr>
+                <tr><td><h3>Módulos I: Atiende las necesidades basicas del infante considerando el conocimiento y desarrollo físico del niño sano </h3></td></tr>
+                <tr><td>Submódulo 1: Identifica la normalidad de aparatos y sistemas del infante aplicando conocimientos de anatomía y fisiología</td></tr>
+                <tr><td>Submódulo 2: Promueve programas de salud materno infantil y control del niño sano</td></tr>
+                <tr><td>Submódulo 3: Realizar actividades pedagogicas</td></tr>
+            </table>
+
+            <table id="puericultura-sem3" class="tabla">
+                <caption>Bachillerato:Químico Biológico — Semestre 3</caption>
+                <tr><th>Materias</th></tr>
+                <tr><td>Lengua y comunicación III</td></tr>
+                <tr><td>Inglés III</td></tr>
+                <tr><td>Pensamiento Matemático III</td></tr>
+                <tr><td>Ecosistemas: Interacciones, Energía y Dinámica</td></tr>
+                <tr><td>Humanidades III</td></tr>
+                <tr><td>Formación Socioemocinal III</td></tr>
+                <tr><td><h3>Módulos II: Realiza Acciones pedagogicas con base en el desarrollo psicosocial del infante</h3></td></tr>
+                <tr><td>UA 1: Describe las características del desarrollo psicológicos del niño</td></tr>
+                <tr><td>UA 2: Identifica los problemas Socioemocionales que afectan el desarrollo Integral del niño </td></tr>
+                <tr><td>UA 3:Realiza Actividades Pedagogicas </td></tr>
+
+            </table>
+
+            <table id="puericultura-sem4" class="tabla">
+                <caption>Bachillerato: Químico Biologico -Semestre 4</caption>
+                <tr><th>Materias</th></tr>
+                <tr><td>Consiencia Histórica</td></tr>
+                <tr><td>Reacciones Químicas: Conservación de la materia en la formación de nuevas Sustancias</td></tr>
+                <tr><td>Ciencias Sociales III</td></tr>
+                <tr><td>Inglés IV</td></tr>
+                <tr><td>Temas Selectos de Matemáticas I</td></tr>
+                <tr><td>Formación Socioemocinal IV</td></tr>
+                <tr><td><h3>Módulos III: Ejecuta acciones para el bienestar integral del infante </h3></td></tr>
+                <tr><td>UA 1:Realizar la estimulación lúcida y temprana en el infante con un enfoque integral en educación inicial</td></tr>
+                <tr><td>UA 2: Fomenta Acciones para la prevevención de accidentes y enfermedades infantiles</td></tr>
+                <tr><td>UA 3: Realiza acciones para la educación artística en niños de 3 a 6 años</td></tr>
+
+            </table>
+
+            <table id="puericultura-sem5" class="tabla">
+                <caption>Bachillerato: Químico Biologico -Semestre 5</caption>
+                <tr><th>Materias</th></tr>
+                <tr><td>Temas Selectos de Matemáticas II</td></tr>
+                <tr><td>Inglés V</td></tr>
+                <tr><td>Conciencia Histórica</td></tr>
+                <tr><td>La energía en los procesos de la vida Diaria</td></tr>
+                <tr><td>UAC fundamental extendida</td></tr>
+                <tr><td><h3>Módulos IV: Realizar acciones educativas en la formación preescolar tomando en cuenta la inclusión y la equidad</h3></td></tr>
+                <tr><td>UA 1: Realizar actividades para el programa de educación preescolar</td></tr>
+                <tr><td>UA 2: Auxilia en las necesidades de educación especial</td></tr>
+
+            </table>
+
+            <table id="puericultura-sem6" class="tabla">
+                <caption>Bachillerato:Químico Biológico  Semestre 6</caption>
+                <tr><th>Materias</th></tr>
+                <tr><td>Temas Selectos de Matematicas III</td></tr>
+                <tr><td>Conciencia Historica III</td></tr>
+                <tr><td>Organismos: estructuras y procesos, herencia y evolución biológica</td></tr>
+                <tr><td>Humanidades III</td></tr>
+                <tr><td><h3>Módulos V: Realiza estadías y emprende un modelo de negocio educativo y/o recreativo</h3></td></tr>
+                <tr><td>UA 1: Realiza actividades psicopedagógicas de asistencia y salud en centros de atención</td></tr>
+                <tr><td>UA 2: Desarrolla un proyecto de emprendimiento de puericultura</td></tr>
+            </table>
+        </section>
+
+
+
+                       <!--CONTABILIDAD -->
+        <section id="contabilidad" class="especialidad">
+            <h2>Contabilidad</h2>
+
+            <!-- Botones que mostraran el semestre correspondiente -->
+            <div class="tarjetas2">
+                <a href="#contabilidad-sem1" class="tarjeta2">Semestre 1</a>
+                <a href="#contabilidad-sem2" class="tarjeta2">Semestre 2</a>
+                <a href="#contabilidad-sem3" class="tarjeta2">Semestre 3</a>
+                <a href="#contabilidad-sem4" class="tarjeta2">Semestre 4</a>
+                <a href="#contabilidad-sem5" class="tarjeta2">Semestre 5</a>
+                <a href="#contabilidad-sem6" class="tarjeta2">Semestre 6</a>
+            </div>
+
+            <!-- Tablas de materias -->
+            <table id="contabilidad-sem1" class="tabla">
+                <caption>Bachillerato:Físico Matemático — Semestre 1</caption>
+                <tr><th>Materias</th></tr>
+                <tr><td>Lengua y comunicación I</td></tr>
+                <tr><td>Inglés I</td></tr>
+                <tr><td>Pensamiento Matemático I</td></tr>
+                <tr><td>Cultura digital I</td></tr>
+                <tr><td>La Materia y sus Interacciones</td></tr>
+                <tr><td>Humanidades I</td></tr>
+                <tr><td>Ciencias sociales I</td></tr>
+                <tr><td>Formación Socioemocinal</td></tr>
+
+            </table>
+            <table id="contabilidad-sem2" class="tabla">
+                <caption>Bachillerato:Físico Matemático — Semestre 2</caption>
+                <tr><th>Materias</th></tr>
+                <tr><td>Pensamiento Matemático II</td></tr>
+                <tr><td>Inglés II</td></tr>
+                <tr><td>La Conservación de la Energía y su Interacción con la Materia</td></tr>
+                <tr><td>Lengua y Comunicación II</td></tr>
+                <tr><td>Cultura Digital II</td></tr>
+                <tr><td>Ciencias Sociales II</td></tr>
+                <tr><td>Formación Socioemocinal II</td></tr>
+                <tr><td><h3>Módulos I </h3></td></tr>
+                <tr><td>Submódulo 1: Registra operaciones contables</td></tr>
+                <tr><td>Submódulo 2: Formula Información Financiera</td></tr>
+            </table>
+
+            <table id="contabilidad-sem3" class="tabla">
+                <caption>Bachillerato:Físico Matemático — Semestre 3</caption>
+                <tr><th>Materias</th></tr>
+                <tr><td>Lengua y comunicación III</td></tr>
+                <tr><td>Inglés III</td></tr>
+                <tr><td>Pensamiento Matemático III</td></tr>
+                <tr><td>Ecosistemas: Interacciones, Energía y Dinámica</td></tr>
+                <tr><td>Humanidades III</td></tr>
+                <tr><td>Formación Socioemocinal III</td></tr>
+                <tr><td><h3>Módulos II</h3></td></tr>
+                <tr><td>Submódulo 1: Elabora Contabilidad de Costos</td></tr>
+                <tr><td>Submódulo 2: Realiza Nómica en Forma Electrónica </td></tr>
+            </table>
+
+            <table id="contabilidad-sem4" class="tabla">
+                <caption>Bachillerato:Físico Matemático — Semestre 4</caption>
+                <tr><th>Materias</th></tr>
+                <tr><td>Consiencia Histórica I</td></tr>
+                <tr><td>Reacciones Químicas: Conservación de la materia en la formación de nuevas Sustancias</td></tr>
+                <tr><td>Ciencias Sociales III</td></tr>
+                <tr><td>Inglés IV</td></tr>
+                <tr><td>Temas Selectos de Matemáticas I</td></tr>
+                <tr><td>Formación Socioemocinal IV</td></tr>
+                <tr><td><h3>Módulos III </h3></td></tr>
+                <tr><td>Submódulo 1:Determina Contribuciones Fiscales de Personas Físicas</td></tr>
+                <tr><td>Submódulo 2: Determina Contribuciones Fiscales de Personas Morales</td></tr>
+
+            </table>
+
+            <table id="contabilidad-sem5" class="tabla">
+                <caption>Bachillerato:Físico Matemático — Semestre 5</caption>
+                <tr><th>Materias</th></tr>
+                <tr><td>Temas Selectos de Matemáticas II</td></tr>
+                <tr><td>Inglés V</td></tr>
+                <tr><td>Conciencia Histórica II</td></tr>
+                <tr><td>La energía en los procesos de la vida Diaria</td></tr>
+                <tr><td>UAC fundamental extendida</td></tr>
+                <tr><td>Formación Socioemocinal V</td></tr>
+                <tr><td><h3>Módulos IV</h3></td></tr>
+                <tr><td>Submódulo 1: Verifica Operaciones Contables</td></tr>
+                <tr><td>Submódulo 2: Asiste en el Cierre de Auditoria</td></tr>
+
+            </table>
+
+            <table id="contabilidad-sem6" class="tabla">
+                <caption>Bachillerato:Físico Matemático — Semestre 6</caption>
+                <tr><th>Materias</th></tr>
+                <tr><td>Temas Selectos de Matematicas III</td></tr>
+                <tr><td>Conciencia Historica III</td></tr>
+                <tr><td>Organismos: estructuras y procesos, herencia y evolución biológica</td></tr>
+                <tr><td>Formación Socioemocinal VI</td></tr>
+                <tr><td><h3>Módulos V</h3></td></tr>
+                <tr><td>Submódulo 1: Colabora en el análisis financierode una entidad económica</td></tr>
+                <tr><td>Submódulo 2: Contribuye en la planeación financiera de una entidad económica</td></tr>
+            </table>
+        </section>
+
+              <!--TRABAJO SOCIAL -->
+        <section id="social" class="especialidad">
+            <h2>Trabajo Social</h2>
+
+            <!-- Botones que mostraran el semestre correspondiente -->
+            <div class="tarjetas2">
+                <a href="#social-sem1" class="tarjeta2">Semestre 1</a>
+                <a href="#social-sem2" class="tarjeta2">Semestre 2</a>
+                <a href="#social-sem3" class="tarjeta2">Semestre 3</a>
+                <a href="#social-sem4" class="tarjeta2">Semestre 4</a>
+                <a href="#social-sem5" class="tarjeta2">Semestre 5</a>
+                <a href="#social-sem6" class="tarjeta2">Semestre 6</a>
+            </div>
+
+            <!-- Tablas de materias -->
+            <table id="social-sem1" class="tabla">
+                <caption>Bachillerato:Histórico Social — Semestre 1</caption>
+                <tr><th>Materias</th></tr>
+                <tr><td>Lengua y comunicación I</td></tr>
+                <tr><td>Inglés I</td></tr>
+                <tr><td>Pensamiento Matemático I</td></tr>
+                <tr><td>Cultura digital I</td></tr>
+                <tr><td>La Materia y sus Interacciones</td></tr>
+                <tr><td>Humanidades I</td></tr>
+                <tr><td>Ciencias sociales I</td></tr>
+                <tr><td>Formación Socioemocinal</td></tr>
+
+            </table>
+            <table id="social-sem2" class="tabla">
+                <caption>Bachillerato:Histórico Social — Semestre 2</caption>
+                <tr><th>Materias</th></tr>
+                <tr><td>Pensamiento Matemático II</td></tr>
+                <tr><td>Inglés II</td></tr>
+                <tr><td>La Conservación de la Energía y su Interacción con la Materia</td></tr>
+                <tr><td>Lengua y Comunicación II</td></tr>
+                <tr><td>Cultura Digital II</td></tr>
+                <tr><td>Ciencias Sociales II</td></tr>
+                <tr><td>Formación Socioemocinal II</td></tr>
+                <tr><td><h3>Módulos I </h3></td></tr>
+            </table>
+
+            <table id="social-sem3" class="tabla">
+                <caption>Bachillerato:Histórico Social — Semestre 3</caption>
+                <tr><th>Materias</th></tr>
+                <tr><td>Lengua y comunicación III</td></tr>
+                <tr><td>Inglés III</td></tr>
+                <tr><td>Pensamiento Matemático III</td></tr>
+                <tr><td>Ecosistemas: Interacciones, Energía y Dinámica</td></tr>
+                <tr><td>Humanidades II</td></tr>
+                <tr><td>Formación Socioemocinal III</td></tr>
+                <tr><td><h3>Módulos II</h3></td></tr>
+                <tr><td>Submódulo 1: Aplica método de promoción social comunitario</td></tr>
+                <tr><td>Submódulo 2: Elabora Proyectos de orientación social </td></tr>
+                <tr><td>Submódulo 3: Diseña material didactico para la orientacion social </td></tr>
+
+            </table>
+
+            <table id="social-sem4" class="tabla">
+                <caption>Bachillerato:Histórico Social — Semestre 4</caption>
+                <tr><th>Materias</th></tr>
+                <tr><td>Consiencia Histórica I</td></tr>
+                <tr><td>Reacciones Químicas: Conservación de la materia en la formación de nuevas Sustancias</td></tr>
+                <tr><td>Ciencias Sociales III</td></tr>
+                <tr><td>Inglés IV</td></tr>
+                <tr><td>Temas Selectos de Matemáticas I</td></tr>
+                <tr><td>Formación Socioemocinal IV</td></tr>
+                <tr><td><h3>Módulos III </h3></td></tr>
+                <tr><td>Submódulo 1:Ejecuta el método de trabajo social de grupos para el desarrollo humano</td></tr>
+                <tr><td>Submódulo 2: Promueve acciones que favorezcan la calidad de vida </td></tr>
+
+            </table>
+
+            <table id="social-sem5" class="tabla">
+                <caption>Bachillerato:Histórico Social — Semestre 5</caption>
+                <tr><th>Materias</th></tr>
+                <tr><td>Temas Selectos de Matemáticas II</td></tr>
+                <tr><td>Inglés V</td></tr>
+                <tr><td>Conciencia Histórica II</td></tr>
+                <tr><td>La energía en los procesos de la vida Diaria</td></tr>
+                <tr><td>UAC fundamental extendida</td></tr>
+                <tr><td>Formación Socioemocinal V</td></tr>
+
+            </table>
+
+            <table id="social-sem6" class="tabla">
+                <caption>Bachillerato:Histórico Social — Semestre 6</caption>
+                <tr><th>Materias</th></tr>
+                <tr><td>Temas Selectos de Matematicas III</td></tr>
+                <tr><td>Conciencia Historica III</td></tr>
+                <tr><td>Humanidades III </td></tr>
+                <tr><td>Organismos: estructuras y procesos, herencia y evolución biológica</td></tr>
+                <tr><td>Formación Socioemocinal VI</td></tr>
+                <tr><td>Bachillerato General</td></tr>
+                <tr><td><h3>Módulos V</h3></td></tr>
+                <tr><td>Submódulo 1: Identifica el perfil profesional de las áreas de intervención</td></tr>
+                <tr><td>Submódulo 2: Estructura un proyecto social con visión emprendedora</td></tr>
+            </table>
+        </section>
+        
     </main>
 </div>
 
