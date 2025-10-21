@@ -343,9 +343,7 @@ contraste con la medida más grande de las tarjetas
   text-align: left;
 }
 
-/* ==========================================
-   🌸 Animación suave para cuando aparecen
-   ========================================== */
+
 :target.especialidad, .tabla:target {
   animation: fadeIn 0.5s ease-in-out;
 }
