@@ -1,20 +1,20 @@
-               <!--PREPARACION DE ALIMENTOS Y BEBIDAS -->
-        <section id="alimentos" class="especialidad">
-            <h2>Electricidad</h2>
+               <!--PUERICULTURA -->
+        <section id="puericultura" class="especialidad">
+            <h2>Puericultura</h2>
 
             <!-- Botones que mostraran el semestre correspondiente -->
             <div class="tarjetas2">
-                <a href="#alimentos-sem1" class="tarjeta2">Semestre 1</a>
-                <a href="#alimentos-sem2" class="tarjeta2">Semestre 2</a>
-                <a href="#alimentos-sem3" class="tarjeta2">Semestre 3</a>
-                <a href="#alimentos-sem4" class="tarjeta2">Semestre 4</a>
-                <a href="#alimentos-sem5" class="tarjeta2">Semestre 5</a>
-                <a href="#alimentos-sem6" class="tarjeta2">Semestre 6</a>
+                <a href="#puericultura-sem1" class="tarjeta2">Semestre 1</a>
+                <a href="#puericultura-sem2" class="tarjeta2">Semestre 2</a>
+                <a href="#puericultura-sem3" class="tarjeta2">Semestre 3</a>
+                <a href="#puericultura-sem4" class="tarjeta2">Semestre 4</a>
+                <a href="#puericultura-sem5" class="tarjeta2">Semestre 5</a>
+                <a href="#puericultura-sem6" class="tarjeta2">Semestre 6</a>
             </div>
 
             <!-- Tablas de materias -->
-            <table id="alimentos-sem1" class="tabla">
-                <caption>Semestre 1</caption>
+            <table id="puericultura-sem1" class="tabla">
+                <caption>Bachillerato: Química Biológico Semestre 1</caption>
                 <tr><th>Materias</th></tr>
                 <tr><td>Lengua y comunicación I</td></tr>
                 <tr><td>Inglés I</td></tr>
@@ -26,8 +26,8 @@
                 <tr><td>Formación Socioemocinal</td></tr>
 
             </table>
-            <table id="alimentos-sem2" class="tabla">
-                <caption>Semestre 2</caption>
+            <table id="puericultura-sem2" class="tabla">
+                <caption>Bachillerato: Químico Biológico Semestre 2</caption>
                 <tr><th>Materias</th></tr>
                 <tr><td>Pensamiento Matemático II</td></tr>
                 <tr><td>Inglés II</td></tr>
@@ -36,9 +36,10 @@
                 <tr><td>Cultura Digital II</td></tr>
                 <tr><td>Ciencias Sociales II</td></tr>
                 <tr><td>Recursos Socioemocinales</td></tr>
-                <tr><td><h3>Módulos Electricidad: Prepara Bases Culinarias</h3></td></tr>
-                <tr><td>UA 1: Corta Vegetales, frutas, carnes y productos del mar con base en el estandar establecido</td></tr>
-                <tr><td>UA 2: Prepara entradas de acuerdo con la receta estándar y el presupuesto</td></tr>
+                <tr><td><h3>Módulos I: Atiende las necesidades basicas del infante considerando el conocimiento y desarrollo físico del niño sano </h3></td></tr>
+                <tr><td>Submódulo 1: Identifica la normalidad de aparatos y sistemas del infante aplicando conocimientos de anatomía y fisiología</td></tr>
+                <tr><td>Submódulo 2: Promueve programas de salud materno infantil y control del niño sano</td></tr>
+                <tr><td>Submódulo 3: Realizar actividades pedagogicas</td></tr>
             </table>
 
             <table id="alimentos-sem3" class="tabla">
