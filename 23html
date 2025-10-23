@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CBTis94</title>
+    <link rel="stylesheet" href="/estilos/estilosIndex.css">
+
+    <div class="grid-container">
+        <header class="header">
+<img src="/imagenes/Logo_CBTis94.jpg" alt="Logo CBTIS 94"
+class="logo">
+<div class="header-text">
+<h1>Centro de Bachillerato Tecnológico Industrial y de
+Serivicios No.94</h1>
+<h2>Pátzcuaro Michoacán</h2>
+</div>
+</header>
+<nav class="nav">
+<a href="#">Inicio</a>
+<a href="especialidades.html">Especialidades</a>
+<a href="#">Galería</a>
+<a href="#">Contacto</a>
+</nav>
+<main class="main">
+
+<img src="/imagenes/img.jpg" alt="Foto del plantel
+del cbtis 94, edificio administrativo">
+<p>
+Bienvenidos al sitio web del CBTis 94. En este
+sitio encontrarás información oficial sobre las actividades y procesos
+que se desarrollan en esta institución
+<h2>Misión</h2>
+
+           <p>Formar Bachilleres Técnicos en las especialidades de Administración de Recursos Humanos,
+
+               Programación, Electricidad, Mecánica Industrial y Mecatrónica con los conocimientos técnicos
+
+               y científicos de vanguardia, acordes a los requerimientos y necesidades que demandan los
+
+               sectores productivos y de servicios de nuestro entorno. Que al egresar de nuestras aulas
+
+               conlleven un alto grado de compromiso social y humano, que coadyuve
+
+               al fortalecimiento de nuestro Municipio, Estado y Nación</p>
+
+
+
+           <h2>Visión</h2>
+
+           <p>Ser una Institución de nivel Medio Superior con el más alto grado de reconocimiento,
+
+               prestigio social y profesional por la calidad de nuestros educandos y egresados de
+
+               nuestra Planta Directiva, Docente y de Personal de Apoyo y Asistencia a la Educación.
+
+               Siendo la institución de este nivel educativo que mayor demanda escolar tenga en su entorno.
+
+               Que privilegie el conocimiento del saber, del hacer y del quehacer, certificando su calidad
+
+               de acuerdo a los más reconocidos estandares internacionales.</p>
+
+
+
+           <h2>Valores</h2>
+
+           <p>Trabajar con la verdad. Cumplir con las tareas encomendadas. Trabajar en equipo y en
+
+               constante comunicación. Igualdad de oportunidades para todos, desarrollo personal y
+
+               humano en nuestras actividades, capacitación continua, reconocimiento a nuestras tareas,
+
+               mejor calidad de vida en el trabajo y en el estudio, crear, innovar, implementar y
+
+               desarrollar nuestras ideologías dando lo mejor de cada uno de nosotros.</p>
+
+           <ul>
+
+               <li>Honestidad </li>
+
+               <li>Transparencia</li>
+
+               <li>Oportunidad</li>
+
+               <li>Eficacia</li>
+
+               <li>Amabilidad</li>
+
+               <li>Respeto</li>
+
+               <li>Responsabilidad</li>
+
+               <li>Tolerancia</li>
+
+               <li>Puntualidad</li>
+
+           </ul>
+</main>
+
+<aside class="sidebar">
+<h3>Sitios de interés</h3>
+<ul>
+<li><a href="#">Secretaría de Educación
+Pública</a></li>
+<li><a href="#">Página Oficial de la DGETI</a></li>
+<li><a href="#">TECNM Morelia</a></li>
+</ul>
+<video width="400" height="300" controls autoplay muted
+loop>
+<source src="/imagenes/vE.mp4" type="video/mp4">
+Tu navegador no soporta el video
+</video>
+</aside>
+    </div>
+<footer id="contacto">
+<div class="f-container">
+<div class="f-links">
+<h3>Contacto</h3>
+<ul>
+<li>
+<p>Direccion: Calle Roberto Pita Cornejo,
+Pátzcuaro Michoacán</p>
+<p>Telefono: (434) 342 1551</p>
+<p>Email: contacto@cbtis94.edu.mx</p>
+<p>&copy 2025 CBTIS 94 - Todos los derechos
+reservados</p>
+</li>
+</ul>
+</div>
+</div>
+</footer>
+</head>
+<body>
+    
+</body>
+</html>
