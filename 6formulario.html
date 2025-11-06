@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CBTis94</title>
+    <link rel="stylesheet" href="estilos.css">
+
+    <div class="grid-container">
+        <header class="header">
+            <img src="/imagenes/Logo.png" alt="Logo" class="logo">
+            <div class="header-text">
+                <h1>Centro de Matematicas No.94</h1>
+                <h2>Pátzcuaro Michoacán</h2>
+            </div>
+        </header>
+        <nav class="nav">
+            <a href="inicio.html">Inicio</a>
+            <a href="AlumnosForm.html">Alumnos</a>
+            <a href="ProfesoresForm.html">Profesores</a>
+            <a href="#contacto">Contacto</a>
+            <a href="CursosForm.html">Cursos</a>
+            <a href="Inscripcion.html">Inscripcion</a>
+            <a href="Especialidades.html">Especialidades</a>
+        </nav>
+        <main class="main">
+            <h4>Agregar un Profesor</h4>     
+             <div class="card-body">
+                
+                <form id="formAgregarC" method="POST" action="" >
+                    <div class="pregunta">
+                        <label for="NomProfesor" class="form-label">Nombre del Profesor</label>
+                        <input type="text" class="form-control" id="NomProfesor" name="NomProfesor" required>
+                    </div>
+
+                    <div class="pregunta">
+                        <label for="ApellidosProfesor" class="form-label">Apellidos del Profesor</label>
+                        <input type="text" class="form-control" id="ApellidosProfesor" name="ApellidosProfesor" required>
+                    </div>
+
+                    <div class="pregunta">
+                        <label for="Telefono" class="form-label">Telefono</label>
+                        <input type="text" class="form-control" id="Telefono" name="Telefono" required>
+                    </div>
+
+
+                    <button type="submit">Guardar</button>
+                    <button type="submit">Limpiar</button>
+                </form>
+             </div>  
+                    
+
+        
+        </main>
+
+        <aside class="sidebar">
+            <h3>Sitios de interés</h3>
+            <ul>
+                <li><a href="https://www.gob.mx/sep">Secretaría de Educación
+                        Pública</a></li>
+                <li><a href="https://dgeti.sep.gob.mx/">Página Oficial de la DGETI</a></li>
+                <li><a href="https://www.morelia.tecnm.mx/">TECNM Morelia</a></li>
+            </ul>
+            <video width="400" height="300" controls autoplay muted loop>
+                <source src="/imagenes/vE.mp4" type="video/mp4">
+                Tu navegador no soporta el video
+            </video>
+        </aside>
+    </div>
+    <footer id="contacto">
+        <div class="f-container">
+            <div class="f-links">
+                <h3>Contacto</h3>
+                <ul>
+                    <li>
+                        <p>Direccion: Calle Roberto Pita Cornejo,
+                            Pátzcuaro Michoacán</p>
+                        <p>Telefono: (434) 342 1551</p>
+                        <p>Email: contacto@cbtis94.edu.mx</p>
+                        <p>&copy 2025 CBTIS 94 - Todos los derechos
+                            reservados</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+
+
+
+
+estilos.css:
+* {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    margin: 0;
+    background-color: antiquewhite;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-areas:
+        "header header header"
+        "nav nav nav"
+        "main main sidebar"
+        "footer footer footer";
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto 1fr auto;
+    min-height: 100vh;
+    text-align: center;
+}
+
+.header {
+    grid-area: header;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    padding: 20px;
+    background-color: #4613fe;
+    color: white;
+    text-align: center;
+}
+.header-text{
+    text-align: center;
+}
+
+.header .logo {
+    width: 100px;
+    height: auto;
+}
+
+.nav {
+    grid-area: nav;
+    background: white;
+    display: flex;
+    gap: 30px;
+    padding: 15px;
+    justify-content: center;
+}
+
+.nav a {
+    color: 4613fe;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav a:hover {
+    text-decoration: underline;
+}
+
+main {
+    grid-area: main;
+    background: white;
+    padding: 20px;
+    color: #8c38ec;
+
+}
+
+.sidebar {
+    grid-area: sidebar;
+    background: #2d3748;
+    padding: 20px;
+    margin: 2px;
+    color: white;
+}
+
+.sidebar a {
+    color: white;
+    text-decoration: underline;
+    font-style: italic;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.sidebar li {
+    list-style: none;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+    padding: 8px 10px;
+    background-color: #4613fe;
+    color: #fbfdff;
+    font-size: 0.75rem;
+}
+
+.f-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.f-container div {
+    flex: 1;
+    margin: 10px;
+}
+
+.f-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.f-links ul li {
+    margin: 8px 0;
+}
+
+.f-links a {
+    color: #66fcf1;
+    text-decoration: none;
+}
+
+.f-links a:hover {
+    text-decoration: underline;
+}
+
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 20px auto;
+    max-width: 900px;
+}
+
+
+
+.galeria img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.galeria img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    filter: brightness(1.1);
+}
+
+.imgInicio {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/*otro*/
+p {
+    font-size: medium;
+}
+AlumnosForm.css:
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CBTis94</title>
+    <link rel="stylesheet" href="estilos.css">
+
+    <div class="grid-container">
+        <header class="header">
+            <img src="/imagenes/Logo.png" alt="Logo" class="logo">
+            <div class="header-text">
+                <h1>Centro de Matematicas No.94</h1>
+                <h2>Pátzcuaro Michoacán</h2>
+            </div>
+        </header>
+        <nav class="nav">
+            <a href="inicio.html">Inicio</a>
+            <a href="AlumnosForm.html">Alumnos</a>
+            <a href="ProfesoresForm.html">Profesores</a>
+            <a href="#contacto">Contacto</a>
+            <a href="CursosForm.html">Cursos</a>
+            <a href="Inscripcion.html">Inscripcion</a>
+            <a href="Especialidades.html">Especialidades</a>
+        </nav>
+        <main class="main">
+             <h4>Agregar Alumno</h4>     
+             <div class="card-body">
+                
+                <form id="formAgregarA" method="POST" action="" >
+                    <div class="pregunta">
+                        <label for="matricula" class="form-label">Matricula</label>
+                        <input type="text" class="form-control" id="matricula" name="matricula" required>
+                    </div>
+
+                    <div class="pregunta">
+                        <label for="NomAlumno" class="form-label">Nombre del Alumno</label>
+                        <input type="text" class="form-control" id="NomAlumno" name="NomAlumno" required>
+                    </div>
+
+                    <div class="pregunta">
+                        <label for="ApellidosAlumno" class="form-label">Apellidos del Alumno</label>
+                        <input type="text" class="form-control" id="ApellidosAlumno" name="ApellidosAlumno" required>
+                    </div>
+
+                    <div class="pregunta">
+                        <label for="IdEspecialidad" class="form-label">IdEspecialidad</label>
+                        <input type="text" class="form-control" id="IdEspecialidad" name="IdEspecialidad" required>
+                    </div>
+
+                    <div class="pregunta">
+                        <label for="Semestre" class="form-label">Semestre</label>
+                        <input type="text" class="form-control" id="Semestre" name="Semestre" required>
+                    </div>
+                    <button type="submit">Guardar</button>
+                    <button type="submit">Limpiar</button>
+
+
+
+                </form>
+             </div>  
+        </main>
+
+        <aside class="sidebar">
+            <h3>Sitios de interés</h3>
+            <ul>
+                <li><a href="https://www.gob.mx/sep">Secretaría de Educación
+                        Pública</a></li>
+                <li><a href="https://dgeti.sep.gob.mx/">Página Oficial de la DGETI</a></li>
+                <li><a href="https://www.morelia.tecnm.mx/">TECNM Morelia</a></li>
+            </ul>
+            <video width="400" height="300" controls autoplay muted loop>
+                <source src="/imagenes/vE.mp4" type="video/mp4">
+                Tu navegador no soporta el video
+            </video>
+        </aside>
+    </div>
+    <footer id="contacto">
+        <div class="f-container">
+            <div class="f-links">
+                <h3>Contacto</h3>
+                <ul>
+                    <li>
+                        <p>Direccion: Calle Roberto Pita Cornejo,
+                            Pátzcuaro Michoacán</p>
+                        <p>Telefono: (434) 342 1551</p>
+                        <p>Email: contacto@cbtis94.edu.mx</p>
+                        <p>&copy 2025 CBTIS 94 - Todos los derechos
+                            reservados</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+Especialidades.html:
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CBTis94</title>
+    <link rel="stylesheet" href="estilos.css">
+
+    <div class="grid-container">
+        <header class="header">
+            <img src="/imagenes/Logo.png" alt="Logo" class="logo">
+            <div class="header-text">
+                <h1>Centro de Matematicas No.94</h1>
+                <h2>Pátzcuaro Michoacán</h2>
+            </div>
+        </header>
+        <nav class="nav">
+            <a href="inicio.html">Inicio</a>
+            <a href="AlumnosForm.html">Alumnos</a>
+            <a href="ProfesoresForm.html">Profesores</a>
+            <a href="#contacto">Contacto</a>
+            <a href="CursosForm.html">Cursos</a>
+            <a href="Inscripcion.html">Inscripcion</a>
+            <a href="Especialidades.html">Especialidades</a>
+        </nav>
+        <main class="main">
+            <h4>Agregar una Especialidad</h4>     
+             <div class="card-body">
+                
+                <form id="formAgregarC" method="POST" action="" >
+                    <div class="pregunta">
+                        <label for="NomEspecialidad" class="form-label">Nombre de la especialidad</label>
+                        <input type="text" class="form-control" id="NomEspecialidad" name="NomEspecialidad" required>
+                    </div>
+
+                    <button type="submit">Guardar</button>
+                    <button type="submit">Limpiar</button>
+                </form>
+             </div>    
+
+        
+        </main>
+
+        <aside class="sidebar">
+            <h3>Sitios de interés</h3>
+            <ul>
+                <li><a href="https://www.gob.mx/sep">Secretaría de Educación
+                        Pública</a></li>
+                <li><a href="https://dgeti.sep.gob.mx/">Página Oficial de la DGETI</a></li>
+                <li><a href="https://www.morelia.tecnm.mx/">TECNM Morelia</a></li>
+            </ul>
+            <video width="400" height="300" controls autoplay muted loop>
+                <source src="/imagenes/vE.mp4" type="video/mp4">
+                Tu navegador no soporta el video
+            </video>
+        </aside>
+    </div>
+    <footer id="contacto">
+        <div class="f-container">
+            <div class="f-links">
+                <h3>Contacto</h3>
+                <ul>
+                    <li>
+                        <p>Direccion: Calle Roberto Pita Cornejo,
+                            Pátzcuaro Michoacán</p>
+                        <p>Telefono: (434) 342 1551</p>
+                        <p>Email: contacto@cbtis94.edu.mx</p>
+                        <p>&copy 2025 CBTIS 94 - Todos los derechos
+                            reservados</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+inscripcion.html:
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CBTis94</title>
+    <link rel="stylesheet" href="estilos.css">
+
+    <div class="grid-container">
+        <header class="header">
+            <img src="/imagenes/Logo.png" alt="Logo" class="logo">
+            <div class="header-text">
+                <h1>Centro de Matematicas No.94</h1>
+                <h2>Pátzcuaro Michoacán</h2>
+            </div>
+        </header>
+        <nav class="nav">
+            <a href="inicio.html">Inicio</a>
+            <a href="AlumnosForm.html">Alumnos</a>
+            <a href="ProfesoresForm.html">Profesores</a>
+            <a href="#contacto">Contacto</a>
+            <a href="CursosForm.html">Cursos</a>
+            <a href="Inscripcion.html">Inscripcion</a>
+            <a href="Especialidades.html">Especialidades</a>
+        </nav>
+        <main class="main">
+            <h4>Inscripcion de un Alumno</h4>     
+             <div class="card-body">
+                
+                <form id="formAgregarC" method="POST" action="" >
+                    <div class="pregunta">
+                        <label for="IdAlumno" class="form-label">Id del Alumno</label>
+                        <input type="text" class="form-control" id="IdAlumno" name="IdAlumno" required>
+                    </div>
+
+                    <div class="pregunta">
+                        <label for="IdCurso" class="form-label">Id del Curso</label>
+                        <input type="text" class="form-control" id="IdCurso" name="IdCurso" required>
+                    </div>
+
+
+                    <button type="submit">Guardar</button>
+                    <button type="submit">Limpiar</button>
+                </form>
+             </div>  
+                    
+
+        
+        </main>
+
+        <aside class="sidebar">
+            <h3>Sitios de interés</h3>
+            <ul>
+                <li><a href="https://www.gob.mx/sep">Secretaría de Educación
+                        Pública</a></li>
+                <li><a href="https://dgeti.sep.gob.mx/">Página Oficial de la DGETI</a></li>
+                <li><a href="https://www.morelia.tecnm.mx/">TECNM Morelia</a></li>
+            </ul>
+            <video width="400" height="300" controls autoplay muted loop>
+                <source src="/imagenes/vE.mp4" type="video/mp4">
+                Tu navegador no soporta el video
+            </video>
+        </aside>
+    </div>
+    <footer id="contacto">
+        <div class="f-container">
+            <div class="f-links">
+                <h3>Contacto</h3>
+                <ul>
+                    <li>
+                        <p>Direccion: Calle Roberto Pita Cornejo,
+                            Pátzcuaro Michoacán</p>
+                        <p>Telefono: (434) 342 1551</p>
+                        <p>Email: contacto@cbtis94.edu.mx</p>
+                        <p>&copy 2025 CBTIS 94 - Todos los derechos
+                            reservados</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</head>
+
+<body>
+
+</body>
+
+</html>
+cursos.html:
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CBTis94</title>
+    <link rel="stylesheet" href="estilos.css">
+
+    <div class="grid-container">
+        <header class="header">
+            <img src="/imagenes/Logo.png" alt="Logo" class="logo">
+            <div class="header-text">
+                <h1>Centro de Matematicas No.94</h1>
+                <h2>Pátzcuaro Michoacán</h2>
+            </div>
+        </header>
+        <nav class="nav">
+            <a href="inicio.html">Inicio</a>
+            <a href="AlumnosForm.html">Alumnos</a>
+            <a href="ProfesoresForm.html">Profesores</a>
+            <a href="#contacto">Contacto</a>
+            <a href="CursosForm.html">Cursos</a>
+            <a href="Inscripcion.html">Inscripcion</a>
+            <a href="Especialidades.html">Especialidades</a>
+        </nav>
+        <main class="main">
+             <h4>Agregar un Curso</h4>     
+             <div class="card-body">
+                
+                <form id="formAgregarC" method="POST" action="" >
+                    <div class="pregunta">
+                        <label for="NomCurso" class="form-label">Nombre del Curso</label>
+                        <input type="text" class="form-control" id="NomCurso" name="NomCurso" required>
+                    </div>
+
+                    <div class="pregunta">
+                        <label for="FechaInicio" class="form-label">Fecha de Inicio</label>
+                        <input type="date" class="form-control" id="FechaInicio" name="FechaInicio" required>
+                    </div>
+
+                    <div class="pregunta">
+                        <label for="FechaFinalizacion" class="form-label">Fecha de Finalizacion</label>
+                        <input type="date" class="form-control" id="FechaFinalizacion" name="FechaFinalizacion" required>
+                    </div>
+
+                    <div class="pregunta">
+                        <label for="IdProfesor" class="form-label">IdProfesor</label>
+                        <input type="text" class="form-control" id="IdProfesor" name="IdProfesor" required>
+                    </div>
+
+                    <button type="submit">Guardar</button>
+                    <button type="submit">Limpiar</button>
+                </form>
+             </div>  
+                    
+
+        
+        </main>
+
+        <aside class="sidebar">
+            <h3>Sitios de interés</h3>
+            <ul>
+                <li><a href="https://www.gob.mx/sep">Secretaría de Educación
+                        Pública</a></li>
+                <li><a href="https://dgeti.sep.gob.mx/">Página Oficial de la DGETI</a></li>
+                <li><a href="https://www.morelia.tecnm.mx/">TECNM Morelia</a></li>
+            </ul>
+            <video width="400" height="300" controls autoplay muted loop>
+                <source src="/imagenes/vE.mp4" type="video/mp4">
+                Tu navegador no soporta el video
+            </video>
+        </aside>
+    </div>
+    <footer id="contacto">
+        <div class="f-container">
+            <div class="f-links">
+                <h3>Contacto</h3>
+                <ul>
+                    <li>
+                        <p>Direccion: Calle Roberto Pita Cornejo,
+                            Pátzcuaro Michoacán</p>
+                        <p>Telefono: (434) 342 1551</p>
+                        <p>Email: contacto@cbtis94.edu.mx</p>
+                        <p>&copy 2025 CBTIS 94 - Todos los derechos
+                            reservados</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+inicio.html:
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CBTis94</title>
+    <link rel="stylesheet" href="estilos.css">
+
+    <div class="grid-container">
+        <header class="header">
+            <img src="/imagenes/Logo.png" alt="Logo" class="logo">
+            <div class="header-text">
+                <h1>Centro de Matematicas No.94</h1>
+                <h2>Pátzcuaro Michoacán</h2>
+            </div>
+        </header>
+        <nav class="nav">
+            <a href="inicio.html">Inicio</a>
+            <a href="AlumnosForm.html">Alumnos</a>
+            <a href="ProfesoresForm.html">Profesores</a>
+            <a href="#contacto">Contacto</a>
+            <a href="CursosForm.html">Cursos</a>
+            <a href="Inscripcion.html">Inscripcion</a>
+            <a href="Especialidades.html">Especialidades</a>
+        </nav>
+        <main class="main">
+
+            <img class="imgInicio" src="/imagenes/imgI.webp" alt="Foto del plantel
+del cbtis 94, edificio administrativo">
+            <p>
+                Bienvenidos al sitio web del CBTis 94. En este
+                sitio encontrarás información oficial sobre las actividades y procesos
+                que se desarrollan en esta institución
+            <h2>Misión</h2>
+
+            <p>Formar Bachilleres Técnicos en las especialidades de Administración de Recursos Humanos,
+
+                Programación, Electricidad, Mecánica Industrial y Mecatrónica con los conocimientos técnicos
+
+                y científicos de vanguardia, acordes a los requerimientos y necesidades que demandan los
+
+                sectores productivos y de servicios de nuestro entorno. Que al egresar de nuestras aulas
+
+                conlleven un alto grado de compromiso social y humano, que coadyuve
+
+                al fortalecimiento de nuestro Municipio, Estado y Nación</p>
+
+
+
+            <h2>Visión</h2>
+
+            <p>Ser una Institución de nivel Medio Superior con el más alto grado de reconocimiento,
+
+                prestigio social y profesional por la calidad de nuestros educandos y egresados de
+
+                nuestra Planta Directiva, Docente y de Personal de Apoyo y Asistencia a la Educación.
+
+                Siendo la institución de este nivel educativo que mayor demanda escolar tenga en su entorno.
+
+                Que privilegie el conocimiento del saber, del hacer y del quehacer, certificando su calidad
+
+                de acuerdo a los más reconocidos estandares internacionales.</p>
+
+
+
+            <h2>Valores</h2>
+
+            <p>Trabajar con la verdad. Cumplir con las tareas encomendadas. Trabajar en equipo y en
+
+                constante comunicación. Igualdad de oportunidades para todos, desarrollo personal y
+
+                humano en nuestras actividades, capacitación continua, reconocimiento a nuestras tareas,
+
+                mejor calidad de vida en el trabajo y en el estudio, crear, innovar, implementar y
+
+                desarrollar nuestras ideologías dando lo mejor de cada uno de nosotros.</p>
+
+            <ul>
+
+                <li>Honestidad </li>
+
+                <li>Transparencia</li>
+
+                <li>Oportunidad</li>
+
+                <li>Eficacia</li>
+
+                <li>Amabilidad</li>
+
+                <li>Respeto</li>
+
+                <li>Responsabilidad</li>
+
+                <li>Tolerancia</li>
+
+                <li>Puntualidad</li>
+
+            </ul>
+        </main>
+
+        <aside class="sidebar">
+            <h3>Sitios de interés</h3>
+            <ul>
+                <li><a href="https://www.gob.mx/sep">Secretaría de Educación
+                        Pública</a></li>
+                <li><a href="https://dgeti.sep.gob.mx/">Página Oficial de la DGETI</a></li>
+                <li><a href="https://www.morelia.tecnm.mx/">TECNM Morelia</a></li>
+            </ul>
+            <video width="400" height="300" controls autoplay muted loop>
+                <source src="/imagenes/vE.mp4" type="video/mp4">
+                Tu navegador no soporta el video
+            </video>
+        </aside>
+    </div>
+    <footer id="contacto">
+        <div class="f-container">
+            <div class="f-links">
+                <h3>Contacto</h3>
+                <ul>
+                    <li>
+                        <p>Direccion: Calle Roberto Pita Cornejo,
+                            Pátzcuaro Michoacán</p>
+                        <p>Telefono: (434) 342 1551</p>
+                        <p>Email: contacto@cbtis94.edu.mx</p>
+                        <p>&copy 2025 CBTIS 94 - Todos los derechos
+                            reservados</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</head>
+
+<body>
+
+</body>
+
+</html>
