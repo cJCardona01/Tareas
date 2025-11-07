@@ -1,0 +1,236 @@
+LInk:https://www-w3schools-com.translate.goog/sql/sql_foreignkey.asp?_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=es&_x_tr_pto=tc
+* {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    margin: 0;
+    background-color: antiquewhite;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-areas:
+        "header header header"
+        "nav nav nav"
+        "main main sidebar"
+        "footer footer footer";
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto 1fr auto;
+    min-height: 100vh;
+    text-align: center;
+}
+
+.header {
+    grid-area: header;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    padding: 20px;
+    background-color: #3c80ff;
+    color: white;
+    text-align: center;
+}
+.header-text{
+    text-align: center;
+    flex: 1;
+    margin-right: 100px;
+}
+
+.header .logo {
+    width: 100px;
+    height: auto;
+}
+
+.nav {
+    grid-area: nav;
+    background: white;
+    display: flex;
+    gap: 30px;
+    padding: 15px;
+    justify-content: center;
+}
+
+.nav a {
+    color: 4613fe;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav a:hover {
+    text-decoration: underline;
+}
+
+main {
+    grid-area: main;
+    background: white;
+    padding: 20px;
+    color: #130820;
+
+}
+
+.sidebar {
+    grid-area: sidebar;
+    background: #2d3748;
+    padding: 20px;
+    margin: 2px;
+    color: white;
+}
+
+.sidebar a {
+    color: white;
+    text-decoration: underline;
+    font-style: italic;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.sidebar li {
+    list-style: none;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+    padding: 8px 10px;
+    background-color: #3c80ff;
+    color: #fbfdff;
+    font-size: 0.75rem;
+}
+
+.f-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.f-container div {
+    flex: 1;
+    margin: 10px;
+}
+
+.f-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.f-links ul li {
+    margin: 8px 0;
+}
+
+.f-links a {
+    color: #66fcf1;
+    text-decoration: none;
+}
+
+.f-links a:hover {
+    text-decoration: underline;
+}
+
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 20px auto;
+    max-width: 900px;
+}
+
+
+
+.galeria img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.galeria img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    filter: brightness(1.1);
+}
+
+.imgInicio {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/*otro*/
+p {
+    font-size: medium;
+}
+
+/* ESTILOS SIMPLES PARA FORMULARIOS */
+.main h4 {
+    color: #1317fe;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.card-body {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.pregunta {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form-label {
+    font-weight: bold;
+    color: #4613fe;
+}
+
+.form-control {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #4613fe;
+}
+
+button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #4613fe;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin: 5px;
+}
+
+button[type="submit"]:hover {
+    background-color: #8c38ec;
+}
+
+/* Para botón Limpiar */
+button[type="submit"]:nth-child(2) {
+    background-color: #6c757d;
+}
+
+button[type="submit"]:nth-child(2):hover {
+    background-color: #5a6268;
+}
