@@ -1,0 +1,43 @@
+<?php
+
+$servername = "localhost"; 
+$username = "23PROGA01"; 
+$password = "CBT94"; 
+$dbname = "23PROGA01"; 
+$tablename = "persona"; 
+
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Conexión fallida: " . $conn->connect_error);
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['registrar'])) {
+    
+    $nombre = $_POST['nombre'];
+    $apellido = $_POST['apellido'];
+    $email = $_POST['email'];
+    $telefono = $_POST['telefono'];
+    
+ 
+    $stmt = $conn->prepare("INSERT INTO $tablename (nombre, apellido, email, telefono) VALUES (?, ?, ?, ?)");
+    
+    
+    if ($stmt === false) {
+        die("Error en la preparación de la consulta: " . $conn->error);
+    }
+ 
+    $stmt->bind_param("ssss", $nombre, $apellido, $email, $telefono); 
+    
+
+    if ($stmt->execute()) {
+        echo "Nuevo registro creado exitosamente";
+    } else
+    echo "<h3 style='color: orange;'>⚠️ Acceso denegado. Por favor, envía el formulario desde la página de registro.</h3>";
+}
+
+?>
+
+<hr>
+<p><a href="index.html">Volver al formulario de registro</a></p>
