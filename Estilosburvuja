@@ -1,0 +1,170 @@
+/* ESTILOS GENERALES PARA FORMULARIOS */
+.main h4 {
+    color: #4613fe;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+}
+
+.card-body {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.pregunta {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-label {
+    font-weight: bold;
+    color: #4613fe;
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+.form-control {
+    padding: 12px 15px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background-color: #f8fafc;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #4613fe;
+    background-color: white;
+    box-shadow: 0 0 0 3px rgba(70, 19, 254, 0.1);
+}
+
+.form-control:hover {
+    border-color: #8c38ec;
+}
+
+button[type="submit"] {
+    padding: 12px 25px;
+    background-color: #4613fe;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 5px;
+}
+
+button[type="submit"]:hover {
+    background-color: #8c38ec;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+button[type="submit"]:active {
+    transform: translateY(0);
+}
+
+/* Estilos específicos para botones secundarios (como Limpiar) */
+button[type="submit"]:nth-child(2) {
+    background-color: #6c757d;
+}
+
+button[type="submit"]:nth-child(2):hover {
+    background-color: #5a6268;
+}
+
+/* Para formularios con selects */
+.form-select {
+    padding: 12px 15px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #f8fafc;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.form-select:focus {
+    outline: none;
+    border-color: #4613fe;
+    box-shadow: 0 0 0 3px rgba(70, 19, 254, 0.1);
+}
+
+/* Para formularios con textareas */
+.form-textarea {
+    padding: 12px 15px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #f8fafc;
+    resize: vertical;
+    min-height: 100px;
+    font-family: Arial, Helvetica, sans-serif;
+    transition: all 0.3s ease;
+}
+
+.form-textarea:focus {
+    outline: none;
+    border-color: #4613fe;
+    background-color: white;
+    box-shadow: 0 0 0 3px rgba(70, 19, 254, 0.1);
+}
+
+/* Para grupos de botones */
+.form-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+/* Mensajes de error/éxito */
+.form-message {
+    padding: 12px;
+    border-radius: 8px;
+    margin: 15px 0;
+    text-align: center;
+    font-weight: bold;
+}
+
+.form-message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.form-message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Responsive para formularios */
+@media (max-width: 768px) {
+    .card-body {
+        margin: 0 15px;
+        padding: 20px;
+    }
+    
+    .form-buttons {
+        flex-direction: column;
+    }
+    
+    button[type="submit"] {
+        width: 100%;
+    }
+}
