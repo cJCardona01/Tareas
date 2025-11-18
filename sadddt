@@ -1,0 +1,125 @@
+<?php
+include("Conexion.php");
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $nomAlumno = $_POST['nomAlumno'];
+    $apellidosAlumno = $_POST['apellidosAlumno'];
+    $semestre  = $_POST['semestre'];
+    $id_especialidad  = $_POST['id_especialidad'];
+
+
+    if (!empty($nomAlumno) && !empty($apellidosAlumno)) {
+        $sql = "INSERT INTO tblAlumnos (nomAlumno, apellidosAlumno, semestre, id_especialidad) VALUES (?, ?, ?, ?)";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("ssss", $nomAlumno, $apellidosAlumno,$semestre, $id_especialidad);
+
+        if ($stmt->execute()) {
+            echo "Alumno agregado correctamente.";
+         
+        } else {
+            echo "Error: " . $conn->error;
+        }
+        $stmt->close();
+    } else {
+        echo "Por favor completa todos los campos.";
+    }
+}
+?>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CBTis94</title>
+    <link rel="stylesheet" href="estilos.css">
+
+    <div class="grid-container">
+        <header class="header">
+            <img src="/ProyectoCAWEB/imagenes/Logo.png" alt="Logo" class="logo">
+            <div class="header-text">
+                <h1>Centro de Matematicas No.94</h1>
+                <h2>Pátzcuaro Michoacán</h2>
+            </div>
+        </header>
+        <nav class="nav">
+            <a href="index.html">Inicio</a>
+            <a href="AlumnosTabla.php">Alumnos</a>
+            <a href="ProfesoresTabla.html">Profesores</a>
+            <a href="#contacto">Contacto</a>
+            <a href="CursosForm.php">Cursos</a>
+            <a href="Inscripcion.php">Inscripcion</a>
+            <a href="EspecialidadesForm.php">Especialidades</a>
+        </nav>
+        <main class="main">
+             <h4>Agregar Alumno</h4>     
+             <div class="card-body">
+                
+                <form id="formAgregarA" method="POST" action="AlumnosForm.php" >
+                    <div class="pregunta">
+                        <label for="nomAlumno" class="form-label">Nombre del Alumno</label>
+                        <input type="text" class="form-control" id="nomAlumno" name="nomAlumno" required>
+                    </div>
+
+                    <div class="pregunta">
+                        <label for="apellidosAlumno" class="form-label">Apellidos del Alumno</label>
+                        <input type="text" class="form-control" id="apellidosAlumno" name="apellidosAlumno" required>
+                    </div>
+
+
+                    <div class="pregunta">
+                        <label for="semestre" class="form-label">Semestre</label>
+                        <input type="text" class="form-control" id="semestre" name="semestre" required>
+                    </div>
+
+                    <div class="pregunta">
+                        <label for="id_especialidad" class="form-label">Id Especialidad</label>
+                        <input type="text" class="form-control" id="id_especialidad" name="id_especialidad" required>
+                    </div>
+                    <input type="submit" value="Guardar Alumno">
+                </form>
+                <a href=""></a>
+             </div>  
+        </main>
+
+        <aside class="sidebar">
+            <h3>Sitios de interés</h3>
+            <ul>
+                <li><a href="https://www.gob.mx/sep">Secretaría de Educación
+                        Pública</a></li>
+                <li><a href="https://dgeti.sep.gob.mx/">Página Oficial de la DGETI</a></li>
+                <li><a href="https://www.morelia.tecnm.mx/">TECNM Morelia</a></li>
+            </ul>
+            <video width="400" height="300" controls autoplay muted loop>
+                <source src="/imagenes/vE.mp4" type="video/mp4">
+                Tu navegador no soporta el video
+            </video>
+        </aside>
+    </div>
+    <footer id="contacto">
+        <div class="f-container">
+            <div class="f-links">
+                <h3>Contacto</h3>
+                <ul>
+                    <li>
+                        <p>Direccion: Calle Roberto Pita Cornejo,
+                            Pátzcuaro Michoacán</p>
+                        <p>Telefono: (434) 342 1551</p>
+                        <p>Email: contacto@cbtis94.edu.mx</p>
+                        <p>&copy 2025 CBTIS 94 - Todos los derechos
+                            reservados</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</head>
+
+<body>
+
+</body>
+
+</html>
