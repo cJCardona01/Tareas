@@ -1,0 +1,236 @@
+<?php
+include("Conexion.php");
+
+if (isset($_GET['id_curso']) && isset($_GET['id_alumno'])) {
+    $id = $_GET['id_curso'];
+    $id = $_GET['id_alumno'];
+
+
+    $sql = "DELETE FROM tblInscripciones WHERE id_curso = ? AND id_alumno = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ii", $id_curso, $id_alumno);
+
+    if ($stmt->execute()) {
+        echo "Inscripcion eliminado correctamente.";
+        echo "<br><a href='InscripcionTabla.php'>Volver a la lista</a>";
+        exit;
+    } else {
+        echo "Error al eliminar: " . $conn->error;
+    }
+} else {
+    echo "No se especificó la inscripcion a eliminar.";
+    echo "<br><a href='InscripcionTabla.php'>Volver a la lista</a>";
+}
+?>
+
+
+
+
+
+<?php
+include("Conexion.php");
+
+if (isset($_GET['id_alumno'])) {
+    $id = $_GET['id_alumno'];
+    $sql = "SELECT * FROM tblAlumnos WHERE id_alumno = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    $resultado = $stmt->get_result();
+    $alumno = $resultado->fetch_assoc();
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $id       = $_POST['id_alumno'];   
+    $nomAlumno   = $_POST['nomAlumno'];
+    $apellidosAlumno = $_POST['apellidosAlumno'];
+    $semestre    = $_POST['semestre'];
+    $id_especialidad    = $_POST['id_especialidad'];
+
+    $sql = "UPDATE tblAlumnos 
+            SET nomAlumno = ?, apellidosAlumno = ?, semestre = ?, id_especialidad = ? 
+            WHERE id_alumno = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ssiii", $nomAlumno, $apellidosAlumno, $semestre, $id_especialidad, $id);
+
+    if ($stmt->execute()) {
+        echo "Alumno actualizado correctamente.";
+        echo "<br><a href='AlumnosTabla.php'>Volver a la lista</a>";
+        exit;
+    } else {
+        echo "Error: " . $conn->error;
+    }
+}
+?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Alumno</title>
+    <link rel="stylesheet" href="/ProyectoCAWEB/estilos.css">
+</head>
+<body>
+    <div class="grid-container">
+        <header class="header">
+            <img src="/ProyectoCAWEB/imagenes/Logo.png" alt="Logo" class="logo">
+            <div class="header-text">
+                <h1>Centro de Matematicas No.94</h1>
+                <h2>Pátzcuaro Michoacán</h2>
+            </div>
+        </header>
+        <nav class="nav">
+            <a href="index.html">Inicio</a>
+            <a href="AlumnosTabla.php">Alumnos</a>
+            <a href="ProfesoresTabla.php">Profesores</a>
+            <a href="#contacto">Contacto</a>
+            <a href="CursosTabla.php">Cursos</a>
+            <a href="InscripcionTabla.php">Inscripcion</a>
+            <a href="EspecialidadesTabla.php">Especialidades</a>
+        </nav>
+        <main class="main">
+            <h2>Editar Alumno</h2>
+
+            <form method="POST" action="Alumnos_Edit.php" class="card-body">
+                <input type="hidden" name="id_alumno" value="<?= htmlspecialchars($alumno['id_alumno']) ?>">
+
+                <div class="pregunta">
+                    <label for="nomAlumno" class="form-label">Nombre:</label>
+                    <input type="text" name="nomAlumno" id="nomAlumno" class="form-control" value="<?= htmlspecialchars($alumno['nomAlumno']) ?>" required>
+                </div>
+
+                <div class="pregunta">
+                    <label for="apellidosAlumno" class="form-label">Apellido:</label>
+                    <input type="text" name="apellidosAlumno" id="apellidosAlumno" class="form-control" value="<?= htmlspecialchars($alumno['apellidosAlumno']) ?>" required>
+                </div>
+
+                <div class="pregunta">
+                    <label for="semestre" class="form-label">Semestre:</label>
+                    <input type="number" name="semestre" id="semestre" class="form-control" value="<?= htmlspecialchars($alumno['semestre']) ?>" required>
+                </div>
+
+                <div class="pregunta">
+                    <label for="id_especialidad" class="form-label">Id Especialidad:</label>
+                    <input type="number" name="id_especialidad" id="id_especialidad" class="form-control" value="<?= htmlspecialchars($alumno['id_especialidad']) ?>" required>
+                </div>
+
+                <input type="submit" value="Actualizar Alumno">
+            </form>
+        
+            <br>
+            <a href="AlumnosTabla.php">Volver a la lista</a>
+        </main>
+        
+        <aside class="sidebar">
+            <h3>Sitios de interés</h3>
+            <ul>
+                <li><a href="https://www.gob.mx/sep">Secretaría de Educación Pública</a></li>
+                <li><a href="https://dgeti.sep.gob.mx/">Página Oficial de la DGETI</a></li>
+                <li><a href="https://www.morelia.tecnm.mx/">TECNM Morelia</a></li>
+            </ul>
+            <video width="400" height="300" controls autoplay muted loop>
+                <source src="/imagenes/vE.mp4" type="video/mp4">
+                Tu navegador no soporta el video
+            </video>
+        </aside>
+    </div>
+    
+    <footer id="contacto">
+        <div class="f-container">
+            <div class="f-links">
+                <h3>Contacto</h3>
+                <ul>
+                    <li>
+                        <p>Direccion: Calle Roberto Pita Cornejo, Pátzcuaro Michoacán</p>
+                        <p>Telefono: (434) 342 1551</p>
+                        <p>Email: contacto@cbtis94.edu.mx</p>
+                        <p>&copy 2025 CBTIS 94 - Todos los derechos reservados</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+
+
+<?php 
+include("Inscripcion_Logic.php"); 
+$listaInscripciones = obtenerInscripciones($conn);
+?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>CRUD INCRIPCIONES</title>
+    <link rel="stylesheet" href="/ProyectoCAWEB/estilos.css">
+</head>
+<body>
+    <div class="grid-container">
+        <header class="header">
+            <img src="/ProyectoCAWEB/imagenes/Logo.png" alt="Logo" class="logo">
+            <div class="header-text">
+                <h1>Centro de Matematicas No.94</h1>
+                <h2>Pátzcuaro Michoacán</h2>
+            </div>
+        </header>
+        <nav class="nav">
+            <a href="index.html">Inicio</a>
+            <a href="AlumnosTabla.php">Alumnos</a>
+            <a href="ProfesoresTabla.php">Profesores</a>
+            <a href="#contacto">Contacto</a>
+            <a href="CursosTabla.php">Cursos</a>
+            <a href="InscripcionTabla.php">Inscripcion</a>
+            <a href="EspecialidadesTabla.php">Especialidades</a>
+        </nav>
+        <main class="main">
+            <h2>Lista de Inscripciones</h2>
+            <a href="InscripcionForm.php">Inscribir a alguien</a>
+            <table border="1">
+                <tr>
+                    <th>ID ALUMNO</th><th>ID CURSO</th><th>Acciones</th>
+                </tr>
+                <?php foreach($listaInscripciones as $inscripcion): ?>
+                <tr>
+                <td><?= $inscripcion['id_alumno'] ?></td>
+                <td><?= $inscripcion['id_curso'] ?></td>
+                <td>
+            <a href="Inscripcion_Edit.php?id_alumno=<?= $inscripcion['id_alumno'] ?>&id_curso=<?= $inscripcion['id_curso'] ?>">Editar</a> |
+            <a href="Inscripcion_Delete.php?id_alumno=<?= $inscripcion['id_alumno'] ?>&id_curso=<?= $inscripcion['id_curso'] ?>">Eliminar</a>
+        </td>
+             </tr>
+<?php endforeach; ?>
+            </table>
+            <a href="index.html">Volver al menu</a>
+        </main>
+        
+        <aside class="sidebar">
+            <h3>Sitios de interés</h3>
+            <ul>
+                <li><a href="https://www.gob.mx/sep">Secretaría de Educación Pública</a></li>
+                <li><a href="https://dgeti.sep.gob.mx/">Página Oficial de la DGETI</a></li>
+                <li><a href="https://www.morelia.tecnm.mx/">TECNM Morelia</a></li>
+            </ul>
+            <video width="400" height="300" controls autoplay muted loop>
+                <source src="/imagenes/vE.mp4" type="video/mp4">
+                Tu navegador no soporta el video
+            </video>
+        </aside>
+    </div>
+    
+    <footer id="contacto">
+        <div class="f-container">
+            <div class="f-links">
+                <h3>Contacto</h3>
+                <ul>
+                    <li>
+                        <p>Direccion: Calle Roberto Pita Cornejo, Pátzcuaro Michoacán</p>
+                        <p>Telefono: (434) 342 1551</p>
+                        <p>Email: contacto@cbtis94.edu.mx</p>
+                        <p>&copy 2025 CBTIS 94 - Todos los derechos reservados</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
