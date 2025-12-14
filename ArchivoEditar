@@ -1,0 +1,173 @@
+<?php
+ini_set('display_errors', 1);
+   ini_set('display_startup_errors', 1);
+   error_reporting(E_ALL);
+include("conexion.php");
+
+
+
+
+if (isset($_GET['ClasificacionReactivoId'])) {
+   $id = $_GET['ClasificacionReactivoId'];
+   $sql = "SELECT * FROM Clasificacion_de_Reactivos WHERE ClasificacionReactivoId = ?";
+   $stmt = $conexion->prepare($sql);
+   $stmt->bind_param("i", $id);
+   $stmt->execute();
+   $resultado = $stmt->get_result();
+   $ClasificacionReactivo = $resultado->fetch_assoc();
+}
+
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+   $id= $_POST['ClasificacionReactivoId'];  
+   $Color = $_POST['Color'];
+   $Nivel = $_POST['Nivel'];
+  
+//me falta editar todo lo de aqui
+
+
+   $sql = "UPDATE Clasificacion_de_Reactivos
+           SET Color = ?, Nivel = ?
+           WHERE  ClasificacionReactivoId= ?";
+   $stmt = $conexion->prepare($sql);
+   $stmt->bind_param("ssi", $Color, $Nivel, $id);
+
+
+   if ($stmt->execute()) {
+       header ("Location: clasificacion_reactivo.php");
+       exit;
+   } else {
+       echo "Error: " . $conexion->error;
+   }
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <style>
+   body {
+       background-color: #121212;
+       color: #e0e0e0;
+       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+       margin: 40px;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       min-height: 90vh;
+   }
+
+
+   form.form {
+       background-color: #1e1e1e;
+       padding: 30px 40px;
+       border-radius: 10px;
+       box-shadow: 0 0 20px rgba(102, 204, 255, 0.4);
+       width: 350px;
+   }
+
+
+   h2.centrar {
+       text-align: center;
+       color: #66ccff;
+       margin-bottom: 25px;
+       font-weight: 700;
+   }
+
+
+   label {
+       display: block;
+       margin-bottom: 8px;
+       font-weight: 600;
+       color: #99ddff;
+   }
+
+
+   input[type="text"] {
+       width: 100%;
+       padding: 10px 8px;
+       margin-bottom: 20px;
+       border-radius: 5px;
+       border: 1px solid #444;
+       background-color: #222;
+       color: #e0e0e0;
+       font-size: 1em;
+       transition: border-color 0.3s ease;
+   }
+
+
+   input[type="text"]:focus {
+       border-color: #66ccff;
+       outline: none;
+       box-shadow: 0 0 8px #66ccff;
+   }
+
+
+   input.enviar {
+       width: 100%;
+       padding: 12px;
+       background-color: #66ccff;
+       border: none;
+       border-radius: 6px;
+       color: #121212;
+       font-weight: 700;
+       font-size: 1.1em;
+       cursor: pointer;
+       transition: background-color 0.3s ease;
+   }
+
+
+   input.enviar:hover {
+       background-color: #99ddff;
+   }
+
+
+   a.centrarText {
+       display: block;
+       text-align: center;
+       margin-top: 20px;
+       color: #66ccff;
+       font-weight: 600;
+       text-decoration: none;
+       transition: color 0.3s ease;
+   }
+
+
+   a.centrarText:hover {
+       color: #99ddff;
+       text-decoration: underline;
+   }
+</style>
+
+
+
+
+</head>
+<body>
+
+
+    
+           <form method="POST" class="form" action="Clasificacion_reactivo_editar.php">
+               <h2 class="centrar" style="color: rgb(255, 255, 255);">Editar a una clasificacion de reactivos</h2>
+               <input type="hidden" name="ClasificacionReactivoId" value="<?= htmlspecialchars($ClasificacionReactivo['ClasificacionReactivoId']) ?>">
+
+
+               <label for="Color">Color:</label>
+               <input type="text" id="Color" name="Color" value="<?= htmlspecialchars($ClasificacionReactivo['Color']) ?>" required><br><br>
+
+
+                <label for="Nivel">Nivel:</label>
+               <input type="text" id="Nivel" name="Nivel" value="<?= htmlspecialchars($ClasificacionReactivo['Nivel']) ?>" required><br><br>
+
+
+                <input type="submit" value="Editar" class="enviar">
+           </div>
+           <a href="clasificacion_reactivo.php" class="centrarText">Regresar</a>
+
+
+</body>
+</html>
+
+
