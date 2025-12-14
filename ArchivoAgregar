@@ -1,0 +1,179 @@
+<?php
+ini_set('display_errors', 1);
+   ini_set('display_startup_errors', 1);
+   error_reporting(E_ALL);
+
+
+include("conexion.php");
+
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+   $Color = $_POST['Color'];
+   $Nivel = $_POST['Nivel'];
+
+
+   if (!empty($Color) && !empty($Nivel)) {
+       $sql = "INSERT INTO Clasificacion_de_Reactivos (Color, Nivel) VALUES (?, ?)";
+       $stmt = $conexion->prepare($sql);
+       $stmt->bind_param("ss", $Color, $Nivel);
+
+
+       if ($stmt->execute()) {
+             header ("Location:clasificacion_reactivo.php");
+       
+       } else {
+           echo "Error: " . $conexion->error;
+       }
+       $stmt->close();
+   } else {
+       echo "Por favor completa todos los campos.";
+   }
+}
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+<style>
+   /* Estilos generales */
+body {
+   background-color: #121212;
+   color: #e0e0e0;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   margin: 40px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   min-height: 90vh;
+}
+
+
+/* Contenedor central */
+.centrar {
+   width: 100%;
+   max-width: 400px;
+   margin: 0 auto;
+}
+
+
+/* Formulario */
+form.form {
+   background-color: #1e1e1e;
+   padding: 30px 40px;
+   border-radius: 10px;
+   box-shadow: 0 0 20px rgba(102, 204, 255, 0.4);
+}
+
+
+/* Título */
+h2.centrar {
+   text-align: center;
+   color: #66ccff;
+   margin-bottom: 25px;
+   font-weight: 700;
+}
+
+
+/* Etiquetas */
+label {
+   display: block;
+   margin-bottom: 8px;
+   font-weight: 600;
+   color: #99ddff;
+}
+
+
+/* Inputs */
+input[type="text"] {
+   width: 100%;
+   padding: 10px 8px;
+   margin-bottom: 20px;
+   border-radius: 5px;
+   border: 1px solid #444;
+   background-color: #222;
+   color: #e0e0e0;
+   font-size: 1em;
+   transition: border-color 0.3s ease;
+}
+
+
+input[type="text"]:focus {
+   border-color: #66ccff;
+   outline: none;
+   box-shadow: 0 0 8px #66ccff;
+}
+
+
+/* Botón enviar */
+input.enviar {
+   width: 100%;
+   padding: 12px;
+   background-color: #66ccff;
+   border: none;
+   border-radius: 6px;
+   color: #121212;
+   font-weight: 700;
+   font-size: 1.1em;
+   cursor: pointer;
+   transition: background-color 0.3s ease;
+}
+
+
+input.enviar:hover {
+   background-color: #99ddff;
+}
+
+
+/* Enlace regresar */
+a {
+   display: block;
+   width: 80px;
+   margin: 20px auto 0 auto;
+   padding: 10px 0;
+   background-color: #66ccff;
+   color: #121212;
+   border-radius: 5px;
+   text-align: center;
+   font-weight: 700;
+   box-shadow: 0 0 8px #66ccff;
+   text-decoration: none;
+   transition: background-color 0.3s ease, color 0.3s ease;
+}
+a:hover {
+   background-color: #99ddff;
+   color: #000;
+}
+</style>
+</head>
+<body>
+
+
+   <div class="centrar">
+         
+       <form action="Agregar_clasificacion_reactivo.php" method="post" class="form">
+           <h2 class="centrar">Registro de la clasificacion del reactivo</h2>
+
+
+           <label for="Color">Color:</label>
+           <input type="text" id="Color" name="Color" required><br><br>
+
+
+           <label for="Nivel">Nivel:</label>
+           <input type="text" id="Nivel" name="Nivel" required><br><br>
+
+
+
+
+           <input type="submit" value="Enviar" class="enviar">
+       </form>
+   </div>
+   <a href="clasificacion_reactivo.php">Regresar</a>
+ 
+</body>
+</html>
+
+
