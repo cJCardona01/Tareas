@@ -1,0 +1,29 @@
+<?php
+ini_set('display_errors', 1);
+   ini_set('display_startup_errors', 1);
+   error_reporting(E_ALL);
+
+
+include("conexion.php");
+
+
+if (isset($_GET['ClasificacionReactivoId'])) {
+   $id = $_GET['ClasificacionReactivoId'];
+
+
+   $sql = "DELETE FROM Clasificacion_de_Reactivos WHERE ClasificacionReactivoId = ?";
+   $stmt = $conexion->prepare($sql);
+   $stmt->bind_param("i", $id);
+
+
+   if ($stmt->execute()) {
+         header ("Location: clasificacion_reactivo.php");
+       exit;
+   } else {
+       echo "Error al eliminar: " . $conexion->error;
+   }
+} else {
+   echo "No se especificó la clasificacion del reactivo a eliminar.";
+   echo "<br><a href='Clasificacion_reactivos.php'>Volver a la lista</a>";
+}
+?>
