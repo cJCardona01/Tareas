@@ -1,0 +1,162 @@
+import 'package:flutter/material.dart';
+
+void main() => runApp(const ScaffoldExampleApp());
+
+class ScaffoldExampleApp extends StatelessWidget {
+  const ScaffoldExampleApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: ScaffoldExample(),
+    );
+  }
+}
+
+class ScaffoldExample extends StatefulWidget {
+  const ScaffoldExample({super.key});
+
+  @override
+  State<ScaffoldExample> createState() => _ScaffoldExampleState();
+}
+
+class _ScaffoldExampleState extends State<ScaffoldExample> {
+  int _count = 0;
+  String selectedPage = 'Home';
+
+  void _mostrarSnackBar(BuildContext context, String mensaje) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(mensaje),
+        duration: const Duration(milliseconds: 1500),
+        behavior: SnackBarBehavior.floating,
+        width: 280.0,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.0),
+        ),
+        action: SnackBarAction(
+          label: 'Cerrar',
+          onPressed: () {},
+        ),
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Sample Code'),
+        backgroundColor: Colors.blue,
+      ),
+      
+      // CUERPO: Aquí es donde activamos la tabla
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('Página actual: $selectedPage', 
+              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+            const SizedBox(height: 20),
+            Text('Has presionado el botón $_count veces.'),
+            const SizedBox(height: 20), 
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: const DataTableExample(),
+            ),
+          ],
+        ),
+      ),
+
+      bottomNavigationBar: BottomNavigationBar(
+        onTap: (index) {
+          _mostrarSnackBar(context, 'Cambiando a pestaña $index');
+        },
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.business), label: 'Business'),
+          BottomNavigationBarItem(icon: Icon(Icons.school), label: 'School'),
+        ],
+      ),
+
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            const DrawerHeader(
+              decoration: BoxDecoration(color: Colors.blue),
+              child: Text(
+                'Drawer Header',
+                style: TextStyle(color: Colors.white, fontSize: 24),
+              ),
+            ),
+            ListTile(
+              leading: const Icon(Icons.message),
+              title: const Text('Messages'),
+              onTap: () {
+                setState(() => selectedPage = 'Messages');
+                Navigator.pop(context);
+                _mostrarSnackBar(context, 'Abriendo Mensajes...');
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.account_circle),
+              title: const Text('Profile'),
+              onTap: () {
+                setState(() => selectedPage = 'Profile');
+                Navigator.pop(context);
+                _mostrarSnackBar(context, 'Viendo Perfil');
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.settings),
+              title: const Text('Settings'),
+              onTap: () {
+                setState(() => selectedPage = 'Settings');
+                Navigator.pop(context);
+                _mostrarSnackBar(context, 'Configuración');
+              },
+            ),
+          ],
+        ),
+      ),
+
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          setState(() => _count++);
+          _mostrarSnackBar(context, '¡Contador: $_count!');
+        },
+        child: const Icon(Icons.rocket_launch),
+      ),
+    );
+  }
+}
+
+// Widget de la Tabla (Fuera de la clase principal para orden)
+class DataTableExample extends StatelessWidget {
+  const DataTableExample({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return DataTable(
+      columns: const <DataColumn>[
+        DataColumn(label: Text('Name', style: TextStyle(fontStyle: FontStyle.italic))),
+        DataColumn(label: Text('Age', style: TextStyle(fontStyle: FontStyle.italic))),
+        DataColumn(label: Text('Role', style: TextStyle(fontStyle: FontStyle.italic))),
+      ],
+      rows: const <DataRow>[
+        DataRow(cells: <DataCell>[
+          DataCell(Text('Sarah')),
+          DataCell(Text('19')),
+          DataCell(Text('Student')),
+        ]),
+        DataRow(cells: <DataCell>[
+          DataCell(Text('Janine')),
+          DataCell(Text('43')),
+          DataCell(Text('Professor')),
+        ]),
+      ],
+    );
+  }
+}
