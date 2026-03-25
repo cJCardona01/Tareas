@@ -1,0 +1,145 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Práctica Card',
+      home: HomeScreen(),
+      debugShowCheckedModeBanner: false,
+    );
+  }
+}
+
+class HomeScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('Ejemplo Card')),
+      body: ListView(
+        padding: EdgeInsets.all(10),
+        children: [
+          Card(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(30), // Esquinas muy redondeadas
+            ),
+            color: const Color.fromARGB(255, 206, 183, 233),
+            child: ListTile(
+              leading: CircleAvatar(
+                backgroundImage: NetworkImage('https://previews.123rf.com/images/rawpixel/rawpixel1704/rawpixel170441704/76561515-people-portrait-studio-shoot-with-smiling-face-expression.jpg'), // Imagen de internet
+              ),
+              title: Text('Ana López'),
+              subtitle: Text('Contabilidad'),
+            ),
+          ),
+          Card(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(30), // Esquinas muy redondeadas
+            ),
+            // cambio color
+            color: const Color.fromARGB(255, 247, 237, 185),
+            child: ListTile(
+              leading: CircleAvatar(
+                backgroundImage: NetworkImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSO9plSa9KW-5s7zPcuPp_7RiSZU8Yv5BRvA&s'), // Imagen de internet
+              ),
+
+              title: Text('Angel Ruiz'),
+              subtitle: Text('Programación'),
+            ),
+          ),
+
+          Card(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(30), // Esquinas muy redondeadas
+            ),           
+            color: const Color.fromARGB(255, 222, 206, 241),
+            child: ListTile(
+              leading: CircleAvatar(
+                backgroundImage: NetworkImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7I7HyE4katbJHadjFl6NyQF9oFqqnBHbGGA&s'), // Imagen de internet
+              ),
+              title: Text('Jessica Sanchez'),
+              subtitle: Text('Puericultura'),
+            ),
+          ),
+          Card(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(30), // Esquinas muy redondeadas
+            ),
+            // cambio color
+            color: const Color.fromARGB(255, 247, 237, 185),
+            child: ListTile(
+              leading: CircleAvatar(
+                backgroundImage: NetworkImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSn-Xnwi290q2svkMpWhVS_JmNp30RMLGkBPA&s'), // Imagen de internet
+              ),
+
+              title: Text('Alejandro Ruiz'),
+              subtitle: Text('Programación'),
+            ),
+          ),
+          Card(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(30), // Esquinas muy redondeadas
+            ),
+            color: const Color.fromARGB(255, 241, 241, 183),
+            child: ListTile(
+              leading: CircleAvatar(
+                backgroundImage: NetworkImage('https://media.istockphoto.com/id/1766352902/es/v%C3%ADdeo/diversidad-de-personas-muchas-razas-diferentes-retrato-de-rostro-multi%C3%A9tnico-mezcla-humana.jpg?s=640x640&k=20&c=jJK56ZTa6OJ5eFLsMoIWd9M-YvuumhuE5b-69Q2MYEc='), // Imagen de internet
+              ),
+
+              title: Text('Carmen Cardona'),
+              subtitle: Text('Programación'),
+            ),
+          ),
+          Card(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(30), // Esquinas muy redondeadas
+            ),
+            // cambio color
+            color: const Color.fromARGB(255, 247, 237, 185),
+            child: ListTile(
+              leading: CircleAvatar(
+                backgroundImage: NetworkImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQORMmf_hP8nuiqNKA0hely-zOf02P9mxCWLQ&s'), // Imagen de internet
+              ),
+
+              title: Text('Maia Ruiz'),
+              subtitle: Text('Programación'),
+            ),
+          ),
+          Card(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(30), // Esquinas muy redondeadas
+            ),
+            color: const Color.fromARGB(255, 206, 177, 240),
+            child: ListTile(
+              //poner imagenes en icono
+              leading: CircleAvatar(
+                backgroundImage: NetworkImage('https://hips.hearstapps.com/elle-es/assets/15/37/original/original-por-ti-rostros-activos-personas-luchadoras-12718597-1-esl-es-rostros-activos-personas-luchadoras-jpg.jpg'), // Imagen de internet
+              ),
+              title: Text('María Gómez'),
+              subtitle: Text('Electricidad'),
+            ),
+          ),
+          Card(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(30), // Esquinas muy redondeadas
+            ),
+            // cambio color
+            color: const Color.fromARGB(255, 247, 237, 185),
+            child: ListTile(
+              leading: CircleAvatar(
+                backgroundImage: NetworkImage('https://previews.123rf.com/images/rawpixel/rawpixel1706/rawpixel170660239/81581932-people-portrait-studio-shoot-with-smiling-face-expression.jpg'), // Imagen de internet
+              ),
+
+              title: Text('Carlos Ruiz'),
+              subtitle: Text('Programación'),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
