@@ -1,0 +1,148 @@
+home_page.dart:
+import 'package:flutter/material.dart';
+import 'pagina1.dart';
+import 'pagina2.dart';
+import 'pagina3.dart';
+import 'pagina4.dart';
+
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+  @override
+  Widget build(BuildContext context) {
+    final TextEditingController _nombreController = TextEditingController();
+    return Scaffold(
+      appBar: AppBar(title: const Text("Home")),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: TextField(
+                controller: _nombreController, // 2. Lo conectas
+                decoration: const InputDecoration(
+                  labelText: "Escribe tu nombre:",
+                ),
+              ),
+            ),
+
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) =>
+                        Pagina1(nombre: _nombreController.text),
+                  ),
+                );
+              },
+              child: const Text("Ir a la pagina 1"),
+            ),
+            const SizedBox(height: 20),
+
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Pagina2()),
+                );
+              },
+              child: const Text("Ir a la pagina 2"),
+            ),
+            const SizedBox(height: 20),
+
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Pagina3()),
+                );
+              },
+              child: const Text("Ir a la pagina 3"),
+            ),
+            const SizedBox(height: 20),
+
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Pagina4()),
+                );
+              },
+              child: const Text("Ir a la pagina 4"),
+            ),
+            const SizedBox(height: 20),
+
+            Image.network(
+              'https://www.shutterstock.com/image-vector/welcome-spanish-language-600nw-2555287773.jpg',
+              width: 300,
+              height: 300,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+
+
+
+pagina1.dart:
+import 'package:flutter/material.dart';
+import 'pagina3.dart';
+
+class Pagina1 extends StatelessWidget {
+  final String nombre;
+  const Pagina1({super.key, required this.nombre});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text("Pagina 1")),
+      body: Center(
+        child: Column(
+          children: [
+            Text(
+              "Bienvenido $nombre",
+              style: const TextStyle(
+                fontSize: 30, // Cambia este número para ajustar el tamaño
+                fontWeight:
+                    FontWeight.bold, // Opcional: para que se vea en negrita
+                color: Colors.blue, // Opcional: para darle color
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: const Text("Regresar"),
+            ),
+            const SizedBox(height: 20),
+
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Pagina3()),
+                );
+              },
+              child: const Text("Ir a la pagina 3"),
+            ),
+            Image.network(
+              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuW3fze4k46i477wn-439j341RDXSIeaMiJQ&s',
+              width: 300,
+              height: 300,
+            ),
+            SizedBox(height: 10),
+            Image.network(
+              'https://ichef.bbci.co.uk/ace/ws/800/cpsprodpb/E97C/production/_128027795_gettyimages-636379014.jpg.webp',
+              width: 300,
+              height: 300,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
