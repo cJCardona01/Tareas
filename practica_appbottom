@@ -1,0 +1,218 @@
+Main sencillo:
+import 'package:flutter/material.dart';
+import 'pages/home_page.dart';
+//import 'pages/pagina1.dart';
+//import 'pages/pagina2.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Navegación App',
+      home: const HomePage(),
+    );
+  }
+}
+
+home_page.dart:
+import 'package:flutter/material.dart';
+import 'buscar_page.dart';
+import 'favoritos_page.dart';
+import 'configuracion_page.dart';
+
+
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text("Menu principal")),
+      body: Center(
+       
+       child: Text("Pantalla de Inicio"),
+
+        
+      ),
+      bottomNavigationBar: BottomAppBar(
+        color: Colors.blue,
+        child: IconTheme(
+          data: IconThemeData(color: Theme.of(context).colorScheme.onPrimary),
+          child: Row(
+            children: <Widget>[
+              IconButton(
+                tooltip: 'Inicio',
+                icon: const Icon(Icons.home),
+                onPressed: () {
+                  Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const HomePage()),
+                  );
+                },
+              ),
+              IconButton(
+                tooltip: 'Buscar',
+                icon: const Icon(Icons.search),
+                onPressed: () {
+                  Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const BuscarPage()),
+                );
+                },
+              ),
+              IconButton(
+                tooltip: 'Favorito',
+                icon: const Icon(Icons.favorite),
+                onPressed: (
+                ) {
+                  Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const FavoritosPage()),
+                  );
+                },
+              ),
+              IconButton(
+                tooltip: 'Configuracion',
+                icon: const Icon(Icons.settings),
+                onPressed: () {
+                  Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const ConfiguracionPage()),
+                  );
+                },
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+// ignore: unused_element
+
+
+pagina sencilla:
+import 'package:flutter/material.dart';
+import 'pages/home_page.dart';
+//import 'pages/pagina1.dart';
+//import 'pages/pagina2.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Navegación App',
+      home: const HomePage(),
+    );
+  }
+}
+
+
+
+home_page.dart:
+import 'package:flutter/material.dart';
+import 'buscar_page.dart';
+import 'favoritos_page.dart';
+import 'configuracion_page.dart';
+
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text("Menu principal")),
+      body: Center(
+        // Se añade Column para organizar los nuevos elementos
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Icon(
+              Icons.home,
+              size: 100, // Icono grande
+              color: Colors.blue,
+            ),
+            const SizedBox(height: 20),
+            const Text(
+              "¡Bienvenida!",
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+            const Text(
+              "Carmen Jessica Cardona Rosas",
+              style: TextStyle(fontSize: 18),
+            ),
+            const SizedBox(height: 30),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const BuscarPage()),
+                );
+              },
+              child: const Text("Continuar"),
+            ),
+          ],
+        ),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        color: Colors.blue,
+        child: IconTheme(
+          data: IconThemeData(color: Theme.of(context).colorScheme.onPrimary),
+          child: Row(
+            children: <Widget>[
+              IconButton(
+                tooltip: 'Inicio',
+                icon: const Icon(Icons.home),
+                onPressed: () {
+                  // Nota: Ya estás en HomePage, normalmente no se re-navega a sí misma
+                },
+              ),
+              IconButton(
+                tooltip: 'Buscar',
+                icon: const Icon(Icons.search),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const BuscarPage()),
+                  );
+                },
+              ),
+              IconButton(
+                tooltip: 'Favorito',
+                icon: const Icon(Icons.favorite),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const FavoritosPage()),
+                  );
+                },
+              ),
+              IconButton(
+                tooltip: 'Configuracion',
+                icon: const Icon(Icons.settings),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const ConfiguracionPage()),
+                  );
+                },
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
