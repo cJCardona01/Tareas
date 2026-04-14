@@ -1,0 +1,44 @@
+import 'package:flutter/material.dart';
+
+class ContadorPage extends StatefulWidget {
+  @override
+  _ContadorPageState createState() => _ContadorPageState();
+}
+
+class _ContadorPageState extends State<ContadorPage> {
+  int contador = 0;
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text("Contador")),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text("Contador: $contador", style: TextStyle(fontSize: 24)),
+            ElevatedButton(
+              //aqui colcamos el set state
+              onPressed: () {
+                setState(() {
+                  contador++;
+                });
+              },
+              child: Text("Incrementar"),
+            ),
+            ElevatedButton(
+              //aqui colcamos el set state
+              onPressed: () {
+                setState(() {
+                  if (contador > 0) {
+                    contador--; 
+                  } 
+                });
+              },
+              child: Text("Decrementar"),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
