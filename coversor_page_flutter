@@ -1,0 +1,142 @@
+import 'package:flutter/material.dart';
+
+class ConversorPage extends StatefulWidget {
+  @override
+  _ConversorPageState createState() => _ConversorPageState();
+}
+
+class _ConversorPageState extends State<ConversorPage> {
+  double temperatura = 0;
+  double tempConversion = 0;
+  double tempConversionK = 0;
+
+  // Función para mostrar el "Toast" personalizado
+  void mostrarMensaje(String texto, Color color, IconData icono) {
+    ScaffoldMessenger.of(context).removeCurrentSnackBar(); // Quita el anterior de inmediato
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        backgroundColor: color,
+        behavior: SnackBarBehavior.floating, // Lo hace ver como Toast
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        content: Row(
+          children: [
+            Icon(icono, color: Colors.white),
+            SizedBox(width: 10),
+            Text(texto, style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+          ],
+        ),
+        duration: Duration(seconds: 2),
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.grey[100],
+      appBar: AppBar(
+        title: Text("Conversor de temperatura"),
+        centerTitle: true,
+        elevation: 0,
+      ),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            children: [
+              // Tarjeta principal de visualización
+              Card(
+                elevation: 4,
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                child: Padding(
+                  padding: const EdgeInsets.all(25.0),
+                  child: Column(
+                    children: [
+                      _datoTemperatura("Celsius", "$temperatura", Colors.blue),
+                      Divider(),
+                      _datoTemperatura("Kelvin", "${tempConversionK.toStringAsFixed(2)}", Colors.orange),
+                      Divider(),
+                      _datoTemperatura("Fahrenheit", "${tempConversion.toStringAsFixed(2)}", Colors.red),
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(height: 30),
+              
+              // Panel de Control (Botones)
+              Wrap(
+                spacing: 15,
+                runSpacing: 15,
+                alignment: WrapAlignment.center,
+                children: [
+                  _botonAccion("Aumentar", Icons.add, Colors.green, () {
+                    if (temperatura < 100) {
+                      setState(() => temperatura++);
+                    } else {
+                      mostrarMensaje("Límite máximo 100°C", Colors.redAccent, Icons.warning);
+                    }
+                  }),
+                  _botonAccion("Disminuir", Icons.remove, Colors.red, () {
+                    if (temperatura > -40) {
+                      setState(() => temperatura--);
+                    } else {
+                      mostrarMensaje("Límite mínimo -40°C", Colors.redAccent, Icons.warning);
+                    }
+                  }),
+                  _botonAccion("Convertir", Icons.sync, Colors.indigo, () {
+                    setState(() {
+                      tempConversion = (temperatura * 9 / 5) + 32;
+                      tempConversionK = temperatura + 273.15;
+                    });
+                    
+                    // Lógica de mensajes con colores e iconos
+                    if (temperatura < 0) {
+                      mostrarMensaje("Muy frío", Colors.blue, Icons.ac_unit);
+                    } else if (temperatura >= 0 && temperatura <= 25) {
+                      mostrarMensaje("Clima agradable", Colors.yellow[700]!, Icons.wb_sunny_outlined);
+                    } else {
+                      mostrarMensaje("Hace Calor", Colors.red, Icons.wb_sunny);
+                    }
+                  }),
+                  _botonAccion("Limpiar", Icons.refresh, Colors.blueGrey, () {
+                    setState(() {
+                      temperatura = 0;
+                      tempConversion = 0;
+                      tempConversionK = 0;
+                    });
+                  }),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  // Widget auxiliar para las líneas de temperatura
+  Widget _datoTemperatura(String etiqueta, String valor, Color color) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(etiqueta, style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500)),
+        Text("$valor°", style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: color)),
+      ],
+    );
+  }
+
+  // Widget auxiliar para botones con mejor diseño
+  Widget _botonAccion(String texto, IconData icono, Color color, VoidCallback accion) {
+    return ElevatedButton.icon(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: color,
+        foregroundColor: Colors.white,
+        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      ),
+      onPressed: accion,
+      icon: Icon(icono),
+      label: Text(texto),
+    );
+  }
+}
