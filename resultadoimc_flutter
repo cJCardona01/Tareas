@@ -1,0 +1,84 @@
+import 'package:flutter/material.dart';
+
+class ResultadoPage extends StatelessWidget {
+  const ResultadoPage({required this.clasificacion, required this.imc});
+  final double imc;
+  final String clasificacion;
+  
+  
+  
+  void clasificacionMetodo() {
+    if (clasificacion == 'Normal') {
+      Text(
+        "Clasificacion: $clasificacion ⚖",
+        style: const TextStyle(
+          fontSize: 30,
+          fontWeight: FontWeight.bold,
+          color: Color.fromARGB(255, 86, 207, 96),
+        ),
+      );
+    } else if (clasificacion == 'Sobrepeso') {
+      Text(
+        "Clasificacion: $clasificacion ⚠",
+        style: const TextStyle(
+          fontSize: 30,
+          fontWeight: FontWeight.bold,
+          color: Color.fromARGB(255, 216, 247, 79),
+        ),
+      );
+    } else if (clasificacion == 'Obesidad') {
+      Text(
+        "Clasificacion: $clasificacion ❌",
+        style: const TextStyle(
+          fontSize: 30,
+          fontWeight: FontWeight.bold,
+          color: Color.fromARGB(255, 247, 79, 79),
+        ),
+      );
+    } else {
+      Text(
+        "Clasificacion: $clasificacion ❌",
+        style: const TextStyle(
+          fontSize: 30,
+          fontWeight: FontWeight.bold,
+          color: Color.fromARGB(255, 247, 79, 79),
+        ),
+      );
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text("Resultado")),
+      body: Center(
+        child: Column(
+          children: [
+            Text(
+              "IMC: $imc",
+              style: const TextStyle(
+                fontSize: 30, // Cambia este número para ajustar el tamaño
+                fontWeight:
+                    FontWeight.bold, // Opcional: para que se vea en negrita
+                color: Colors.blue, // Opcional: para darle color
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                clasificacionMetodo();
+              },
+              child: const Text("Ver clasificacion"),
+            ),
+            
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: const Text("Regresar"),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
