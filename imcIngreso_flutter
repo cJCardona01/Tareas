@@ -1,0 +1,129 @@
+import 'package:calculadora_flutter/resultado_page.dart';
+import 'package:flutter/material.dart';
+import 'resultado_page.dart';
+
+class ImcPage extends StatefulWidget {
+  const ImcPage({super.key});
+
+  @override
+  _ImcPageState createState() => _ImcPageState();
+}
+
+class _ImcPageState extends State<ImcPage> {
+  
+
+
+
+
+  
+
+  void mostrarMensaje(String texto, Color color, IconData icono) {
+    ScaffoldMessenger.of(context).removeCurrentSnackBar();
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        backgroundColor: color,
+        behavior: SnackBarBehavior.floating,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        content: Row(
+          children: [
+            Icon(icono, color: Colors.white),
+            SizedBox(width: 10),
+            Text(
+              texto,
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
+        ),
+        duration: Duration(seconds: 2),
+      ),
+    );
+  }
+//METODO
+
+final TextEditingController pesoController = TextEditingController();
+  final TextEditingController alturaController = TextEditingController();
+  void calcularIMC() {
+    double? peso = double.parse(pesoController.text);
+    double? altura = double.parse(alturaController.text);
+    double IMC = 0;
+    String clasificacion = "";
+    setState(() {
+      if (peso > 0 && altura > 0) {
+        IMC = peso / (altura * altura);
+        if (IMC < 18.5) {
+          clasificacion = "Bajo peso";
+        } else if (IMC >= 18.5 && IMC <= 24.9) {
+          clasificacion = "Normal";
+        } else if (IMC >= 25 && IMC <= 29.9) {
+          clasificacion = "Sobrepeso";
+        } else {
+          clasificacion = "Obesidad";
+        }
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) =>
+                ResultadoPage(clasificacion: clasificacion,imc: IMC,),
+          ),
+        );
+      } else {
+        mostrarMensaje(
+          "Por favor ingrese valores mayores a 0",
+          Colors.redAccent,
+          Icons.warning,
+        );
+      }
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.grey[100],
+      appBar: AppBar(
+        title: Text("Calculo de IMC"),
+        centerTitle: true,
+        elevation: 0,
+      ),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            children: [
+              TextField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Peso (kg)',
+                ),
+                keyboardType: TextInputType.number,
+              ),
+              TextField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Altura (m)',
+                ),
+                keyboardType: TextInputType.number,
+              ),
+              ElevatedButton(
+                onPressed: calcularIMC,
+                child: const Text("Calcular IMC"),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
+                    // if (temperatura < 0) {
+                    //   mostrarMensaje("Muy frío", Colors.blue, Icons.ac_unit);
+                    // } else if (temperatura >= 0 && temperatura <= 25) {
+                    //   mostrarMensaje("Clima agradable", Colors.yellow[700]!, Icons.wb_sunny_outlined);
+                    // } else {
+                    //   mostrarMensaje("Hace Calor", Colors.red, Icons.wb_sunny);
+                    // }
