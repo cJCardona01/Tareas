@@ -1,0 +1,102 @@
+import 'package:flutter/material.dart';
+
+class ResultadoPage extends StatelessWidget {
+  const ResultadoPage({super.key, required this.clasificacion, required this.imc});
+  final double imc;
+  final String clasificacion;
+
+  //Metodo para cambiar estilo clasificación
+  Widget clasificacionMetodo() {
+    if (clasificacion == 'Normal') {
+      //se agrega return para que muestre la clasificación
+      return Text(
+        "Clasificacion: $clasificacion ⚖",
+        style: const TextStyle(
+          fontSize: 30,
+          fontWeight: FontWeight.bold,
+          color: Color.fromARGB(255, 86, 207, 96),
+        ),
+      );
+    } else if (clasificacion == 'Sobrepeso') {
+      return Text(
+        "Clasificacion: $clasificacion ⚠",
+        style: const TextStyle(
+          fontSize: 30,
+          fontWeight: FontWeight.bold,
+          color: Color.fromARGB(255, 216, 247, 79),
+        ),
+      );
+    } else if (clasificacion == 'Obesidad') {
+      return Text( 
+        "Clasificacion: $clasificacion ❌",
+        style: const TextStyle(
+          fontSize: 30,
+          fontWeight: FontWeight.bold,
+          color: Color.fromARGB(255, 247, 79, 79),
+        ),
+      );
+    } else {
+      return Text( 
+        "Clasificacion: $clasificacion ❌",
+        style: const TextStyle(
+          fontSize: 30,
+          fontWeight: FontWeight.bold,
+          color: Color.fromARGB(255, 247, 79, 79),
+        ),
+      );
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text("Resultado")),
+      body: Center(
+        child: Column(
+          children: [
+            Text(
+              "IMC: ${imc.toStringAsFixed(2)}",
+              style: const TextStyle(
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+                color: Colors.blue,
+              ),
+            ),
+            //se llama al método para que le de estilos a la clasificación
+            clasificacionMetodo(),
+            
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: const Text("Regresar"),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+
+main:
+import 'package:flutter/material.dart';
+import 'imc_page.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        colorScheme: .fromSeed(seedColor: Colors.deepPurple),
+      ),
+      home: ImcPage(),
+    );
+  }
+}
