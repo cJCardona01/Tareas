@@ -1,0 +1,95 @@
+import 'package:flutter/material.dart';
+import 'resultado_page.dart';
+
+class ImcPage extends StatefulWidget {
+  const ImcPage({super.key});
+
+  @override
+  _ImcPageState createState() => _ImcPageState();
+}
+
+class _ImcPageState extends State<ImcPage> {
+  final TextEditingController pesoController = TextEditingController();
+  final TextEditingController alturaController = TextEditingController();
+  //Fragmento tomado de IA de la práctica anterior
+  void mostrarMensaje(String texto, Color color, IconData icono) {
+    ScaffoldMessenger.of(context).removeCurrentSnackBar();
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        backgroundColor: color,
+        behavior: SnackBarBehavior.floating,
+        content: Row(
+          children: [
+            Icon(icono, color: Colors.white),
+            const SizedBox(width: 10),
+            Text(texto, style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+          ],
+        ),
+      ),
+    );
+  }
+
+  void calcularIMC() {
+    // Usamos tryParse para evitar errores si el usuario deja vacío o pone letras
+    double? peso = double.tryParse(pesoController.text);
+    double? altura = double.tryParse(alturaController.text);
+
+    if (peso != null && altura != null && peso > 0 && altura > 0) {
+      double imc = peso / (altura * altura);
+      String clasificacion = "";
+
+      if (imc < 18.5) {
+        clasificacion = "Bajo peso";
+      } else if (imc >= 18.5 && imc <= 24.9) {
+        clasificacion = "Normal";
+      } else if (imc >= 25 && imc <= 29.9) {
+        clasificacion = "Sobrepeso";
+      } else {
+        clasificacion = "Obesidad";
+      }
+
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => ResultadoPage(
+            clasificacion: clasificacion,
+            imc: imc,
+          ),
+        ),
+      );
+    } else {
+      mostrarMensaje("Ingresa valores válidos mayores a 0", Colors.redAccent, Icons.warning);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.grey[100],
+      appBar: AppBar(title: const Text("Cálculo de IMC"), centerTitle: true),
+      body: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Column(
+          children: [
+            TextField(
+              controller: pesoController,
+              decoration: const InputDecoration(border: OutlineInputBorder(), labelText: 'Peso (kg)'),
+              keyboardType: TextInputType.number,
+            ),
+            const SizedBox(height: 15),
+            TextField(
+              controller: alturaController,
+              decoration: const InputDecoration(border: OutlineInputBorder(), labelText: 'Altura (m)'),
+              keyboardType: TextInputType.number,
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: calcularIMC,
+              child: const Text("Calcular IMC"),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
