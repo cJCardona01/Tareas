@@ -1,0 +1,344 @@
+home:
+import 'package:ficha_cbtis/pages/datos_personales.dart';
+import 'package:flutter/material.dart';
+
+class home extends StatelessWidget {
+  //final Map<String, dynamic> datos;
+  //ResumenPaciente({required this.datos});
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text("Registro del alumno")),
+      body: Padding(
+        padding: EdgeInsets.all(16),
+        child: ListView(
+          children: [
+            Text("Bienvenido:"),
+            SizedBox(height: 10),
+            Text(
+              "Centro de Bachillerato Tecnológico Industrial y de Servicios No.94",
+            ),
+            Image.network(
+              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLVjGEh8H4N5_y5hTQ2uUPQHyFGfLwEktr1A&s',
+              width: 300,
+              height: 300,
+            ),
+                       ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => DatosPersonales(),
+                  ),
+                );
+              },
+              child: const Text("Iniciar Registro "),
+            ),
+            const SizedBox(height: 20),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+
+
+datos_personales.dart:
+import 'package:flutter/material.dart';
+import 'domicilio.dart';
+
+class DatosPersonales extends StatefulWidget {
+ @override
+ _DatosPersonalesState createState() => _DatosPersonalesState();
+}
+
+
+class _DatosPersonalesState  extends State<DatosPersonales> {
+ //llave maestra que permite acceder al estado del formulario desde cualqyier parte del
+ //codigo
+ final _formKey = GlobalKey<FormState>();
+ final RegExp emailRegex = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
+ final RegExp telefonoRegex = RegExp(r'^[0-9]{10}$');
+ final RegExp curpRegex = RegExp(
+   r'^[A-Z]{4}[0-9]{6}[HM][A-Z]{5}[A-Z0-9]{1}[0-9]{1}$',
+ );
+
+
+ final TextEditingController _fechaController = TextEditingController();
+ final TextEditingController nombreCtrl = TextEditingController();
+ final TextEditingController emailCtrl = TextEditingController();
+ final TextEditingController telefonoCtrl = TextEditingController();
+ final TextEditingController curpCtrl = TextEditingController();
+ final TextEditingController tipoPaciente = TextEditingController();
+ final TextEditingController tipoConsulta = TextEditingController();
+ final TextEditingController urgencia = TextEditingController();
+
+
+ Map<String, bool> enfermedades = {
+   "Diabetes": false,
+   "Hipertensión": false,
+   "Asma": false,
+   "Ninguna": true, // Inicia en true por defecto
+ };
+
+ String _tipoPaciente = "Nuevo";
+ bool _atencionU = false;
+ String? _tipoConsulta;
+
+
+ void _validarFormulario() {
+   if (_formKey.currentState!.validate()) {
+     if (
+         _tipoConsulta == null ||
+         _tipoPaciente == null) {
+       ScaffoldMessenger.of(
+         context,
+       ).showSnackBar(SnackBar(content: Text("Completa todos los campos")));
+       return;
+     }
+     // Obtener enfermedades seleccionadas
+     List<String> seleccionadas = enfermedades.entries
+         .where((e) => e.value)
+         .map((e) => e.key)
+         .toList();
+     // Crear mapa de datos
+     Map<String, dynamic> datos = {
+       "nombre": nombreCtrl.text,
+       "email": emailCtrl.text,
+       "telefono": telefonoCtrl.text,
+       "curp": curpCtrl.text,
+       "fecha": _fechaController.text,
+       "paciente": _tipoPaciente, // Usa la variable del RadioButton
+       "consulta": _tipoConsulta, // Asegúrate que esta variable tenga valor
+       "_atencionU": _atencionU, // ¡OJO! Esta es la llave que faltaba (bool)
+       "enfermedades": seleccionadas,
+     };
+     // Navegar a la segunda pantalla
+     Navigator.push(
+       context,
+       MaterialPageRoute(builder: (context) => Domicilio(datos: datos)),
+     );
+   }
+ }
+
+
+ @override
+ Widget build(BuildContext context) {
+   return Scaffold(
+     appBar: AppBar(title: Text("Registro de Pacientes")),
+     body: SingleChildScrollView(
+       padding: EdgeInsets.all(16),
+       child: Form(
+         key: _formKey,
+         child: Column(
+           children: [
+             TextFormField(
+               decoration: InputDecoration(labelText: "Nombre completo"),
+               validator: (value) {
+                 if (value == null || value.isEmpty) {
+                   return "Campo obligatorio";
+                 }
+                 return null;
+               },
+             ),
+             TextFormField(
+               decoration: InputDecoration(labelText: "Correo"),
+               validator: (value) {
+                 if (value == null || value.isEmpty) {
+                   return "Campo obligatorio";
+                 }
+
+
+                 if (!emailRegex.hasMatch(value)) {
+                   return 'El correo no es valido';
+                 }
+                 return null;
+               },
+             ),
+             TextFormField(
+               decoration: InputDecoration(labelText: "Teléfono"),
+               keyboardType: TextInputType.number,
+               validator: (value) {
+                 if (value == null || value.isEmpty) {
+                   return 'Ingrese un número de teléfono';
+                 } //codigo obtenido al hacer la investigación
+                 if (!telefonoRegex.hasMatch(value)) {
+                   return 'El teléfono debe tener exactamente 10 dígitos numéricos';
+                 }
+                 return null;
+               },
+             ),
+             TextFormField(
+               decoration: InputDecoration(labelText: "CURP"),
+               validator: (value) {
+                 if (value == null || value.isEmpty) {
+                   return 'Ingrese una CURP';
+                 }
+                 if (value.length != 18) {
+                   return 'La CURP debe tener exactamente 18 caracteres';
+                 }
+                 return null;
+               },
+             ),
+             TextFormField(
+               controller: _fechaController,
+               readOnly: true,
+               decoration: InputDecoration(
+                 labelText: "Fecha de nacimiento",
+                 suffixIcon: Icon(Icons.calendar_today),
+               ),
+               onTap: () {
+                 _selectDate(context);
+               },
+               validator: (value) {
+                 if (value == null || value.isEmpty) {
+                   return "Campo obligatorio";
+                 }
+                 return null;
+               },
+             ),
+            
+             Text("Coloque su tipo de paciente:"),
+             RadioListTile<String>(
+               title: Text('Nuevo'),
+               value: 'Nuevo',
+               groupValue: _tipoPaciente,
+               onChanged: (val) =>
+                   setState(() => _tipoPaciente = val.toString()),
+             ),
+             RadioListTile<String>(
+               title: Text('Recurrente'),
+               value: 'Recurrente',
+               groupValue: _tipoPaciente,
+               onChanged: (val) =>
+                   setState(() => _tipoPaciente = val.toString()),
+             ),
+             RadioListTile<String>(
+               title: Text('Referido'),
+               value: 'Referido',
+               groupValue: _tipoPaciente,
+               onChanged: (val) =>
+                   setState(() => _tipoPaciente = val.toString()),
+             ),
+             Column(
+               children: enfermedades.keys.map((key) {
+                 return CheckboxListTile(
+                   title: Text(key),
+                   value: enfermedades[key],
+                   onChanged: (value) {
+                     setState(() {
+                       if (key == "Ninguna") {
+                         enfermedades.updateAll((k, v) => false);
+                       }
+                       enfermedades[key] = value!;
+                     });
+                   },
+                 );
+               }).toList(),
+             ),
+
+
+             SwitchListTile(
+               title: Text('¿Requiere atención ugente?'),
+               value: _atencionU,
+               onChanged: (bool value) => setState(() => _atencionU = value),
+               // activeColor: const Color.fromARGB(255, 76, 147, 175),
+             ),
+
+
+             DropdownButtonFormField<String>(
+               value: _tipoConsulta,
+               hint: Text('Seleccione su tipo de Consulta'),
+               items: ['General', 'Especialista', 'Urgente'].map((
+                 String value,
+               ) {
+                 return DropdownMenuItem<String>(
+                   value: value,
+                   child: Text(value),
+                 );
+               }).toList(),
+               onChanged: (val) => setState(() => _tipoConsulta = val),
+
+
+               validator: (value) =>
+                   value == null ? 'Selección obligatoria' : null,
+             ),
+
+
+             ElevatedButton(
+               onPressed: () {
+                 _validarFormulario();
+                 if (_formKey.currentState!.validate()) {
+                   print("Formulario correcto");
+                   ScaffoldMessenger.of(
+                     context,
+                   ).showSnackBar(SnackBar(content: Text("Registro exitoso")));
+                 }
+               },
+
+
+               child: Text("Registrar"),
+             ),
+           ],
+         ),
+       ),
+     ),
+   );
+ }
+
+
+ //función conseguida cuando se hizo la investigación para validar la fecha
+ void _selectDate(BuildContext context) async {
+   DateTime? picked = await showDatePicker(
+     context: context,
+     initialDate: DateTime.now(),
+     firstDate: DateTime(1900),
+     lastDate: DateTime.now(),
+   );
+
+
+   if (picked != null) {
+     setState(() {
+       // Formato simple: Día/Mes/Año
+       _fechaController.text = "${picked.day}/${picked.month}/${picked.year}";
+     });
+   }
+ }
+}
+
+
+domicilio.dart:
+import 'package:flutter/material.dart';
+
+class Domicilio extends StatefulWidget {
+  final Map<String, dynamic> datos; 
+  Domicilio({required this.datos});
+
+  @override
+  _DomicilioState createState() => _DomicilioState();
+}
+
+class _DomicilioState extends State<Domicilio> {
+  String? _tipoSangre;
+
+  void _irAPantallaFinal() {
+    // 3. Agregamos nuevos datos al mapa que ya traíamos
+    widget.datos["sangre"] = _tipoSangre;
+    widget.datos["enfermedades"] = ["Diabetes", "Asma"]; // Ejemplo
+
+    // Navigator.push(
+    //   context,
+    //   MaterialPageRoute(
+    //     builder: (context) => ResumenPaciente(datos: widget.datos),
+    //   ),
+    // );
+  }
+  
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    throw UnimplementedError();
+  }
+
+}
