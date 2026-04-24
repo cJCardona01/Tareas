@@ -1,0 +1,142 @@
+import 'package:flutter/material.dart';
+import 'resumen.dart';
+class DatosEscolares extends StatefulWidget {
+  final Map<String, dynamic> datos; // Recibe el mapa anterior
+  DatosEscolares({required this.datos});
+
+  @override
+  _DatosEscolaresState createState() => _DatosEscolaresState();
+}
+
+class _DatosEscolaresState extends State<DatosEscolares> {
+  final _formKey = GlobalKey<FormState>();
+
+  //nombre parentesco
+  final TextEditingController secundariaCtrl = TextEditingController();
+  final TextEditingController promedioCtrl = TextEditingController();
+  final TextEditingController especialidadCtrl = TextEditingController();
+  final TextEditingController certificadoCtrl = TextEditingController();
+
+  bool _discapacidad = true;
+  String? estado;
+  Map<String, bool> especialidades = {
+        "LapTop": false,
+        "Smartphone": false,
+        "Internet": false,
+        "Ninguna": true, // Inicia en true por defecto
+      };
+  void _validarFormulario() {
+    if (_formKey.currentState!.validate()) {
+      // Crear mapa de datos
+      
+      
+      List<String> seleccionadas = especialidades.entries
+          .where((e) => e.value)
+          .map((e) => e.key)
+          .toList();
+
+      Map<String, dynamic> datos = {
+        "domicilio": secundariaCtrl.text,
+        "email": promedioCtrl.text,
+        "parentesco": estado,
+        "servicios": seleccionadas
+      };
+       Navigator.push(
+         context,
+         MaterialPageRoute(builder: (context) => DatosEscolares(datos: datos)),
+       );
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text("Registro de Domicilio")),
+      body: SingleChildScrollView(
+        padding: EdgeInsets.all(16),
+        child: Form(
+          key: _formKey,
+          child: Column(
+            children: [
+              TextFormField(
+                decoration: InputDecoration(labelText: "Dirección"),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return "Campo obligatorio";
+                  }
+                  return null;
+                },
+              ),
+              TextFormField(
+                decoration: InputDecoration(labelText: "Ciudad"),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return "Campo obligatorio";
+                  }
+                  return null;
+                },
+              ),
+
+              DropdownButtonFormField<String>(
+                value: estado,
+                hint: Text('Seleccione su Estado'),
+                items:
+                    [
+                      'Michoacán',
+                      'Jalisco',
+                      'Yucatan',
+                      'Durango',
+                      'Nayarit',
+                      'Guerrero',
+                      'Sinaloa',
+                      'Sonora',
+                      'Nuevo Leon',
+                    ].map((String value) {
+                      return DropdownMenuItem<String>(
+                        value: value,
+                        child: Text(value),
+                      );
+                    }).toList(),
+                onChanged: (val) => setState(() => estado = val),
+
+                validator: (value) =>
+                    value == null ? 'Selección obligatoria' : null,
+              ),
+
+              Column(
+                children: especialidades.keys.map((key) {
+                  return CheckboxListTile(
+                    title: Text(key),
+                    value: especialidades[key],
+                    onChanged: (value) {
+                      setState(() {
+                        if (key == "Ninguna") {
+                          especialidades.updateAll((k, v) => false);
+                        }
+                        especialidades[key] = value!;
+                      });
+                    },
+                  );
+                }).toList(),
+              ),
+
+              ElevatedButton(
+                onPressed: () {
+                  _validarFormulario();
+                  if (_formKey.currentState!.validate()) {
+                    print("Formulario correcto");
+                    ScaffoldMessenger.of(
+                      context,
+                    ).showSnackBar(SnackBar(content: Text("Registro exitoso")));
+                  }
+                },
+
+                child: Text("Registrar"),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  } // aqui acaba build
+}
