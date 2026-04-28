@@ -1,0 +1,388 @@
+resumen.dart:
+import 'package:flutter/material.dart';
+
+class ResumenEstudiante extends StatelessWidget {
+  final Map<String, dynamic> datos;
+  ResumenEstudiante({required this.datos});
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text("Resumen del Estudiante")),
+      body: Padding(
+        padding: EdgeInsets.all(16),
+        child: ListView(
+          // Aquí se muestra el map ya con todos los datos de las tres pantallas
+          children: [
+            Text("Nombre: ${datos["nombre"]}"),
+            Text("Email: ${datos["email"]}"),
+            Text("Teléfono: ${datos["telefono"]}"),
+            Text("CURP: ${datos["curp"]}"),
+            Text("Fecha: ${datos["fecha"]}"),
+            Text("Sexo: ${datos["sexo"]}"),
+            Text("Discapacidad: ${datos["discapacidad"]}"),
+            Text("Nombre del Tutor: ${datos["nomTutor"]}"),
+            Text("Direccion: ${datos["direccion"]}"),
+            Text("Ciudad: ${datos["ciudad"]}"),
+            Text("Estado: ${datos["estado"]}"),
+            SizedBox(height: 10),
+            Text("Servicios:"),
+            ...datos["servicios"].map<Widget>((e) => Text("- $e")),
+            
+            Text("Secundaria: ${datos["secundaria"]}"),
+            Text("Pomedio: ${datos["promedio"]}"),
+            Text("Especialidad: ${datos["especialidad"]}"),
+            Text("Certificado: ${datos["certificado"]? "Sí" : "No"}"),
+
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+
+
+datos_escolares.dart:
+import 'package:flutter/material.dart';
+import 'resumen.dart';
+
+class DatosEscolares extends StatefulWidget {
+  final Map<String, dynamic> datos; // Recibe el mapa anterior
+  DatosEscolares({required this.datos});
+
+  @override
+  _DatosEscolaresState createState() => _DatosEscolaresState();
+}
+
+class _DatosEscolaresState extends State<DatosEscolares> {
+  final _formKey = GlobalKey<FormState>();
+
+  //nombre parentesco
+  final TextEditingController secundariaCtrl = TextEditingController();
+  final TextEditingController promedioCtrl = TextEditingController();
+  final TextEditingController especialidadCtrl = TextEditingController();
+  final TextEditingController certificadoCtrl = TextEditingController();
+  String? especialidad;
+  bool certificado = false;
+  double promedio = 8.7;
+  void _validarFormulario() {
+    // Aquí se agregan los nuevos campos al map y se manda a la siguiente pantalla
+      Map<String, dynamic> datos = {
+        "secundaria": secundariaCtrl.text,
+        "promedio": promedio,
+        "especialidad": especialidad,
+        "certificado": certificado,
+      };
+    if (_formKey.currentState!.validate()) {
+
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => ResumenEstudiante(datos: datos)),
+      );
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text("Registro de Datos Escolares")),
+      body: SingleChildScrollView(
+        padding: EdgeInsets.all(16),
+        child: Form(
+          key: _formKey,
+          child: Column(
+            children: [
+              TextFormField(
+                decoration: InputDecoration(labelText: "Secundaria"),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return "Campo obligatorio";
+                  }
+                  return null;
+                },
+              ),
+              Text("Coloque el valor de su promedio de secundaria"),
+              Slider(
+                value: promedio,
+                min: 0,
+                max: 10,
+                onChanged: (val) {
+                  setState(() => promedio = val);
+                },
+              ),
+
+              DropdownButtonFormField<String>(
+                value: especialidad,
+                hint: Text('Seleccione su especialidad:'),
+                items:
+                    [
+                      'Puericultura',
+                      'Programacion',
+                      'T.Preparacion de Alimentos y Bebidas',
+                      'Contabilidad',
+                      'Gericultura',
+                      'Electricidad',
+                      'Trabajo Social',
+                    ].map((String value) {
+                      return DropdownMenuItem<String>(
+                        value: value,
+                        child: Text(value),
+                      );
+                    }).toList(),
+                onChanged: (val) => setState(() => especialidad = val),
+
+                validator: (value) =>
+                    value == null ? 'Selección obligatoria' : null,
+              ),
+
+              SwitchListTile(
+                title: Text('¿Cuenta con certificado de secundaria?'),
+                value: certificado,
+                onChanged: (bool value) => setState(() => certificado = value),
+                // activeColor: const Color.fromARGB(255, 76, 147, 175),
+              ),
+
+              ElevatedButton(
+                onPressed: () {
+                  _validarFormulario();
+                  if (_formKey.currentState!.validate()) {
+                    print("Formulario correcto");
+                    ScaffoldMessenger.of(
+                      context,
+                    ).showSnackBar(SnackBar(content: Text("Registro exitoso")));
+                  }
+                },
+
+                child: Text("Registrar"),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  } // aqui acaba build
+}
+
+
+datos_personales.dart:
+import 'package:flutter/material.dart';
+import 'domicilio.dart';
+
+class DatosPersonales extends StatefulWidget {
+  @override
+  _DatosPersonalesState createState() => _DatosPersonalesState();
+}
+
+class _DatosPersonalesState extends State<DatosPersonales> {
+  //llave maestra que permite acceder al estado del formulario desde cualqyier parte del
+  //codigo
+  final _formKey = GlobalKey<FormState>();
+  final RegExp emailRegex = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
+  final RegExp telefonoRegex = RegExp(r'^[0-9]{10}$');
+  final RegExp curpRegex = RegExp(
+    r'^[A-Z]{4}[0-9]{6}[HM][A-Z]{5}[A-Z0-9]{1}[0-9]{1}$',
+  );
+
+  //nombre parentesco
+  final TextEditingController _fechaController = TextEditingController();
+  final TextEditingController nombreCtrl = TextEditingController();
+  final TextEditingController emailCtrl = TextEditingController();
+  final TextEditingController telefonoCtrl = TextEditingController();
+  final TextEditingController curpCtrl = TextEditingController();
+  final TextEditingController sexo = TextEditingController();
+  final TextEditingController discapacidad = TextEditingController();
+  final TextEditingController nomTutorCtrl = TextEditingController();
+  final TextEditingController parentescoCtrl = TextEditingController();
+
+  String _sexo = "Femenino";
+  bool _discapacidad = true;
+  String? parentesco;
+
+  void _validarFormulario() {
+    // Aquí se crea mapa de datos con  los campos iniciales
+    Map<String, dynamic> datos = {
+      "nombre": nombreCtrl.text,
+      "email": emailCtrl.text,
+      "telefono": telefonoCtrl.text,
+      "curp": curpCtrl.text,
+      "fecha": _fechaController.text,
+      "sexo": _sexo,
+      "discapacidad": _discapacidad,
+      "nomTutor": nomTutorCtrl,
+      "parentesco": parentesco,
+    };
+    if (_formKey.currentState!.validate()) {
+      // Navegar y mandar el map a la pantalla de domicilio
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => Domicilio(datos: datos)),
+      );
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text("Registro de Datos Personales")),
+      body: SingleChildScrollView(
+        padding: EdgeInsets.all(16),
+        child: Form(
+          key: _formKey,
+          child: Column(
+            children: [
+              TextFormField(
+                decoration: InputDecoration(labelText: "Nombre completo"),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return "Campo obligatorio";
+                  }
+                  return null;
+                },
+              ),
+
+              TextFormField(
+                decoration: InputDecoration(labelText: "CURP"),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return "Campo obligatorio";
+                  }
+
+                  if (!curpRegex.hasMatch(value)) {
+                    return 'La CURP no es valida';
+                  }
+                  return null;
+                },
+              ),
+              TextFormField(
+                controller: _fechaController,
+                readOnly: true,
+                decoration: InputDecoration(
+                  labelText: "Fecha de nacimiento",
+                  suffixIcon: Icon(Icons.calendar_today),
+                ),
+                onTap: () {
+                  _selectDate(context);
+                },
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return "Campo obligatorio";
+                  }
+                  return null;
+                },
+              ),
+
+              Text("Coloque su sexo:"),
+              RadioListTile<String>(
+                title: Text('Femenino'),
+                value: 'Femenino',
+                groupValue: _sexo,
+                onChanged: (val) => setState(() => _sexo = val.toString()),
+              ),
+              RadioListTile<String>(
+                title: Text('Masculino'),
+                value: 'Masculino',
+                groupValue: _sexo,
+                onChanged: (val) => setState(() => _sexo = val.toString()),
+              ),
+
+              SwitchListTile(
+                title: Text('¿Tiene una discapacidad?'),
+                value: _discapacidad,
+                onChanged: (bool value) =>
+                    setState(() => _discapacidad = value),
+                // activeColor: const Color.fromARGB(255, 76, 147, 175),
+              ),
+
+              TextFormField(
+                decoration: InputDecoration(labelText: "Correo del tutor"),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return "Campo obligatorio";
+                  }
+
+                  if (!emailRegex.hasMatch(value)) {
+                    return 'El correo no es valido';
+                  }
+                  return null;
+                },
+              ),
+              TextFormField(
+                decoration: InputDecoration(labelText: "Teléfono del tutor"),
+                keyboardType: TextInputType.number,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Ingrese un número de teléfono';
+                  } //codigo obtenido al hacer la investigación
+                  if (!telefonoRegex.hasMatch(value)) {
+                    return 'El teléfono debe tener exactamente 10 dígitos numéricos';
+                  }
+                  return null;
+                },
+              ),
+              TextFormField(
+                decoration: InputDecoration(
+                  labelText: "Nombre completo del Tutor",
+                ),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return "Campo obligatorio";
+                  }
+                  return null;
+                },
+              ),
+              DropdownButtonFormField<String>(
+                value: parentesco,
+                hint: Text('Seleccione su parentesco'),
+                items: ['Papá', 'Mamá', 'Herman@', 'Tí@', 'Abuel@', 'Otro'].map(
+                  (String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(value),
+                    );
+                  },
+                ).toList(),
+                onChanged: (val) => setState(() => parentesco = val),
+
+                validator: (value) =>
+                    value == null ? 'Selección obligatoria' : null,
+              ),
+
+              ElevatedButton(
+                onPressed: () {
+                  _validarFormulario();
+                  if (_formKey.currentState!.validate()) {
+                    print("Formulario correcto");
+                    ScaffoldMessenger.of(
+                      context,
+                    ).showSnackBar(SnackBar(content: Text("Registro exitoso")));
+                  }
+                },
+
+                child: Text("Registrar"),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  } // aqui acaba build
+
+  //función conseguida cuando se hizo la investigación para validar la fecha
+  void _selectDate(BuildContext context) async {
+    DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(1900),
+      lastDate: DateTime.now(),
+    );
+
+    if (picked != null) {
+      setState(() {
+        // Formato simple: Día/Mes/Año
+        _fechaController.text = "${picked.day}/${picked.month}/${picked.year}";
+      });
+    }
+  }
+}
+
+
