@@ -1,0 +1,280 @@
+editar.dart:
+import 'db.dart';
+import 'animal.dart';
+import 'package:flutter/material.dart';
+
+class Editar extends StatelessWidget {
+  final _formKey = GlobalKey<FormState>();
+  final nombreController = TextEditingController();
+  final especieController = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    final animal = ModalRoute.of(context)!.settings.arguments as Animal;
+    nombreController.text = animal.nombre;
+    especieController.text = animal.especie;
+
+    return Scaffold(
+      appBar: AppBar(title: const Text("Guardar")),
+      body: Container(
+        child: Padding(
+          padding: const EdgeInsets.all(15),
+          child: Form(
+            key: _formKey,
+            child: Column(
+              children: <Widget>[
+                TextFormField(
+                  controller: nombreController,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return "El nombre es obligatorio";
+                    }
+                    return null;
+                  },
+                  decoration: const InputDecoration(labelText: "Nombre"),
+                ),
+                const SizedBox(height: 20),
+                TextFormField(
+                  controller: especieController,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return "La especie es obligatorio";
+                    }
+                    return null;
+                  },
+                  decoration: const InputDecoration(labelText: "Especie"),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      if (animal.id != null && animal.id! > 0) {
+                        animal.nombre = nombreController.text;
+                        animal.especie = especieController.text;
+                        DB.update(animal);
+                      } else {
+                        DB.insert(
+                          Animal(
+                            nombre: nombreController.text,
+                            especie: especieController.text,
+                          ),
+                        );
+                      }
+                      Navigator.pushNamed(context, "/");
+                    }
+                  },
+                  child: const Text("Guardar"),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
+
+
+listado.dart:
+import 'dart:core';
+
+import 'animal.dart';
+import 'db.dart';
+import 'package:flutter/material.dart';
+
+class Listado extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text("Animales")),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: (){
+          Navigator.pushNamed(
+            context, 
+            "/editar",
+            arguments: Animal(id: 0, nombre: "", especie: ""),
+          );
+        },
+      ),
+      body: Container(child: Lista()),
+    );
+  }
+}
+
+class Lista extends StatefulWidget {
+  MiLista createState() => MiLista();
+}
+
+class MiLista extends State <Lista>{
+  List<Animal> animales = [];
+
+  @override
+  void initState(){
+    cargaAnimales();
+    super.initState();
+  }
+  
+  cargaAnimales() async{
+    List<Animal> auxAnimal = await DB.animales();
+
+    setState(() {
+      animales = auxAnimal;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return ListView.builder(
+      itemCount: animales.length,
+      itemBuilder: (context, i) => Dismissible(
+        key: Key(i.toString()),
+        direction: DismissDirection.startToEnd,
+        background: Container(
+          color: Colors.red,
+          padding: EdgeInsets.only(left: 5),
+          child: Align(
+            alignment: Alignment.centerLeft,
+            child: Icon(Icons.delete, color: Colors.white),
+          ),
+        ),
+        onDismissed: (direction){
+          DB.delete(animales[i]);
+        },
+        child: ListTile(
+          title: Text(animales[i].nombre),
+          subtitle: Text(animales[i].especie),
+          trailing: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              IconButton(
+                icon: Icon(Icons.edit),
+                onPressed: (){
+                  Navigator.pushNamed(
+                    context, "/editar",
+                    arguments: animales[i],
+                  );
+                },
+                ),
+              IconButton(
+                icon: Icon(Icons.delete),
+                onPressed: () async{
+                  await DB.delete(animales[i]);
+                  setState(() {
+                    animales.removeAt(i);
+                  });
+                },
+                ),
+
+            ],
+          ),
+        ),
+        ),
+    );
+  }
+}
+
+animal.dart:
+import 'package:flutter/material.dart';
+import 'package:sqflite/sqflite.dart';
+
+class Animal {
+  int? id;
+  String nombre;
+  String especie;
+  //modificacion hecha por recomendacion
+  Animal({ this.id, required this.nombre, required this.especie});
+  
+  Map<String, dynamic> toMap() {
+    return {'id': id, 'nombre': nombre, 'especie':especie};
+  }
+}
+
+main.dart:
+import 'package:flutter/material.dart';
+import 'listado.dart';
+import 'editar.dart';
+
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  //const MyApp({super.key});
+
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'SQLite Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        colorScheme: .fromSeed(seedColor: Colors.deepPurple),
+      ),
+      home: MiApp(),
+    );
+  }
+}
+
+class MiApp extends StatelessWidget {
+  
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      initialRoute: "/",
+      routes: {
+        "/" : (context) => Listado(),
+        "/editar": (context) => Editar()
+      },
+    );
+  }
+}
+
+db.dart:
+import 'animal.dart';
+import 'package:sqflite/sqflite.dart';
+import 'package:path/path.dart';
+
+class DB {
+  static Future<Database> _openDB() async{
+    return openDatabase(join(await getDatabasesPath(),'animales.db'),
+      onCreate: (db, version) {
+        return db.execute(
+          "CREATE TABLE animales (id INTEGER PRIMARY KEY, nombre TEXT, especie TEXT)",
+        );
+      }, version: 1);
+  }
+  static Future<dynamic> insert(Animal animal) async{
+    Database database = await _openDB();
+    
+    return database.insert("animales", animal.toMap());
+  }
+
+  static Future<dynamic> delete(Animal animal) async{
+    Database database = await _openDB();
+    
+    return database.delete("animales", where: "id = ?", whereArgs: [animal.id ]);
+  }
+
+  static Future<dynamic> update(Animal animal) async{
+    Database database = await _openDB();
+    
+    return database.update ("animales", animal.toMap(), where: "id = ? ", whereArgs: [animal.id]);
+  }
+
+  static Future<List<Animal>> animales() async {
+    Database database = await _openDB();
+    final List<Map<String, dynamic>> animalesMap = await database.query("animales");
+
+    return List.generate(animalesMap.length, (i) =>
+       Animal(
+        id: animalesMap[i]['id'],
+        nombre: animalesMap[i]['nombre'],
+        especie: animalesMap[i]['especie']
+      )
+    );
+  } 
+}
