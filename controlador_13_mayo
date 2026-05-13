@@ -1,0 +1,203 @@
+import 'package:ficha_cbtis_db/modelo/alumno.dart';
+import 'package:ficha_cbtis_db/modelo/datos_escolares.dart';
+import 'package:ficha_cbtis_db/modelo/domicilio.dart';
+import 'package:ficha_cbtis_db/modelo/tutor.dart';
+import 'package:sqflite/sqflite.dart';
+import 'package:path/path.dart';
+
+class DB {
+  static Future<Database> _openDB() async {
+    return openDatabase(
+      join(await getDatabasesPath(), 'dbalumnos.db'),
+      onCreate: (db, version) async {
+        await db.execute(
+          "CREATE TABLE tblalumnos (id INTEGER PRIMARY KEY, nomAlumno TEXT, curp TEXT, sexo TEXT, discapacidad INTEGER)",
+        );
+        await db.execute(
+          "CREATE TABLE tblDomicilios (id INTEGER PRIMARY KEY, direccion TEXT, ciudad TEXT, codigoPostal TEXT, idAlumno INTEGER, FOREIGN KEY (idAlumno) REFERENCES tblAlumnos(id))",
+        );
+
+        await db.execute(
+          "CREATE TABLE tblDatosEscolares (id INTEGER PRIMARY KEY, secundaria TEXT, promedio REAL, especialidad TEXT, certificado INTEGER, idAlumno INTEGER, FOREIGN KEY (idAlumno) REFERENCES tblAlumnos(id))",
+        );
+
+        await db.execute(
+          "CREATE TABLE tblTutores (id INTEGER PRIMARY KEY, nomTutor TEXT, correoTutor TEXT, telTutor TEXT, parentesco TEXT, idAlumno INTEGER, FOREIGN KEY (idAlumno) REFERENCES tblAlumnos(id))",
+        );
+      },
+
+      version: 2,
+    );
+  }
+
+  //para alumnos
+  static Future<dynamic> insertAlumno(Alumno alumno) async {
+    Database database = await _openDB();
+    return database.insert("tblAlumnos", alumno.toMap());
+  }
+
+  static Future<dynamic> deleteAlumno(Alumno alumno) async {
+    Database database = await _openDB();
+    return database.delete(
+      "tblAlumnos",
+      where: "id = ?",
+      whereArgs: [alumno.id],
+    );
+  }
+
+  static Future<dynamic> updateAlumno(Alumno alumno) async {
+    Database database = await _openDB();
+    return database.update(
+      "tblAlumnos",
+      alumno.toMap(),
+      where: "id = ?",
+      whereArgs: [alumno.id],
+    );
+  }
+
+  static Future<List<Alumno>> alumnos() async {
+    Database database = await _openDB();
+    final List<Map<String, dynamic>> alumnosmap = await database.query(
+      "tblAlumnos",
+    );
+    return List.generate(
+      alumnosmap.length,
+      (i) => Alumno(
+        id: alumnosmap[i]['id'],
+        nomAlumno: alumnosmap[i]['nomAlumno'],
+        curp: alumnosmap[i]['curp'],
+        sexo: alumnosmap[i]['sexo'] ?? "",
+        discapacidad: alumnosmap[i]['discapacidad'] ?? "",
+      ),
+    );
+  }
+
+  //para tutores
+  static Future<dynamic> insertTutor(Tutor tutor) async {
+    Database database = await _openDB();
+    return database.insert("tblTutores", tutor.toMap());
+  }
+
+  static Future<dynamic> deleteTutor(Tutor tutor) async {
+    Database database = await _openDB();
+    return database.delete(
+      "tblTutores",
+      where: "id = ?",
+      whereArgs: [tutor.id],
+    );
+  }
+
+  static Future<dynamic> updateTutor(Tutor tutor) async {
+    Database database = await _openDB();
+    return database.update(
+      "tblTutores",
+      tutor.toMap(),
+      where: "id = ?",
+      whereArgs: [tutor.id],
+    );
+  }
+
+  static Future<List<Tutor>> tutores() async {
+    Database database = await _openDB();
+    final List<Map<String, dynamic>> tutoresmap = await database.query(
+      "tblTutores",
+    );
+    return List.generate(
+      tutoresmap.length,
+      (i) => Tutor(
+        id: tutoresmap[i]['id'],
+        nomTutor: tutoresmap[i]['nomTutor'],
+        correoTutor: tutoresmap[i]['correoTutor'],
+        telTutor: tutoresmap[i]['telTutor'] ?? "",
+        parentesco: tutoresmap[i]['parentesco'] ?? "",
+        idAlumno: tutoresmap[i]['idAlumno'],
+      ),
+    );
+  }
+
+  //para domicilio
+    static Future<dynamic> insertDomicilio(Domicilio domicilio) async {
+    Database database = await _openDB();
+    return database.insert("tblDomicilios", domicilio.toMap());
+  }
+
+  static Future<dynamic> deleteDomicilio(Domicilio domicilio) async {
+    Database database = await _openDB();
+    return database.delete(
+      "tblDomicilios",
+      where: "id = ?",
+      whereArgs: [domicilio.id],
+    );
+  }
+
+  static Future<dynamic> updateDomicilio(Domicilio domicilio) async {
+    Database database = await _openDB();
+    return database.update(
+      "tblDomicilios",
+      domicilio.toMap(),
+      where: "id = ?",
+      whereArgs: [domicilio.id],
+    );
+  }
+
+  static Future<List<Domicilio>> domicilios() async {
+    Database database = await _openDB();
+    final List<Map<String, dynamic>> domiciliosmap = await database.query(
+      "tblDomicilios",
+    );
+    return List.generate(
+      domiciliosmap.length,
+      (i) => Domicilio(
+        id: domiciliosmap[i]['id'],
+        direccion: domiciliosmap[i]['direccion'],
+        ciudad: domiciliosmap[i]['ciudad'],
+        estado: domiciliosmap[i]['estado'] ?? "",
+        codigoPostal: domiciliosmap[i]['codigoPostal'] ?? "",
+        idAlumno: domiciliosmap[i]['idAlumno'],
+      ),
+    );
+  }
+
+  //para datos escolares
+    static Future<dynamic> insertDE(DatosEscolares datosEscolares) async {
+    Database database = await _openDB();
+    return database.insert("tblDatosEscolares", datosEscolares.toMap());
+  }
+
+  static Future<dynamic> deleteDE(DatosEscolares datosEscolares) async {
+    Database database = await _openDB();
+    return database.delete(
+      "tblDatosEscolares",
+      where: "id = ?",
+      whereArgs: [datosEscolares.id],
+    );
+  }
+
+  static Future<dynamic> updateDE(DatosEscolares datosEscolares) async {
+    Database database = await _openDB();
+    return database.update(
+      "tblDatosEscolares",
+      datosEscolares.toMap(),
+      where: "id = ?",
+      whereArgs: [datosEscolares.id],
+    );
+  }
+
+  static Future<List<DatosEscolares>> datos_escolares() async {
+    Database database = await _openDB();
+    final List<Map<String, dynamic>> datos_escolaresmap = await database.query(
+      "tblDatosEscolares",
+    );
+    return List.generate(
+      datos_escolaresmap.length,
+      (i) => DatosEscolares(
+        id: datos_escolaresmap[i]['id'],
+        secundaria: datos_escolaresmap[i]['secundaria'],
+        promedio: datos_escolaresmap[i]['promedio'],
+        especialidad: datos_escolaresmap[i]['especialidad'] ?? "",
+        certificado: datos_escolaresmap[i]['certificado'] ?? "",
+        idAlumno: datos_escolaresmap[i]['idAlumno'],
+      ),
+    );
+  }
+}
