@@ -1,0 +1,384 @@
+import 'dart:ffi';
+
+import 'package:ficha_cbtis_db/controlador/db.dart';
+import 'package:ficha_cbtis_db/modelo/alumno.dart';
+import 'package:ficha_cbtis_db/modelo/datos_escolares.dart';
+import 'package:ficha_cbtis_db/modelo/domicilio.dart';
+import 'package:ficha_cbtis_db/modelo/tutor.dart';
+import 'package:flutter/material.dart';
+
+class Editar extends StatefulWidget {
+  @override
+  _EditarState createState() => _EditarState();
+}
+
+class _EditarState extends State<Editar> {
+  final _formKey = GlobalKey<FormState>();
+  final RegExp curpRegex = RegExp(
+    r'^[A-Z]{4}[0-9]{6}[HM][A-Z]{5}[A-Z0-9]{1}[0-9]{1}$',
+  );
+  final nomAlumnoController = TextEditingController();
+  //final curpController = TextEditingController();
+  final TextEditingController curpCtrl = TextEditingController();
+  final sexoController = TextEditingController();
+  final edadController = TextEditingController();
+  final _discapacidadController = TextEditingController();
+  //Tutor
+  final nomTutorController = TextEditingController();
+  final correoTutorController = TextEditingController();
+  final telTutorController = TextEditingController();
+  final parentescoController = TextEditingController();
+
+  //Domicilio
+  final direccionController = TextEditingController();
+  final ciudadController = TextEditingController();
+  final estadoController = TextEditingController();
+  final codigoPostalController = TextEditingController();
+
+  //Datos Esclares
+  final promedioController = TextEditingController();
+  final especialidadController = TextEditingController();
+  final secundariaController = TextEditingController();
+  final certificadoController = TextEditingController();
+  bool certificado = true;
+
+  var idAlumnoController = TextEditingController();
+
+  String _sexo = "Femenino";
+  bool _discapacidad = true;
+  String especialidad = "Puericultura";
+  int Alumnoid = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    //ERROR
+    final alumno = ModalRoute.of(context)!.settings.arguments as Alumno;
+    final datosEscolares = ModalRoute.of(context)!.settings.arguments as DatosEscolares;
+    final domicilio = ModalRoute.of(context)!.settings.arguments as Domicilio;
+    final tutor = ModalRoute.of(context)!.settings.arguments as Tutor;
+
+    if (nomAlumnoController.text.isEmpty && alumno.id != null) {
+      nomAlumnoController.text = alumno.nomAlumno;
+      curpCtrl.text = alumno.curp;
+      _sexo = alumno.sexo;
+      _discapacidad = alumno.discapacidad as bool;
+      Alumnoid = alumno.id as int;
+
+      //Datos del tutor
+      nomTutorController.text = tutor.nomTutor;
+      correoTutorController.text = tutor.correoTutor;
+      telTutorController.text = tutor.telTutor;
+      parentescoController.text = tutor.parentesco;
+       idAlumnoController= tutor.idAlumno as TextEditingController;
+      
+      //Datos del Domicilio
+      direccionController.text = domicilio.direccion;
+      ciudadController.text = domicilio.ciudad;
+      estadoController.text = domicilio.estado;
+      codigoPostalController.text = domicilio.codigoPostal;
+
+      //Datos escolares
+      secundariaController.text = datosEscolares.secundaria;
+      promedioController.text = datosEscolares.promedio as String;
+      certificado = datosEscolares.certificado as bool;
+      especialidadController.text = datosEscolares.especialidad;
+    }
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(alumno.id == null ? "Nuevo Alumno" : "Editar Alumno"),
+      ),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(24),
+        child: Form(
+          key: _formKey,
+          child: Column(
+            children: [
+              TextFormField(
+                controller: nomAlumnoController,
+                decoration: InputDecoration(labelText: "Nombre completo"),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return "Campo obligatorio";
+                  }
+                  return null;
+                },
+              ),
+              const SizedBox(height: 15),
+              TextFormField(
+                controller: curpCtrl,
+                decoration: InputDecoration(labelText: "CURP"),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return "Campo obligatorio";
+                  }
+
+                  if (!curpRegex.hasMatch(value)) {
+                    return 'La CURP no es valida';
+                  }
+                  return null;
+                },
+              ),
+              const SizedBox(height: 15),
+              TextFormField(
+                controller: edadController,
+                decoration: InputDecoration(labelText: "Edad"),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return "Campo obligatorio";
+                  }
+                  return null;
+                },
+              ),
+              const SizedBox(height: 15),
+              Text("Coloque su sexo:"),
+              RadioListTile<String>(
+                title: Text('Femenino'),
+                value: 'Femenino',
+                groupValue: _sexo,
+                onChanged: (val) => setState(() => _sexo = val.toString()),
+              ),
+              RadioListTile<String>(
+                title: Text('Masculino'),
+                value: 'Masculino',
+                groupValue: _sexo,
+                onChanged: (val) => setState(() => _sexo = val.toString()),
+              ),
+              const SizedBox(height: 40),
+
+              SwitchListTile(
+                title: Text('¿Tiene una discapacidad?'),
+                value: _discapacidad,
+                onChanged: (bool value) =>
+                    setState(() => _discapacidad = value),
+                // activeColor: const Color.fromARGB(255, 76, 147, 175),
+              ),
+              const SizedBox(height: 40),
+//Para datos del tutor
+              Text("DATOS DEL TUTOR"),
+              TextFormField(
+                controller: nomTutorController,
+                decoration: InputDecoration(labelText: "Nombre del Tutor:"),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return "Campo obligatorio";
+                  }
+                  return null;
+                },
+              ),
+              const SizedBox(height: 40),
+
+              TextFormField(
+                controller: correoTutorController,
+                decoration: InputDecoration(labelText: "Correo del Tutor:"),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return "Campo obligatorio";
+                  }
+                  return null;
+                },
+              ),
+              const SizedBox(height: 40),
+
+              TextFormField(
+                controller: telTutorController,
+                decoration: InputDecoration(labelText: "Telefono del tutor:"),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return "Campo obligatorio";
+                  }
+                  return null;
+                },
+              ),
+              const SizedBox(height: 40),
+               TextFormField(
+                controller: parentescoController,
+                decoration: InputDecoration(labelText: "Parentesco con el alumno:"),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return "Campo obligatorio";
+                  }
+                  return null;
+                },
+              ),
+              const SizedBox(height: 40),
+
+
+//Para datos escolares
+              Text("DATOS ESCOLARES"),
+              TextFormField(
+                controller: secundariaController,
+                decoration: InputDecoration(labelText: "Secundaria:"),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return "Campo obligatorio";
+                  }
+                  return null;
+                },
+              ),
+              const SizedBox(height: 40),
+
+              TextFormField(
+                controller: promedioController,
+                decoration: InputDecoration(labelText: "Promedio:"),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return "Campo obligatorio";
+                  }
+                  return null;
+                },
+              ),
+              const SizedBox(height: 40),
+
+              TextFormField(
+                controller: especialidadController,
+                decoration: InputDecoration(labelText: "Es:"),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return "Campo obligatorio";
+                  }
+                  return null;
+                },
+              ),
+              const SizedBox(height: 40),
+              DropdownButtonFormField<String>(
+                value: especialidad,
+                hint: Text('Seleccione su especialidad:'),
+                items:
+                    [
+                      'Puericultura',
+                      'Programacion',
+                      'T.Preparacion de Alimentos y Bebidas',
+                      'Contabilidad',
+                      'Gericultura',
+                      'Electricidad',
+                      'Trabajo Social',
+                    ].map((String value) {
+                      return DropdownMenuItem<String>(
+                        value: value,
+                        child: Text(value),
+                      );
+                    }).toList(),
+                onChanged: (val) => setState(() => especialidad = val!),
+
+                validator: (value) =>
+                    value == null ? 'Selección obligatoria' : null,
+              ),
+
+              SwitchListTile(
+                title: Text('¿Cuenta con certificado de secundaria?'),
+                value: certificado,
+                onChanged: (bool value) => setState(() => certificado = value),
+                // activeColor: const Color.fromARGB(255, 76, 147, 175),
+              ),
+
+              //DATOS PARA DOMICILIO
+              Text("DOMICILIO"),
+              TextFormField(
+                controller: direccionController,
+                decoration: InputDecoration(labelText: "Dirección:"),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return "Campo obligatorio";
+                  }
+                  return null;
+                },
+              ),
+              const SizedBox(height: 40),
+
+              TextFormField(
+                controller: ciudadController,
+                decoration: InputDecoration(labelText: "Ciudad:"),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return "Campo obligatorio";
+                  }
+                  return null;
+                },
+              ),
+              const SizedBox(height: 40),
+              //AQUI
+              TextFormField(
+                controller: estadoController,
+                decoration: InputDecoration(labelText: "Estado:"),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return "Campo obligatorio";
+                  }
+                  return null;
+                },
+              ),
+              const SizedBox(height: 40),
+              TextFormField(
+                controller: codigoPostalController,
+                decoration: InputDecoration(labelText: "CP:"),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return "Campo obligatorio";
+                  }
+                  return null;
+                },
+              ),
+              const SizedBox(height: 40),
+
+              ElevatedButton.icon(
+                style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                ),
+                icon: const Icon(Icons.save),
+                label: const Text(
+                  "GUARDAR DATOS",
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                ),
+                onPressed: () async {
+                  if (_formKey.currentState!.validate()) {
+                    alumno.nomAlumno = nomAlumnoController.text;
+                    alumno.curp = curpCtrl.text;
+                    alumno.sexo = _sexo;
+                    alumno.discapacidad = _discapacidad as Bool;
+
+                    //TUTOR
+                    tutor.nomTutor = nomTutorController.text;
+                    tutor.correoTutor = correoTutorController.text;
+                    tutor.telTutor = telTutorController.text;
+                    tutor.parentesco = parentescoController.text;
+
+                    //Domicilio
+                    domicilio.direccion = direccionController.text;
+                    domicilio.ciudad = ciudadController.text;
+                    domicilio.estado = estadoController.text;
+                    domicilio.codigoPostal = codigoPostalController.text;
+
+                    //Datos Escolares
+                    datosEscolares.secundaria = secundariaController.text;
+                    datosEscolares.promedio = promedioController as double;
+                    datosEscolares.especialidad = especialidadController.text;
+                    datosEscolares.certificado = certificadoController.text as Bool;
+
+                    alumno.id != null && alumno.id! > 0
+                        ? await DB.updateAlumno(alumno)
+                        : await DB.insertAlumno(alumno);
+
+                    //aqui se pone el snackBar para el mensaje
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text("¡Guardado con éxito!"),
+                        backgroundColor: Colors.green,
+                      ),
+                    );
+                    Navigator.pop(
+                      context,
+                      true,
+                    ); // Retornamos true para indicar cambio
+                  }
+                },
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
