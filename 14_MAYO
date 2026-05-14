@@ -1,0 +1,72 @@
+import 'dart:ffi';
+
+class Domicilio {
+  int? id;
+  String direccion;
+  String ciudad;
+  String estado; // Nuevo campo
+  String codigoPostal;
+  int idAlumno;  // Nuevo campo
+
+ Domicilio({this.id, required this.direccion, required this.ciudad, required this.estado, required this.codigoPostal, required this.idAlumno });
+  
+  Map<String, dynamic> toMap() {
+    return {'id': id, 'direccion': direccion, 'ciudad': ciudad,'estado':estado, 'codigoPostal': codigoPostal, 'idAlumno': idAlumno};
+  }
+}
+
+
+import 'dart:ffi';
+
+class Alumno {
+  int? id;
+  String nomAlumno;
+  String curp;
+  String sexo; // Nuevo campo
+  Bool discapacidad;  // Nuevo campo
+
+  Alumno({this.id, required this.nomAlumno, required this.curp, required this.sexo, required this.discapacidad });
+  
+  Map<String, dynamic> toMap() {
+    return {'id': id, 'nomAlumno': nomAlumno, 'curp': curp, 'sexo': sexo, 'discapacidad': discapacidad};
+  }
+}
+
+
+
+
+import 'dart:ffi';
+
+class Tutor {
+  int? id;
+  String nomTutor;
+  String correoTutor;
+  String telTutor;
+  String parentesco; // Nuevo campo
+  int idAlumno;  // Nuevo campo
+
+ Tutor({this.id, required this.nomTutor, required this.correoTutor, required this.telTutor, required this.parentesco, required this.idAlumno });
+  
+  Map<String, dynamic> toMap() {
+    return {'id': id,'nomTutor':nomTutor, 'correoTutor': correoTutor, 'telTutor': telTutor,'parentesco':parentesco, 'idAlumno': idAlumno};
+  }
+}
+
+
+import 'dart:ffi';
+
+class DatosEscolares {
+  int? id;
+  String secundaria;
+  double promedio;
+  String especialidad; // Nuevo campo
+  Bool certificado;
+  int idAlumno;  // Nuevo campo
+
+ DatosEscolares({this.id, required this.secundaria, required this.promedio, required this.especialidad, required this.certificado, required this.idAlumno });
+  
+  Map<String, dynamic> toMap() {
+    return {'id': id, 'secundaria': secundaria, 'promedio': promedio,'especialidad':especialidad, 'certificado': certificado, 'idAlumno': idAlumno};
+  }
+}
+
