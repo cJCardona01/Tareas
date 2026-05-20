@@ -1,0 +1,235 @@
+import 'package:flutter/material.dart';
+import 'package:ficha_cbtis_db/controlador/bd.dart';
+import '../modelo/alumno.dart';
+import '../modelo/domicilio.dart';
+import '../modelo/tutor.dart';
+import '../modelo/datos_escolares.dart';
+
+class EditarFichaPage extends StatefulWidget {
+  final Map<String, dynamic> ficha;
+  const EditarFichaPage({super.key, required this.ficha});
+  @override
+  State<EditarFichaPage> createState() => _EditarFichaPageState();
+}
+
+class _EditarFichaPageState extends State<EditarFichaPage> {
+  final _formKey = GlobalKey<FormState>();
+  late TextEditingController nombreCtrl;
+  late TextEditingController curpCtrl;
+  late TextEditingController telefonoCtrl;
+  late TextEditingController calleCtrl;
+  late TextEditingController coloniaCtrl;
+  late TextEditingController municipioCtrl;
+  late TextEditingController nombreTutorCtrl;
+  late TextEditingController parentescoCtrl;
+  late TextEditingController telefonoTutorCtrl;
+  late TextEditingController secundariaCtrl;
+  late TextEditingController promedioCtrl;
+  String? especialidad;
+  final List<String> especialidades = [
+    'Programación',
+    'Puericultura',
+    'Gericultura',
+    'Electricidad',
+    'Contabilidad',
+    'Trabajo Social',
+    'Prep. de Alimentos y Bebidas',
+  ];
+  @override
+  void initState() {
+    // Inicializar los controladores con los datos de la ficha
+    super.initState();
+    nombreCtrl = TextEditingController(text: widget.ficha['nombre'] ?? '');
+    curpCtrl = TextEditingController(text: widget.ficha['curp'] ?? '');
+    telefonoCtrl = TextEditingController(text: widget.ficha['telefono'] ?? '');
+    calleCtrl = TextEditingController(text: widget.ficha['calle'] ?? '');
+    coloniaCtrl = TextEditingController(text: widget.ficha['colonia'] ?? '');
+    municipioCtrl = TextEditingController(
+      text: widget.ficha['municipio'] ?? '',
+    );
+    nombreTutorCtrl = TextEditingController(
+      text: widget.ficha['nombreTutor'] ?? '',
+    );
+    parentescoCtrl = TextEditingController(
+      text: widget.ficha['parentesco'] ?? '',
+    );
+    telefonoTutorCtrl = TextEditingController(
+      text: widget.ficha['telefonoTutor'] ?? '',
+    );
+    secundariaCtrl = TextEditingController(
+      text: widget.ficha['secundaria'] ?? '',
+    );
+    promedioCtrl = TextEditingController(
+      text: widget.ficha['promedio']?.toString() ?? '',
+    );
+    especialidad = widget.ficha['especialidad'];
+  }
+
+  @override
+  void dispose() {
+    nombreCtrl.dispose();
+    curpCtrl.dispose();
+    telefonoCtrl.dispose();
+    calleCtrl.dispose();
+    coloniaCtrl.dispose();
+    municipioCtrl.dispose();
+    nombreTutorCtrl.dispose();
+    parentescoCtrl.dispose();
+    telefonoTutorCtrl.dispose();
+    secundariaCtrl.dispose();
+    promedioCtrl.dispose();
+    super.dispose();
+  }
+
+  Widget campoTexto(
+    TextEditingController controller,
+    String etiqueta, {
+    TextInputType tipo = TextInputType.text,
+  }) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 12),
+      child: TextFormField(
+        controller: controller,
+        keyboardType: tipo,
+        decoration: InputDecoration(
+          labelText: etiqueta,
+          border: const OutlineInputBorder(),
+        ),
+        validator: (value) {
+          if (value == null || value.isEmpty) {
+            return 'Este campo es obligatorio';
+          }
+          return null;
+        },
+      ),
+    );
+  }
+
+  Future<void> guardarCambios() async {
+    if (_formKey.currentState!.validate()) {
+      final id = widget.ficha['id'];
+      await DBHelper.actualizarFicha(
+        alumnoId: id,
+        alumno: Alumno(
+          id: id,
+          nombre: nombreCtrl.text,
+          curp: curpCtrl.text,
+          telefono: telefonoCtrl.text,
+        ),
+        domicilio: Domicilio(
+          alumnoId: id,
+          calle: calleCtrl.text,
+          colonia: coloniaCtrl.text,
+          municipio: municipioCtrl.text,
+        ),
+        tutor: TutorAlumno(
+          alumnoId: id,
+          nombreTutor: nombreTutorCtrl.text,
+          parentesco: parentescoCtrl.text,
+          telefonoTutor: telefonoTutorCtrl.text,
+        ),
+        datosEscolares: DatosEscolares(
+          alumnoId: id,
+          secundaria: secundariaCtrl.text,
+          promedio: double.tryParse(promedioCtrl.text) ?? 0,
+          especialidad: especialidad ?? '',
+        ),
+      );
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Ficha actualizada correctamente')),
+      );
+      Navigator.pop(context);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.grey[100],
+      appBar: AppBar(title: const Text('Editar ficha'), centerTitle: true),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(16),
+        child: Form(
+          key: _formKey,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text(
+                'Datos del alumno',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 10),
+              campoTexto(nombreCtrl, 'Nombre completo'),
+              campoTexto(curpCtrl, 'CURP'),
+              campoTexto(telefonoCtrl, 'Teléfono', tipo: TextInputType.phone),
+              const SizedBox(height: 20),
+              const Text(
+                'Domicilio',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 10),
+              campoTexto(calleCtrl, 'Calle'),
+              campoTexto(coloniaCtrl, 'Colonia'),
+              campoTexto(municipioCtrl, 'Municipio'),
+              const SizedBox(height: 20),
+              const Text(
+                'Datos del tutor',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 10),
+              campoTexto(nombreTutorCtrl, 'Nombre del tutor'),
+              campoTexto(parentescoCtrl, 'Parentesco'),
+              campoTexto(
+                telefonoTutorCtrl,
+                'Teléfono del tutor',
+                tipo: TextInputType.phone,
+              ),
+              const SizedBox(height: 20),
+              const Text(
+                'Datos escolares',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 10),
+              campoTexto(secundariaCtrl, 'Secundaria de procedencia'),
+              campoTexto(promedioCtrl, 'Promedio', tipo: TextInputType.number),
+              Padding(
+                padding: const EdgeInsets.only(bottom: 12),
+                child: DropdownButtonFormField<String>(
+                  value: especialidad,
+                  decoration: const InputDecoration(
+                    labelText: 'Especialidad',
+                    border: OutlineInputBorder(),
+                  ),
+                  items: especialidades.map((e) {
+                    return DropdownMenuItem(value: e, child: Text(e));
+                  }).toList(),
+                  onChanged: (value) {
+                    setState(() {
+                      especialidad = value;
+                    });
+                  },
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Selecciona una especialidad';
+                    }
+                    return null;
+                  },
+                ),
+              ),
+              const SizedBox(height: 20),
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton.icon(
+                  icon: const Icon(Icons.save),
+                  label: const Text('Guardar cambios'),
+                  onPressed: guardarCambios,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
