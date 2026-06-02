@@ -1,0 +1,95 @@
+import 'dart:async';
+import 'package:geolocator/geolocator.dart';
+import 'package:vibration/vibration.dart';
+import 'package:audioplayers/audioplayers.dart';
+
+class GeofencingService {
+  static String? puntoActivoId;
+  static double? latActivo;
+  static double? lngActivo;
+  static Timer? _timer;
+  static bool _alarmaSonando = false;
+  static AudioPlayer? _audioPlayer;
+
+  static Future<void> activar(double lat, double lng) async {
+    latActivo = lat;
+    lngActivo = lng;
+    puntoActivoId = 'mi_parada';
+    
+    _timer?.cancel();
+    _timer = Timer.periodic(Duration(seconds: 5), (timer) async {
+      await _verificarDistancia();
+    });
+    
+    print('✅ Monitoreo activado en: $lat, $lng');
+  }
+
+  static Future<void> desactivar() async {
+    _timer?.cancel();
+    _timer = null;
+    latActivo = null;
+    lngActivo = null;
+    puntoActivoId = null;
+    _alarmaSonando = false;
+    
+    await _detenerAlarma();
+    print('🗑️ Monitoreo desactivado');
+  }
+
+  static Future<void> _verificarDistancia() async {
+    if (latActivo == null || lngActivo == null) return;
+    
+    try {
+      Position posicionActual = await Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.high,
+      );
+      
+      double distancia = Geolocator.distanceBetween(
+        latActivo!, lngActivo!,
+        posicionActual.latitude, posicionActual.longitude,
+      );
+      
+      print('📍 Distancia a la parada: ${distancia.toStringAsFixed(0)} metros');
+      
+      if (distancia <= 100 && !_alarmaSonando) {
+        _alarmaSonando = true;
+        await _sonarAlarma();
+        
+        Future.delayed(Duration(seconds: 30), () {
+          _alarmaSonando = false;
+        });
+      } else if (distancia > 100) {
+        _alarmaSonando = false;
+      }
+      
+    } catch (e) {
+      print('❌ Error obteniendo ubicación: $e');
+    }
+  }
+
+  static Future<void> _sonarAlarma() async {
+    print('🔔 ¡ALARMA! ¡Ya llegaste a tu parada!');
+    
+    // Vibración larga
+    Vibration.vibrate(duration: 20000);
+    
+    // Reproducir sonido (loops infinito)
+    _audioPlayer = AudioPlayer();
+    await _audioPlayer!.setReleaseMode(ReleaseMode.loop);
+    await _audioPlayer!.setVolume(1.0);
+    await _audioPlayer!.play(AssetSource('sounds/alarm.mp3'));
+  }
+
+  static Future<void> _detenerAlarma() async {
+    if (_audioPlayer != null) {
+      await _audioPlayer!.stop();
+      await _audioPlayer!.dispose();
+      _audioPlayer = null;
+    }
+  }
+
+  static void alarma() {
+    // Método público (ya no se usa directamente)
+    _sonarAlarma();
+  }
+}
